@@ -1,0 +1,34 @@
+#!/bin/sh
+
+THRESHOLD=8
+
+ACTIVE_WINDOW=$(hyprctl activewindow -j)
+[ "$ACTIVE_WINDOW" = "{}" ] && exit 0
+
+CURSOR=$(hyprctl cursorpos -j)
+x=$(echo "$CURSOR" | jq '.x')
+y=$(echo "$CURSOR" | jq '.y')
+
+MONITORS=$(hyprctl monitors -j)
+MONITOR=$(echo "$MONITORS" | jq ".[] | select(.x <= $x and .x+.width > $x and .y <= $y and .y+.height > $y)")
+[ -z "$MONITOR" ] && exit 0
+
+PHYSICAL_X=$(echo "$MONITOR" | jq '.geometry.x // .x')
+PHYSICAL_Y=$(echo "$MONITOR" | jq '.geometry.y // .y')
+PHYSICAL_WIDTH=$(echo "$MONITOR" | jq '.geometry.width // (.width / .scale)')
+PHYSICAL_HEIGHT=$(echo "$MONITOR" | jq '.geometry.height // (.height / .scale)')
+
+PHYSICAL_X=$(printf "%.0f" "$PHYSICAL_X")
+PHYSICAL_Y=$(printf "%.0f" "$PHYSICAL_Y")
+PHYSICAL_WIDTH=$(printf "%.0f" "$PHYSICAL_WIDTH")
+PHYSICAL_HEIGHT=$(printf "%.0f" "$PHYSICAL_HEIGHT")
+
+REL_X=$((x - PHYSICAL_X))
+REL_Y=$((y - PHYSICAL_Y))
+
+if [ $REL_X -lt $THRESHOLD ] && [ $REL_Y -lt $THRESHOLD ]; then
+    hyprctl dispatch movetoworkspacesilent e-1
+elif [ $REL_X -ge $((PHYSICAL_WIDTH - THRESHOLD)) ] && [ $REL_Y -lt $THRESHOLD ]; then
+    hyprctl dispatch movetoworkspacesilent r+1
+fi
+

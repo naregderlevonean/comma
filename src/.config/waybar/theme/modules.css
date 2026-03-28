@@ -1,0 +1,156 @@
+#battery {
+    margin-left: 32px;
+}
+
+#battery.discharging.critical {
+    animation: blink 1s infinite;
+}
+
+#bluetooth:hover {
+    color: @accent_color;
+    opacity: 1;
+}
+
+#bluetooth.connected {
+    color: @success_color;
+}
+
+#bluetooth.discoverable {
+    animation: blink 1s infinite;
+    color: @warning_color;
+}
+
+#bluetooth.discovering {
+    animation: blink 1s infinite;
+    color: @text_color;
+}
+
+#bluetooth.pairable {
+    animation: blink 1s infinite;
+    color: @success_color;
+}
+
+#custom-apps {
+    margin-right: 32px;
+}
+
+#custom-apps:hover {
+    color: @accent_color;
+}
+
+#custom-date:hover {
+    color: @accent_color;
+}
+
+#custom-end {
+    color: @error_color;
+    margin-right: 32px;
+}
+
+#custom-notifications.error {
+    color: @text_color;
+    opacity: 0.32;
+}
+
+#custom-pinned:hover {
+    color: @accent_color;
+}
+
+#custom-separator {
+    opacity: 0.3;
+}
+
+#custom-special {
+    color: @warning_color;
+    margin-left: 32px;
+}
+
+#custom-special:hover {
+    color: @accent_color;
+}
+
+#custom-tools:hover {
+    color: @accent_color;
+}
+
+#idle_inhibitor {
+    color: @text_color;
+}
+
+#idle_inhibitor.deactivated {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+#network:hover {
+    color: @accent_color;
+    opacity: 1;
+}
+
+#network.disabled,
+#network.disconnected {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+#network.ehternet,
+#network.linked,
+#network.wifi {
+    color: @success_color;
+}
+
+#pinned .drawer-child * {
+    margin-left: 16px;
+}
+
+#power .drawer-child * {
+    margin-left: 16px;
+}
+
+#power-profiles-daemon.balanced {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+#power-profiles-daemon.performance {
+    color: @error_color;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @success_color;
+}
+
+#pulseaudio.muted {
+    opacity: 0.3;
+}
+
+#shutdown .drawer-child * {
+    margin-right: 16px;
+}
+
+#tools .drawer-child * {
+    margin-right: 16px;
+}
+
+#window * {
+    color: @text_color;
+}
+
+#workspaces button {
+    background: none;
+    box-shadow: none;
+    color: @text_color;
+    opacity: 0.3;
+}
+
+#workspaces button.active {
+    opacity: 1;
+}
+
+#workspaces .taskbar-window {
+    opacity: 0.5;
+}
+
+#workspaces .taskbar-window.active {
+    opacity: 1;
+}

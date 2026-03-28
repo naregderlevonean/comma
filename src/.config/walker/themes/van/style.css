@@ -1,0 +1,201 @@
+@import url("colors.css");
+
+* {
+    all: unset;
+    font-family: "Ubuntu Sans Mono";
+    font-size: 13px;
+}
+
+popover {
+    background: #212121;
+    border: 1px solid #292929;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.normal-icons {
+    -gtk-icon-size: 16px;
+}
+
+.large-icons {
+    -gtk-icon-size: 32px;
+}
+
+scrollbar {
+    opacity: 0;
+}
+
+.box-wrapper {
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+    background: #212121;
+    padding: 24px;
+    border-radius: 24px;
+    border: 1px solid #292929;
+}
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+    color: #949494;
+}
+
+.box {
+}
+
+.search-container {
+    border-radius: 8px;
+}
+
+.input placeholder {
+    opacity: 0.5;
+}
+
+.input selection {
+    background: #212121;
+}
+
+.input {
+    caret-color: #efefef;
+    border-bottom: 1px solid #212121;
+    padding: 16px;
+    color: #999999;
+}
+
+.input:focus,
+.input:active {
+}
+
+.content-container {
+}
+
+.placeholder {
+}
+
+.scroll {
+}
+
+.list {
+    color: #efefef;
+}
+
+child {
+}
+
+.item-box {
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.item-quick-activation {
+    padding: 8px;
+}
+
+/* child:hover .item-box, */
+child:selected .item-box,
+row:selected .item-box {
+    background: #292929;
+}
+
+.item-text-box {
+}
+
+.item-subtext {
+    font-size: 13px;
+    opacity: 0.3;
+}
+
+.providerlist .item-subtext {
+    font-size: unset;
+    opacity: 0.75;
+}
+
+.item-image-text {
+    font-size: 13px;
+}
+
+.preview {
+    border: 1px solid alpha(@accent_bg_color, 0.25);
+    /* padding: 8px; */
+    border-radius: 8px;
+    color: @theme_fg_color;
+}
+
+.calc .item-text {
+    font-size: 13px;
+}
+
+.calc .item-subtext {
+}
+
+.symbols .item-image {
+    font-size: 13px;
+}
+
+.todo.done .item-text-box {
+    opacity: 0.25;
+}
+
+.todo.urgent {
+    font-size: 13px;
+}
+
+.todo.active {
+    font-weight: bold;
+}
+
+.bluetooth.disconnected {
+    opacity: 0.5;
+}
+
+.preview .large-icons {
+    -gtk-icon-size: 32px;
+}
+
+.keybinds {
+    padding-top: 0px;
+    font-size: 13px;
+    color: #949494;
+}
+
+.global-keybinds {
+}
+
+.item-keybinds {
+}
+
+.keybind {
+}
+
+.keybind-button {
+    opacity: 0.48;
+}
+
+.keybind-button:hover {
+    opacity: 0.72;
+}
+
+.keybind-bind {
+    text-transform: lowercase;
+    opacity: 0.32;
+}
+
+.keybind-label {
+    padding: 4px;
+    background: #292929;
+    border-radius: 2px;
+}
+
+.error {
+    padding: 8px;
+    background: @error_bg_color;
+    color: @error_fg_color;
+}
+
+:not(.calc).current {
+    font-style: italic;
+}
+
+.preview-content.archlinuxpkgs,
+.preview-content.dnfpackages {
+    font-family: monospace;
+}

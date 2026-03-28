@@ -1,0 +1,87 @@
+#!/bin/sh
+
+PROCESS="zenity"
+
+is_process_running() {
+    pgrep "$1" > /dev/null 2>&1
+    return $?
+}
+
+message() {
+    zenity --question --title="" --text="Are your want to $2" && systemctl "$1"
+}
+
+closewindows() {
+    hyprctl clients -j | jq -r '.[] | select(.workspace.name | startswith("special") | not) | .address' | xargs -I {} hyprctl dispatch closewindow address:{} || true
+}
+
+closeall() {
+    zenity --question --title="" --text="Are your want to close all open applications?" && closewindows
+}
+
+lock() {
+    hyprlock
+}
+
+terminate() {
+    zenity --question --title="" --text="Are your want to Exit?" && loginctl terminate-user $USER
+}
+
+suspend() {
+    message "suspend" "Suspend"
+}
+
+restart() {
+    message "reboot" "Reboot"
+}
+
+poweroff() {
+    message "poweroff" "Power Off"
+}
+
+dialog() {
+    is_process_running "$PROCESS" && killall "$PROCESS"
+
+    choice=$(zenity --info \
+        --title "" \
+        --text="Please select an action to perform with your system" \
+        --ok-label "" \
+        --extra-button "" \
+        --extra-button "" \
+        --extra-button "" \
+        --extra-button "" \
+        --extra-button "" \
+        --extra-button "" \
+        --timeout="16" )
+
+    case "$choice" in
+        "")
+            closeall
+            ;;
+        "")  
+            hyprlock
+            ;;
+        "")  
+            loginctl terminate-user $USER
+            ;;
+        "")  
+            systemctl suspend
+            ;;
+        "")  
+            systemctl reboot
+            ;;
+        "")  
+            systemctl poweroff
+            ;;
+        *) 
+            exit 1
+            ;;
+    esac
+}
+
+if [ "$1" == "" ]; then
+    dialog
+else
+    "$1"
+fi
+

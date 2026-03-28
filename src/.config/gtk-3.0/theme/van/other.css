@@ -1,0 +1,13 @@
+undershoot.top,
+undershoot.bottom,
+undershoot.right,
+undershoot.left {
+    background-image: none;
+}
+
+VteTerminal,
+TerminalScreen,
+vte-terminal {
+    padding: 16px;
+    -vteterminal-inner-border: 16px;
+}

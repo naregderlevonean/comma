@@ -1,0 +1,47 @@
+[
+    {
+        "height": 48,
+        "include": [ "./modules" ],
+        "modifier-reset": "release",
+        "modules-left": [
+            "group/power",
+            "custom/separator",
+            "group/clock",
+            "custom/separator",
+            "hyprland/language",
+            "custom/separator",
+            "custom/notifications"
+        ],
+        "modules-center": ["hyprland/workspaces"],
+        "modules-right": [
+            "pulseaudio",
+            "custom/separator",
+            "group/tools",
+            "bluetooth",
+            "network",
+            "custom/separator",
+            "group/shutdown"
+        ],
+        "output": ["eDP-1"],
+        "position": "top",
+        "spacing": 16
+    },
+    {
+        "height": 48,
+        "include": [ "./modules" ],
+        "modifier-reset": "release",
+        "modules-left": [
+            "custom/special",
+            "custom/separator",
+            "group/pinned"
+        ],
+        "modules-right": [
+            "hyprland/workspaces#windows",
+            "custom/separator",
+            "custom/apps"
+        ],
+        "output": ["eDP-1"],
+        "position": "bottom",
+        "spacing": 16
+    }
+]

@@ -1,0 +1,28 @@
+[workspace-right]
+size = 1
+margin = 8
+timeout_ms = 200
+enter_command = [ "hyprnome", "--keep-special" ]
+locations = ["top_right"]
+
+[workspace-left]
+size = 1
+margin = 8
+timeout_ms = 200
+enter_command = [ "hyprnome", "--previous", "--keep-special" ]
+locations = ["top_left"]
+
+[speical]
+size = 1
+margin = 8
+timeout_ms = 200
+enter_command = [ "hyprctl", "dispatch", "togglespecialworkspace", "background" ]
+locations = ["bottom_left"]
+
+[walker]
+size = 1
+margin = 8
+timeout_ms = 200
+enter_command = [ "walker" ]
+locations = ["bottom_right"]
+

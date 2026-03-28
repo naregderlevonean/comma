@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$1" in
+    "image")
+        "$0" off
+        waypaper --random
+        ;;
+    "video")
+        "$0" off
+        find $HOME/Videos/Wallpapers/. -type f -print0 | shuf -z -n 1 | xargs -0 mpvpaper -o "--panscan=1.0 --window-maximized=yes --loop-file=inf" "*"
+        ;;
+    "off")
+        killall mpvpaper
+        killall hyprpaper
+        ;;
+    *)
+        echo "?"
+        ;;
+esac

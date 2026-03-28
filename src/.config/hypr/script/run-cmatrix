@@ -1,0 +1,1 @@
+kitty -o window_padding_width=0 --title "cmatrix" sh -c "cmatrix -C white -s -r -u 5"

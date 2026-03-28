@@ -1,0 +1,70 @@
+#!/bin/sh
+
+SHADER_DIR="$HOME/.config/hypr/shaders"
+HELPER="$HOME/.config/waybar/module/helper"
+
+get_list() {
+    find "$SHADER_DIR" -maxdepth 1 -type f | sort
+}
+
+get_current() {
+    hyprctl getoption decoration:screen_shader | sed -n 's/.*str: *\(.*\)/\1/p'
+}
+
+set_shader() {
+    hyprctl keyword decoration:screen_shader "$1" > /dev/null
+}
+
+get_next() {
+    local direction="$1"
+    local current="$2"
+    
+    mapfile -t shaders < <(get_list)
+    [[ ${#shaders[@]} -eq 0 ]] && return 1
+    
+    local index=-1
+    for i in "${!shaders[@]}"; do
+        if [[ "${shaders[$i]}" == "$current" ]]; then
+            index=$i
+            break
+        fi
+    done
+    
+    if [[ $index -eq -1 ]]; then
+        if [[ "$direction" = "next" ]]; then
+            echo "${shaders[0]}"
+        else
+            echo "${shaders[-1]}"
+        fi
+    else
+        if [[ "$direction" = "next" ]]; then
+            echo "${shaders[$(( (index + 1) % ${#shaders[@]} ))]}"
+        else
+            echo "${shaders[$(( (index - 1 + ${#shaders[@]}) % ${#shaders[@]} ))]}"
+        fi
+    fi
+}
+
+CURRENT_SHADER=$(get_current)
+
+case "$1" in
+    "get")
+        if [[ -z "$CURRENT_SHADER" ]]; then
+            $HELPER/jsonify "off"
+        else
+            $HELPER/jsonify "on"
+        fi
+        ;;
+    "off")
+        set_shader ""
+        pkill -SIGRTMIN+7 waybar
+        ;;
+    "next"|"prev")
+        NEW_SHADER=$(get_next "$1" "$CURRENT_SHADER")
+        set_shader "$NEW_SHADER"
+        pkill -SIGRTMIN+7 waybar
+        ;;
+    *)
+        ;;
+esac
+

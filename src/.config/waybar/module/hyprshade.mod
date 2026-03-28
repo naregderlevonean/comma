@@ -1,0 +1,1 @@
+/home/naregderlevonean/.config/hypr/script/set-shader

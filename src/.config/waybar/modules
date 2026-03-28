@@ -1,0 +1,365 @@
+{
+    "battery": {
+        "bat": "BAT0",
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "charging": [
+                ""
+            ],
+            "default": [
+                ""
+            ]
+        },
+        "interval": "60",
+        "states": {
+            "critical": 20,
+            "warning": 30
+        }
+    },
+    "bluetooth": {
+        "format": "",
+        "format-connected": "",
+        "format-disabled": "",
+        "interval": "once",
+        "on-click": "[[ $(bluetoothctl show | grep \"Powered: yes\") ]] && bluetoothctl power off || bluetoothctl power on",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "custom/apps": {
+        "format": "",
+        "interval": "once",
+        "on-click": "walker",
+        "tooltip": false
+    },
+    "custom/autorotate": {
+        "exec": "$HOME/.config/waybar/module/autorotate.mod get",
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/autorotate.mod set",
+        "return-type": "json",
+        "signal": 7,
+        "tooltip": false
+    },
+    "custom/backlight": {
+        "format": "",
+        "interval": "once",
+    },
+    "custom/calculator": {
+        "format": "",
+        "interval": "once",
+        "on-click": "gnome-calculator",
+        "tooltip": false
+    },
+    "custom/closeall": {
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod closeall",
+        "tooltip-format": "Close All"
+    },
+    "custom/date": {
+        "exec": "date +' / %a / %b %d'",
+        "format": "{}",
+        "interval": 3600,
+        "on-click": "gnome-calendar",
+        "tooltip": false
+    },
+    "custom/dice": {
+        "exec": "$HOME/.config/waybar/module/dice.mod",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+        },
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/dice.mod",
+        "return-type": "json",
+        "signal": 6,
+        "tooltip": false
+    },
+    "custom/end": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/exit": {
+        "format": "",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod terminate",
+        "tooltip-format": "Exit"
+    },
+    "custom/hyprshade": {
+        "exec": "$HOME/.config/waybar/module/hyprshade.mod get",
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/hyprshade.mod next",
+        "on-click-right": "$HOME/.config/waybar/module/hyprshade.mod off",
+        "return-type": "json",
+        "signal": 7,
+        "tooltip": false
+    },
+    "custom/hyprsunset": {
+        "exec": "$HOME/.config/waybar/module/hyprsunset.mod get",
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/hyprsunset.mod toggle",
+        "return-type": "json",
+        "signal": 7,
+        "tooltip": false
+    },
+    "custom/lock": {
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod lock",
+        "tooltip-format": "Lock"
+    },
+    "custom/notifications": {
+        "exec": "histui status --all",
+        "format": "{icon}",
+        "format-icons": {
+            "dnd": "",
+            "error": "",
+            "high": "",
+            "low": "",
+            "normal": ""
+        },
+        "interval": 600,
+        "on-click": "hyprctl dispatch exec '[float;size 1280 720;center] kitty -e histui'",
+        "return-type": "json"
+    },
+    "custom/picker": {
+        "format": "",
+        "interval": "once",
+        "on-click": "eyedropper",
+        "tooltip": false
+    },
+    "custom/pinned": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/poweroff": {
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod poweroff",
+        "tooltip-format": "Power Off"
+    },
+    "custom/reboot": {
+        "format": "",
+        "interval": "once",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod reboot",
+        "tooltip-format": "Reboot"
+    },
+    "custom/screenshot": {
+        "format": "",
+        "interval": "once",
+        "on-click": "grim -g \"$(slurp -b '#080808c9' -w 0)\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
+    },
+    "custom/separator": {
+        "format": "·",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/special": {
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl dispatch togglespecialworkspace background",
+        "tooltip": false
+    },
+    "custom/suspend": {
+        "format": "",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod suspend",
+        "tooltip-format": "Suspend"
+    },
+    "custom/time": {
+        "exec": "date +'%H:%M'",
+        "format": "{}",
+        "interval": 60,
+        "on-click": "gnome-clocks",
+        "tooltip": false
+    },
+    "custom/tools": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/translator": {
+        "format": "",
+        "interval": "once",
+        "on-click": "dialect",
+        "tooltip": false
+    },
+    "custom/waypaper": {
+        "format": "",
+        "interval": "once",
+        "on-click": "waypaper",
+        "tooltip": false
+    },
+    "group/clock": {
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/time",
+            "custom/date"
+        ],
+        "orientation": "inherit"
+    },
+    "group/pinned": {
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/pinned",
+            "custom/dice",
+            "custom/waypaper",
+            "custom/screenshot",
+            "custom/picker",
+            "custom/calculator",
+            "custom/translator"
+        ],
+        "orientation": "inherit"
+    },
+    "group/power": {
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+            "idle_inhibitor"
+        ],
+        "orientation": "inherit"
+    },
+    "group/shutdown": {
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/end",
+            "custom/closeall",
+            "custom/lock",
+            "custom/exit",
+            "custom/suspend",
+            "custom/reboot",
+            "custom/poweroff"
+        ],
+        "orientation": "inherit"
+    },
+    "group/tools": {
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tools",
+            "custom/autorotate",
+            "custom/hyprsunset",
+            "custom/hyprshade"
+        ],
+        "orientation": "inherit"
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "🇺🇸 US",
+        "format-ru": "🇷🇺 RU",
+        "interval": "once",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    },
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "•",
+            "default": "•",
+            "persistent": "•"
+        },
+        "interval": "once",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "smooth-scrolling-threshold": 3
+    },
+    "hyprland/workspaces#windows": {
+         "active-only": true,
+         "format": "{windows}",
+         "workspace-taskbar": {
+            "enable": true,
+            "format": "{icon}",
+            "icon-size": 16,
+            "ignore-list": [
+                "app.drey.Dialect",
+                "com.github.finefindus.eyedropper",
+                "dialect",
+                "org.gnome.Calculator",
+                "waypaper"
+            ],
+            "orientation": "horizontal",
+            "on-click-window": "hyprctl dispatch focuswindow address:{address}",
+            "update-active-window": true
+        },
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "interval": "once",
+    },
+    "network": {
+        "format": "",
+        "format-disconnected": "",
+        "format-ethernet": "󰊗",
+        "format-wifi": "",
+        "interface": "wlan0",
+        "interval": "once",
+        "on-click": "iwctl device wlan0 show | grep -q \"Powered\\s*on\" && rfkill block wlan || rfkill unblock wlan",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) "
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            "balanced": "",
+            "default": "",
+            "performance": "",
+            "power-saver": ""
+        },
+        "interval": "once",
+        "tooltip": true,
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-icons": {
+            "car": "",
+            "default": [
+                "",
+                ""
+            ],
+            "hands-free": "",
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": ""
+        },
+        "format-muted": "",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ],
+        "interval": "once",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "reverse-scrolling": true,
+        "scroll-step": 1
+    }
+}
