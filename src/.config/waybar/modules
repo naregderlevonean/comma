@@ -5,7 +5,7 @@
         "format-icons": ["", ""]
     },
     "backlight/slider": {
-        "min": 0,
+        "min": 1,
         "max": 100,
         "orientation": "horizontal",
         "device": "intel_backlight"
@@ -208,6 +208,16 @@
         "on-click": "waypaper",
         "tooltip": false
     },
+    "group/backlight": {
+        "drawer": {
+            "transition-duration": 300,
+        },
+        "modules": [
+            "backlight",
+            "backlight/slider"
+        ],
+        "orientation": "inherit"
+    },
     "group/clock": {
         "drawer": {
             "transition-duration": 300,
@@ -273,16 +283,6 @@
             "custom/autorotate",
             "custom/hyprsunset",
             "custom/hyprshade"
-        ],
-        "orientation": "inherit"
-    },
-    "group/backlight": {
-        "drawer": {
-            "transition-duration": 300,
-        },
-        "modules": [
-            "backlight",
-            "backlight/slider"
         ],
         "orientation": "inherit"
     },
@@ -391,7 +391,12 @@
         "interval": "once",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "reverse-scrolling": true,
-        "scroll-step": 1
+        "scroll-step": 1,
+        "states": {
+            "normal": 80,
+            "warning": 100,
+            "critical": 1000
+        }
     },
     "pulseaudio/slider": {
         "min": 0,

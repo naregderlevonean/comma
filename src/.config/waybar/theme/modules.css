@@ -1,7 +1,11 @@
+#backlight .drawer-child * {
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+}
+
 #backlight-slider {
     background: transparent;
-    padding: 0;
-    margin: 0;
 }
 
 #backlight-slider slider {
@@ -146,14 +150,16 @@
     color: @success_color;
 }
 
+#pulseaudio.bluetooth {
+    color: @success_color;
+}
+
 #pulseaudio.muted {
     opacity: 0.3;
 }
 
 #pulseaudio-slider {
     background: transparent;
-    padding: 0;
-    margin: 0;
 }
 
 #pulseaudio-slider slider {
@@ -186,12 +192,6 @@
 }
 
 #volume .drawer-child * {
-    margin: 0;
-    padding: 0;
-    margin-left: 2px;
-}
-
-#backlight .drawer-child * {
     margin: 0;
     padding: 0;
     margin-left: 2px;
