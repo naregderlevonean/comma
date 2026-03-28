@@ -1,4 +1,15 @@
 {
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", ""]
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
+    },
     "battery": {
         "bat": "BAT0",
         "format": "{icon} {capacity}%",
@@ -265,6 +276,26 @@
         ],
         "orientation": "inherit"
     },
+    "group/backlight": {
+        "drawer": {
+            "transition-duration": 300,
+        },
+        "modules": [
+            "backlight",
+            "backlight/slider"
+        ],
+        "orientation": "inherit"
+    },
+    "group/volume": {
+        "drawer": {
+            "transition-duration": 300,
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider",
+        ],
+        "orientation": "inherit"
+    },
     "hyprland/language": {
         "format": "{}",
         "format-en": "🇺🇸 US",
@@ -361,5 +392,10 @@
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "reverse-scrolling": true,
         "scroll-step": 1
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
     }
 }

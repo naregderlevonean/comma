@@ -1,3 +1,29 @@
+#backlight-slider {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#backlight-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#backlight-slider trough {
+    min-height: 3px;
+    min-width: 128px;
+    background: rgba(239, 239, 239, 0.3);
+}
+
+#backlight-slider highlight {
+    min-width: 0px;
+    background: #ededed;
+    opacity: 0.5;
+}
+
 #battery {
     margin-left: 32px;
 }
@@ -124,12 +150,51 @@
     opacity: 0.3;
 }
 
+#pulseaudio-slider {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 3px;
+    min-width: 128px;
+    background: rgba(239, 239, 239, 0.3);
+}
+
+#pulseaudio-slider highlight {
+    min-width: 0px;
+    background: #ededed;
+    opacity: 0.5;
+}
+
 #shutdown .drawer-child * {
     margin-right: 16px;
 }
 
 #tools .drawer-child * {
     margin-right: 16px;
+}
+
+#volume .drawer-child * {
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+}
+
+#backlight .drawer-child * {
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
 }
 
 #window * {

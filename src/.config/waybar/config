@@ -14,7 +14,8 @@
         ],
         "modules-center": ["hyprland/workspaces"],
         "modules-right": [
-            "pulseaudio",
+            "group/volume",
+            "group/backlight",
             "custom/separator",
             "group/tools",
             "bluetooth",
