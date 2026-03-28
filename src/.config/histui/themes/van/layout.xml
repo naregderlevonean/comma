@@ -1,0 +1,14 @@
+<popup min-width="256" max-width="512" min-height="32" max-height="512">
+    <header>
+        <icon size="48" />
+        <box orientation="vertical">
+            <summary />
+            <appname />
+        </box>
+        <stack-count />
+    </header>
+    <body />
+    <progress />
+    <image />
+    <actions />
+</popup>
