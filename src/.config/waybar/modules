@@ -137,7 +137,7 @@
             "normal": ""
         },
         "interval": 600,
-        "on-click": "hyprctl dispatch exec '[float;size 1280 720;center] kitty -e histui'",
+        "on-click": "hyprctl dispatch exec '[float;size 1674 1010;center] kitty -e histui'",
         "return-type": "json"
     },
     "custom/picker": {

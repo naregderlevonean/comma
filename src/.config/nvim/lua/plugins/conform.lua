@@ -18,7 +18,7 @@ return {
 					prepend_args = { "--indent", "4" },
 				},
 			},
-			format_on_save = true,
+			format_on_save = false,
 		})
 	end,
 }
