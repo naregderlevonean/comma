@@ -160,7 +160,7 @@
     "custom/reboot": {
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod reboot",
+        "on-click": "$HOME/.config/waybar/module/shutdown.mod restart",
         "tooltip-format": "Reboot"
     },
     "custom/screenshot": {
