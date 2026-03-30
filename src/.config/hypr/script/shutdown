@@ -8,7 +8,7 @@ is_process_running() {
 }
 
 message() {
-    zenity --question --title="" --text="Are your want to $2" && systemctl "$1"
+    zenity --question --title="" --text="Are your want to $2" &&  systemctl "$1"
 }
 
 closewindows() {

@@ -15,7 +15,8 @@
         "modules-center": ["hyprland/workspaces"],
         "modules-right": [
             "group/volume",
-            "group/backlight",
+            "custom/separator",
+            "group/brightness",
             "custom/separator",
             "group/tools",
             "bluetooth",

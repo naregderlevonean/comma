@@ -208,9 +208,10 @@
         "on-click": "waypaper",
         "tooltip": false
     },
-    "group/backlight": {
+    "group/brightness": {
         "drawer": {
             "transition-duration": 300,
+            "transition-left-to-right": false
         },
         "modules": [
             "backlight",
@@ -289,6 +290,7 @@
     "group/volume": {
         "drawer": {
             "transition-duration": 300,
+            "transition-left-to-right": false
         },
         "modules": [
             "pulseaudio",
@@ -369,7 +371,7 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}",
         "format-bluetooth": "{icon} {volume}% ",
         "format-icons": {
             "car": "",
@@ -389,14 +391,15 @@
             "Easy Effects Sink"
         ],
         "interval": "once",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click": "pamixer --toggle-mute ",
         "reverse-scrolling": true,
-        "scroll-step": 1,
+        "scroll-step": 3,
         "states": {
-            "normal": 80,
-            "warning": 100,
+            "normal": 50,
+            "warning": 80,
             "critical": 1000
-        }
+        },
+        "tooltip-format": "{desc}\n{volume} %"
     },
     "pulseaudio/slider": {
         "min": 0,

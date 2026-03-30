@@ -1,31 +1,25 @@
-#backlight .drawer-child * {
+#brightness .drawer-child * {
     margin: 0;
     padding: 0;
-    margin-left: 2px;
-}
-
-#backlight-slider {
-    background: transparent;
+    padding-right: 8px;
 }
 
 #backlight-slider slider {
+    background: #ededed;
+    border: 2px solid #ededed;
+    box-shadow: none;
     min-height: 0px;
     min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
 }
+
 #backlight-slider trough {
-    min-height: 3px;
-    min-width: 128px;
     background: rgba(239, 239, 239, 0.3);
+    min-width: 128px;
 }
 
 #backlight-slider highlight {
-    min-width: 0px;
     background: #ededed;
-    opacity: 0.5;
+    min-width: 1px;
 }
 
 #battery {
@@ -158,29 +152,22 @@
     opacity: 0.3;
 }
 
-#pulseaudio-slider {
-    background: transparent;
-}
-
 #pulseaudio-slider slider {
+    background: #ededed;
+    border: 2px solid #ededed;
+    box-shadow: none;
     min-height: 0px;
     min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
 }
 
 #pulseaudio-slider trough {
-    min-height: 3px;
-    min-width: 128px;
     background: rgba(239, 239, 239, 0.3);
+    min-width: 128px;
 }
 
 #pulseaudio-slider highlight {
-    min-width: 0px;
     background: #ededed;
-    opacity: 0.5;
+    min-width: 1px;
 }
 
 #shutdown .drawer-child * {
@@ -194,7 +181,7 @@
 #volume .drawer-child * {
     margin: 0;
     padding: 0;
-    margin-left: 2px;
+    padding-right: 8px;
 }
 
 #window * {
