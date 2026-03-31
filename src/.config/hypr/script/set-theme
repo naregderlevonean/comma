@@ -59,6 +59,14 @@ case "$1" in
         hyprctl keyword animation "zoomFactor, 1, 3, easeOutQuint"
         hyprctl keyword animation "monitorAdded, 1, 8, easeOutBack"
         ;;
+    "mono")
+        reset
+        restore
+
+        waybar > /dev/null 2>&1 &
+
+        hyprctl keyword general:layout monocle
+        ;;
     "focus")
         reset
         restore

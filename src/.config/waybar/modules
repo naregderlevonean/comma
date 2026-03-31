@@ -62,6 +62,12 @@
         "on-click": "gnome-calculator",
         "tooltip": false
     },
+    "custom/character": {
+        "format": "",
+        "interval": "once",
+        "on-click": "gnome-characters",
+        "tooltip": false
+    },
     "custom/closeall": {
         "format": "",
         "interval": "once",
@@ -241,6 +247,7 @@
             "custom/waypaper",
             "custom/screenshot",
             "custom/picker",
+            "custom/character",
             "custom/calculator",
             "custom/translator"
         ],
