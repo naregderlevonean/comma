@@ -1,23 +1,22 @@
-
-force_keyboard_focus = false    
-close_when_open = true          
-click_to_close = true
+actions_as_menu = false         
 as_window = false               
-single_click_activation = true  
-selection_wrap = false          
-global_argument_delimiter = "#" 
-exact_search_prefix = "'"       
-theme = "van"               
-disable_mouse = false           
+autoplay_videos = false         
+click_to_close = true
+close_when_open = true          
 debug = false                   
-page_jump_items = 10            
-hide_quick_activation = false   
+disable_mouse = false           
+exact_search_prefix = "'"       
+force_keyboard_focus = false    
+global_argument_delimiter = "#" 
 hide_action_hints = false       
 hide_action_hints_dmenu = true  
+hide_quick_activation = false   
 hide_return_action = false      
+page_jump_items = 10            
 resume_last_query = false       
-actions_as_menu = false         
-autoplay_videos = false         
+selection_wrap = false          
+single_click_activation = true  
+theme = "van"               
 
 [shell]
 exclusive_zone = -1
@@ -31,7 +30,9 @@ anchor_right = true
 "symbols" = 3
 
 [placeholders]
-"default" = { input = "Search", list = "No Results" } 
+"default" = { input = "Search", list = "No Results" }
+"desktopapplications" = { input = "Launch App", list = "No Applications" }
+"clipboard" = { input = "Clipboard", list = "Clipboard Empty" }
 
 [keybinds]
 close = ["Escape"]
@@ -50,11 +51,11 @@ show_actions = ["alt j"]
 
 [providers]
 default = [
-    "desktopapplications"
+    "desktopapplications",
 ] 
 empty = ["desktopapplications"] 
 ignore_preview = [] 
-max_results = 256 
+max_results = 512 
 
 [providers.argument_delimiter] 
 
@@ -64,18 +65,6 @@ max_results = 256
 [[providers.prefixes]]
 prefix = ";"
 provider = "providerlist"
-
-[[providers.prefixes]]
-prefix = "/"
-provider = "files"
-
-[[providers.prefixes]]
-prefix = "="
-provider = "calc"
-
-[[providers.prefixes]]
-prefix = "@"
-provider = "websearch"
 
 [[providers.prefixes]]
 prefix = ":"
@@ -114,20 +103,6 @@ bluetooth = [
   { action = "power_off", label = "Power Off", bind = "ctrl e", after = "AsyncReload" },
 ]
 
-archlinuxpkgs = [
-  { action = "install", bind = "Return", default = true },
-  { action = "remove", bind = "Return" },
-  { action = "show_all", label = "show all", bind = "ctrl i", after = "AsyncClearReload" },
-  { action = "refresh", label = "refresh", bind = "ctrl r", after = "AsyncReload" },
-  { action = "visit_url", label = "open URL", bind = "ctrl o" },
-  { action = "show_installed", label = "show installed", bind = "ctrl i", after = "AsyncClearReload" },
-]
-
-websearch = [
-  { action = "search", default = true, bind = "Return" },
-  { action = "open_url", label = "open url", default = true, bind = "Return" },
-]
-
 desktopapplications = [
   { action = "start", default = true, bind = "Return" },
   { action = "start:keep", label = "open+next", bind = "shift Return", after = "KeepOpen" },
@@ -137,19 +112,6 @@ desktopapplications = [
   { action = "unpin", bind = "ctrl p", after = "AsyncReload" },
   { action = "pinup", bind = "ctrl n", after = "AsyncReload" },
   { action = "pindown", bind = "ctrl m", after = "AsyncReload" },
-]
-
-files = [
-  { action = "open", default = true, bind = "Return" },
-  { action = "opendir", label = "open dir", bind = "ctrl Return" },
-  { action = "copypath", label = "copy path", bind = "ctrl shift c" },
-  { action = "copyfile", label = "copy file", bind = "ctrl c" },
-  { action = "localsend", label = "localsend", bind = "ctrl l" },
-  { action = "refresh_index", label = "reload", bind = "ctrl r", after = "AsyncReload" },
-]
-
-unicode = [
-  { action = "run_cmd", label = "select", default = true, bind = "Return" },
 ]
 
 clipboard = [
