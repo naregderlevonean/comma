@@ -182,7 +182,13 @@
     "custom/special": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl dispatch togglespecialworkspace background",
+        "on-click": "hyprctl dispatch togglespecialworkspace",
+        "tooltip": false
+    },
+    "custom/stylus": {
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl dispatch togglespecialworkspace stylus",
         "tooltip": false
     },
     "custom/suspend": {
@@ -216,7 +222,7 @@
     },
     "group/brightness": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": false
         },
         "modules": [
@@ -227,7 +233,7 @@
     },
     "group/clock": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": true
         },
         "modules": [
@@ -238,7 +244,7 @@
     },
     "group/pinned": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": true
         },
         "modules": [
@@ -255,7 +261,7 @@
     },
     "group/power": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": true
         },
         "modules": [
@@ -267,7 +273,7 @@
     },
     "group/shutdown": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": false
         },
         "modules": [
@@ -283,7 +289,7 @@
     },
     "group/tools": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": false
         },
         "modules": [
@@ -296,7 +302,7 @@
     },
     "group/volume": {
         "drawer": {
-            "transition-duration": 300,
+            "transition-duration": 500,
             "transition-left-to-right": false
         },
         "modules": [

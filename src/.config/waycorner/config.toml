@@ -9,14 +9,14 @@ locations = ["top_right"]
 size = 1
 margin = 8
 timeout_ms = 200
-enter_command = [ "hyprnome", "--previous", "--keep-special" ]
+enter_command = [ "hyprnome", "--previous", "--no-empty", "--keep-special" ]
 locations = ["top_left"]
 
 [speical]
 size = 1
 margin = 8
 timeout_ms = 200
-enter_command = [ "hyprctl", "dispatch", "togglespecialworkspace", "background" ]
+enter_command = [ "hyprctl", "dispatch", "togglespecialworkspace" ]
 locations = ["bottom_left"]
 
 [walker]

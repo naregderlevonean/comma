@@ -34,6 +34,7 @@
         "modifier-reset": "release",
         "modules-left": [
             "custom/special",
+            "custom/stylus",
             "custom/separator",
             "group/pinned"
         ],
