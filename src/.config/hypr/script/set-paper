@@ -1,19 +1,30 @@
 #!/bin/sh
 
+WALLPAPER_CACHED="$HOME/.cache/wallpaper.png"
+
 case "$1" in
     "image")
         "$0" off
         waypaper --random
+        SELECTED_WP=$(waypaper --list | jq -r '.[0].wallpaper')
+        sleep 1
+        ln -sf "$SELECTED_WP" "$WALLPAPER_CACHED"
         ;;
     "video")
         "$0" off
-        find $HOME/Videos/Wallpapers/. -type f -print0 | shuf -z -n 1 | xargs -0 mpvpaper -o "--panscan=1.0 --window-maximized=yes --loop-file=inf" "*"
+        SELECTED_WP=$(find "$HOME/Videos/Wallpapers" -type f | shuf -n 1)
+        sleep 1
+        mpvpaper -o "--panscan=1.0 --loop-file=inf" "*" "$SELECTED_WP" &
+        ffmpeg -y -ss 00:00:03 -i "$SELECTED_WP" -frames:v 1 "$WALLPAPER_CACHED" > /dev/null 2>&1
         ;;
     "off")
-        killall mpvpaper
-        killall hyprpaper
+        killall -q mpvpaper
+        killall -q hyprpaper
+        rm -f "$WALLPAPER_CACHED"
+        magick -size 2880x1920 xc:#080808 "$WALLPAPER_CACHED"
         ;;
     *)
-        echo "?"
+        echo "Usage: $0 {image|video|off}"
         ;;
 esac
+

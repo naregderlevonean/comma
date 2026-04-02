@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pgrep -f "/usr/bin/unimatrix" || \
+pidof hyprlock && exit || \
+kitty -o window_padding_width=0 --class="unimatrix" --title "unimatrix" sh -c "/usr/bin/unimatrix -n -s 96 -l oS -a -f"
