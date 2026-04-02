@@ -1,0 +1,1 @@
+kitty -o window_padding_width=0 --title "matrix" sh -c "unimatrix -n -s 96 -l oS -a -f"
