@@ -163,6 +163,12 @@
         "on-click": "$HOME/.config/waybar/module/shutdown.mod poweroff",
         "tooltip-format": "Power Off"
     },
+    "custom/radio": {
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl dispatch togglespecialworkspace radio",
+        "tooltip": false
+    },
     "custom/reboot": {
         "format": "",
         "interval": "once",
@@ -179,7 +185,7 @@
         "interval": "once",
         "tooltip": false
     },
-    "custom/special": {
+    "custom/specialworkspace": {
         "format": "",
         "interval": "once",
         "on-click": "hyprctl dispatch togglespecialworkspace",
@@ -284,6 +290,17 @@
             "custom/suspend",
             "custom/reboot",
             "custom/poweroff"
+        ],
+        "orientation": "inherit"
+    },
+    "group/specialworkspace": {
+        "drawer": {
+            "transition-duration": 500,
+        },
+        "modules": [
+            "custom/specialworkspace",
+            "custom/stylus",
+            "custom/radio"
         ],
         "orientation": "inherit"
     },

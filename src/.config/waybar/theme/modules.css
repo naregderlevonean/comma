@@ -84,12 +84,12 @@
     opacity: 0.3;
 }
 
-#custom-special {
+#custom-specialworkspace {
     color: @warning_color;
     margin-left: 32px;
 }
 
-#custom-special:hover {
+#custom-specialworkspace:hover {
     color: @accent_color;
 }
 
@@ -171,7 +171,13 @@
 }
 
 #shutdown .drawer-child * {
-    margin-right: 16px;
+    margin-left: 16px;
+}
+
+#specialworkspace .drawer-child * {
+    margin: 0;
+    padding: 0;
+    padding-left: 16px;
 }
 
 #tools .drawer-child * {

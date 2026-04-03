@@ -5,6 +5,7 @@ WALLPAPER_CACHED="$HOME/.cache/wallpaper.png"
 case "$1" in
     "image")
         "$0" off
+        rm -f "$WALLPAPER_CACHED"
         waypaper --random
         SELECTED_WP=$(waypaper --list | jq -r '.[0].wallpaper')
         sleep 1
@@ -12,6 +13,7 @@ case "$1" in
         ;;
     "video")
         "$0" off
+        rm -f "$WALLPAPER_CACHED"
         SELECTED_WP=$(find "$HOME/Videos/Wallpapers" -type f | shuf -n 1)
         sleep 1
         mpvpaper -o "--panscan=1.0 --loop-file=inf" "*" "$SELECTED_WP" &

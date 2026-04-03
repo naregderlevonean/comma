@@ -33,8 +33,7 @@
         "include": [ "./modules" ],
         "modifier-reset": "release",
         "modules-left": [
-            "custom/special",
-            "custom/stylus",
+            "group/specialworkspace",
             "custom/separator",
             "group/pinned"
         ],
