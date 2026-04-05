@@ -4,6 +4,8 @@
         "include": [ "./modules" ],
         "modifier-reset": "release",
         "modules-left": [
+            "custom/apps",
+            "custom/separator",
             "group/power",
             "custom/separator",
             "group/clock",
@@ -38,9 +40,7 @@
             "group/pinned"
         ],
         "modules-right": [
-            "hyprland/workspaces#windows",
-            "custom/separator",
-            "custom/apps"
+           "hyprland/workspaces#windows"
         ],
         "output": ["eDP-1"],
         "position": "bottom",

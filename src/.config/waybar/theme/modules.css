@@ -22,10 +22,6 @@
     min-width: 1px;
 }
 
-#battery {
-    margin-left: 32px;
-}
-
 #battery.discharging.critical {
     animation: blink 1s infinite;
 }
@@ -55,7 +51,7 @@
 }
 
 #custom-apps {
-    margin-right: 32px;
+    margin-left: 32px;
 }
 
 #custom-apps:hover {
@@ -194,6 +190,11 @@
     color: @text_color;
 }
 
+#workspaces {
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
 #workspaces button {
     background: none;
     box-shadow: none;
@@ -206,9 +207,13 @@
 }
 
 #workspaces .taskbar-window {
+    margin-left: 4px;
     opacity: 0.5;
 }
 
 #workspaces .taskbar-window.active {
     opacity: 1;
 }
+
+
+
