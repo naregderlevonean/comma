@@ -14,7 +14,6 @@
             "custom/separator",
             "custom/notifications"
         ],
-        "modules-center": ["hyprland/workspaces"],
         "modules-right": [
             "group/volume",
             "custom/separator",
@@ -39,6 +38,7 @@
             "custom/separator",
             "group/pinned"
         ],
+        "modules-center": ["hyprland/workspaces"],
         "modules-right": [
            "hyprland/workspaces#windows"
         ],
