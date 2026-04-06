@@ -1,14 +1,13 @@
 #!/bin/sh
 
 SHADER_DIR="$HOME/.config/hypr/shaders"
-HELPER="$HOME/.config/waybar/module/helper"
 
 get_list() {
     find "$SHADER_DIR" -maxdepth 1 -type f | sort
 }
 
 get_current() {
-    hyprctl getoption decoration:screen_shader | sed -n 's/.*str: *\(.*\)/\1/p'
+    hyprctl getoption decoration:screen_shader -j | jq -r '.str'
 }
 
 set_shader() {
@@ -45,26 +44,21 @@ get_next() {
     fi
 }
 
-CURRENT_SHADER=$(get_current)
+CURRENT_SHADER="$(get_current)"
 
 case "$1" in
-    "get")
-        if [[ -z "$CURRENT_SHADER" ]]; then
-            $HELPER/jsonify "off"
-        else
-            $HELPER/jsonify "on"
-        fi
+    "current")
+        echo "$CURRENT_SHADER"
         ;;
     "off")
         set_shader ""
-        pkill -SIGRTMIN+7 waybar
         ;;
     "next"|"prev")
         NEW_SHADER=$(get_next "$1" "$CURRENT_SHADER")
         set_shader "$NEW_SHADER"
-        pkill -SIGRTMIN+7 waybar
         ;;
     *)
+        echo "?"
         ;;
 esac
 

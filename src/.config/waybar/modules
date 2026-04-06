@@ -44,10 +44,11 @@
         "tooltip": false
     },
     "custom/autorotate": {
-        "exec": "$HOME/.config/waybar/module/autorotate.mod get",
+        "exec": "$HOME/.config/waybar/script/process status iio-hyprland",
+        "exec-on-event": true,
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/autorotate.mod set",
+        "on-click": "$HOME/.config/waybar/script/process toggle iio-hyprland",
         "return-type": "json",
         "signal": 7,
         "tooltip": false
@@ -71,7 +72,7 @@
     "custom/closeall": {
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod closeall",
+        "on-click": "$HOME/.config/waybar/script/shutdown closeall",
         "tooltip-format": "Close All"
     },
     "custom/date": {
@@ -82,7 +83,7 @@
         "tooltip": false
     },
     "custom/dice": {
-        "exec": "$HOME/.config/waybar/module/dice.mod",
+        "exec": "$HOME/.config/waybar/script/dice",
         "format": "{icon}",
         "format-icons": {
             "1": "",
@@ -93,7 +94,7 @@
             "6": ""
         },
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/dice.mod",
+        "on-click": "$HOME/.config/waybar/script/dice",
         "return-type": "json",
         "signal": 6,
         "tooltip": false
@@ -104,24 +105,26 @@
     },
     "custom/exit": {
         "format": "",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod terminate",
+        "on-click": "$HOME/.config/waybar/script/shutdown terminate",
         "tooltip-format": "Exit"
     },
     "custom/hyprshade": {
-        "exec": "$HOME/.config/waybar/module/hyprshade.mod get",
+        "exec": "$HOME/.config/waybar/script/process check $HOME/.config/waybar/script/shader current",
+        "exec-on-event": true,
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/hyprshade.mod next",
-        "on-click-right": "$HOME/.config/waybar/module/hyprshade.mod off",
+        "on-click": "$HOME/.config/waybar/script/shader next",
+        "on-click-right": "$HOME/.config/waybar/script/shader off",
         "return-type": "json",
         "signal": 7,
         "tooltip": false
     },
     "custom/hyprsunset": {
-        "exec": "$HOME/.config/waybar/module/hyprsunset.mod get",
+        "exec": "$HOME/.config/waybar/script/process status hyprsunset",
+        "exec-on-event": true,
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/hyprsunset.mod toggle",
+        "on-click": "$HOME/.config/waybar/script/process toggle hyprsunset",
         "return-type": "json",
         "signal": 7,
         "tooltip": false
@@ -129,7 +132,7 @@
     "custom/lock": {
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod lock",
+        "on-click": "$HOME/.config/waybar/script/shutdown lock",
         "tooltip-format": "Lock"
     },
     "custom/notifications": {
@@ -160,7 +163,7 @@
     "custom/poweroff": {
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod poweroff",
+        "on-click": "$HOME/.config/waybar/script/shutdown poweroff",
         "tooltip-format": "Power Off"
     },
     "custom/radio": {
@@ -172,13 +175,13 @@
     "custom/reboot": {
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod restart",
+        "on-click": "$HOME/.config/waybar/script/shutdown restart",
         "tooltip-format": "Reboot"
     },
     "custom/screenshot": {
         "format": "",
         "interval": "once",
-        "on-click": "grim -g \"$(slurp -b '#080808c9' -w 0)\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
+        "on-click": "$HOME/.config/waybar/script/screenshot",
     },
     "custom/separator": {
         "format": "·",
@@ -199,7 +202,7 @@
     },
     "custom/suspend": {
         "format": "",
-        "on-click": "$HOME/.config/waybar/module/shutdown.mod suspend",
+        "on-click": "$HOME/.config/waybar/script/shutdown suspend",
         "tooltip-format": "Suspend"
     },
     "custom/time": {
@@ -257,11 +260,11 @@
             "custom/pinned",
             "custom/dice",
             "custom/waypaper",
-            "custom/screenshot",
-            "custom/picker",
-            "custom/character",
             "custom/calculator",
-            "custom/translator"
+            "custom/translator",
+            "custom/character",
+            "custom/screenshot",
+            "custom/picker"
         ],
         "orientation": "inherit"
     },

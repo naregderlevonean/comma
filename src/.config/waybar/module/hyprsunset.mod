@@ -1,1 +1,0 @@
-/home/naregderlevonean/.config/hypr/script/set-sunset

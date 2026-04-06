@@ -1,0 +1,41 @@
+#!/bin/sh
+
+HELPER="$HOME/.config/waybar/script/helper"
+
+case "$1" in
+    "status")
+         pgrep "$2" > /dev/null \
+             && $HELPER/jsonify "on" \
+             || $HELPER/jsonify "off"
+         ;;
+    "check")
+        shift 
+        [ -n "$("$@" 2>/dev/null)" ] \
+             && $HELPER/jsonify "on" \
+             || $HELPER/jsonify "off"
+         ;;
+    "stop")
+        pkill "$2"
+        sleep 0.5
+        pkill -RTMIN+7 waybar
+        ;;
+    "toggle")
+        if pkill -x "$2"; then
+            sleep 0.2
+        else
+            $2 > /dev/null 2>&1 &
+            sleep 0.2
+        fi
+        pkill -RTMIN+7 waybar
+        ;;
+    "exec")
+        shift
+        "$@" > /dev/null 2>&1 &
+        sleep 0.5
+        pkill -RTMIN+7 waybar
+        ;;
+    *)
+        echo "?"
+        ;;
+esac
+
