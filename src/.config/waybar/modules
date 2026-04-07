@@ -38,7 +38,7 @@
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
     "custom/apps": {
-        "format": "",
+        "format": "",
         "interval": "once",
         "on-click": "walker",
         "tooltip": false
@@ -191,6 +191,11 @@
     "custom/specialworkspace": {
         "format": "",
         "interval": "once",
+        "tooltip": false
+    },
+    "custom/special": {
+        "format": "",
+        "interval": "once",
         "on-click": "hyprctl dispatch togglespecialworkspace",
         "tooltip": false
     },
@@ -302,6 +307,7 @@
         },
         "modules": [
             "custom/specialworkspace",
+            "custom/special",
             "custom/stylus",
             "custom/radio"
         ],
