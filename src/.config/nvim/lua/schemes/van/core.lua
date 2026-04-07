@@ -8,12 +8,12 @@ local core = {
 
     Visual                       = { fg = colors.Blue0, bg = colors.Blue16 },
     Cursor                       = { fg = colors.Gray0, bg = colors.Gray24 },
-    CursorLine                   = { bg = colors.Gray3 },
+    CursorLine                   = { bg = colors.Gray2 },
     LineNr                       = { fg = colors.Gray6 },
-    CursorLineNr                 = { fg = colors.Gray24, bg = colors.Gray3, bold = true },
+    CursorLineNr                 = { fg = colors.Gray24, bg = colors.Gray2, bold = true },
     Search                       = { fg = colors.Yellow18, bg = colors.Yellow8 },
     MatchParen                   = { fg = colors.Yellow18, bold = true },
-    WinSeparator                 = { fg = colors.Gray3 },
+    WinSeparator                 = { fg = colors.Gray2 },
 
     StatusLine                   = { fg = colors.Gray8 },
 
