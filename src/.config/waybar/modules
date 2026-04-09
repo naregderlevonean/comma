@@ -76,7 +76,7 @@
         "tooltip-format": "Close All"
     },
     "custom/date": {
-        "exec": "date +' / %a / %b %d'",
+        "exec": "date +'%a %b %d'",
         "format": "{}",
         "interval": 3600,
         "on-click": "gnome-calendar",
@@ -234,6 +234,13 @@
         "on-click": "waypaper",
         "tooltip": false
     },
+    "custom/weather": {
+        "exec": "curl 'wttr.in?format=%t'",
+        "format": "{}",
+        "interval": 3600,
+        "on-click": "gnome-weather",
+        "tooltip": false
+    },
     "group/brightness": {
         "drawer": {
             "transition-duration": 500,
@@ -252,7 +259,10 @@
         },
         "modules": [
             "custom/time",
-            "custom/date"
+            "custom/separator",
+            "custom/date",
+            "custom/separator",
+            "custom/weather"
         ],
         "orientation": "inherit"
     },

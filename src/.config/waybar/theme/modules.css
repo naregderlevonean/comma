@@ -50,6 +50,10 @@
     color: @success_color;
 }
 
+#clock .drawer-child * {
+    margin-left: 16px;
+}
+
 #custom-apps {
     margin-left: 32px;
 }
