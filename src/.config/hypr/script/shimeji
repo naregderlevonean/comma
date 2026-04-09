@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case "$1" in
+    "on")
+        shimejictl summon 0
+        ;;
+    "off")
+        pkill shimeji-overlay
+        ;;
+    "toggle")
+        pkill shimeji-overlay || shimejictl summon 0
+        ;;
+    *)
+        echo "?"
+        ;;
+esac
