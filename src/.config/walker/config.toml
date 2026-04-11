@@ -1,25 +1,19 @@
-actions_as_menu = false         
-as_window = false               
-autoplay_videos = false         
-click_to_close = true
-close_when_open = true          
-debug = false                   
-disable_mouse = false           
+autoplay_videos = false
 exact_search_prefix = "'"       
-force_keyboard_focus = false    
+force_keyboard_focus = true 
 global_argument_delimiter = "#" 
 hide_action_hints = false       
 hide_action_hints_dmenu = true  
 hide_quick_activation = false   
 hide_return_action = false      
-page_jump_items = 10            
+page_jump_items = 10   
 resume_last_query = false       
-selection_wrap = false          
+selection_wrap = false 
 single_click_activation = true  
-theme = "van"               
+theme = "van"      
 
 [shell]
-exclusive_zone = -1
+exclusive_zone = 1
 layer = "overlay"
 anchor_top = true
 anchor_bottom = true
