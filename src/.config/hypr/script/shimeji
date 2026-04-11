@@ -1,16 +1,24 @@
 #!/bin/sh
 
-case "$1" in
-    "on")
-        shimejictl summon 0
+get_random_shimeji() {
+    shimejictl list | grep '^[0-9]' | shuf -n 1
+}
+
+ITEM="$(get_random_shimeji)"
+NAME="${ITEM#*:}"
+
+case $1 in
+    on)
+        shimejictl summon "$NAME"
         ;;
-    "off")
+    off)
         pkill shimeji-overlay
         ;;
-    "toggle")
-        pkill shimeji-overlay || shimejictl summon 0
+    toggle)
+        pkill shimeji-overlay || shimejictl summon "$NAME"
         ;;
     *)
         echo "?"
         ;;
 esac
+
