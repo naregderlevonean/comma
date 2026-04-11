@@ -44,11 +44,11 @@
         "tooltip": false
     },
     "custom/autorotate": {
-        "exec": "$HOME/.config/waybar/script/process status iio-hyprland",
+        "exec": "$HOME/.config/waybar/script/process status hyprspin",
         "exec-on-event": true,
         "format": "",
         "interval": "once",
-        "on-click": "$HOME/.config/waybar/script/process toggle iio-hyprland",
+        "on-click": "$HOME/.config/waybar/script/process toggle hyprspin",
         "return-type": "json",
         "signal": 7,
         "tooltip": false

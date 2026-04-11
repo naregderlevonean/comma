@@ -1,0 +1,33 @@
+#!/bin/sh
+
+monocle() {
+    hyprctl keyword general:layout monocle
+}
+
+case "$1" in
+    "scrolling")
+        monocle
+        case "$2" in
+            "33%")
+                hyprctl keyword scrolling:column_width 0.33
+                ;;
+            "100%")
+                hyprctl keyword scrolling:column_width 1.00
+                ;;
+            *)
+                hyprctl keyword scrolling:column_width 0.50
+                ;;
+        esac
+        hyprctl keyword general:layout scrolling
+        ;;
+    "dwindle")
+        hyprctl keyword general:layout dwindle
+        ;;
+    "master")
+        hyprctl keyword general:layout master
+        ;;
+    *)
+        monocle
+        ;;
+esac
+
