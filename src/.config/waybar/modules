@@ -115,6 +115,8 @@
         "interval": "once",
         "on-click": "$HOME/.config/waybar/script/shader next",
         "on-click-right": "$HOME/.config/waybar/script/shader off",
+        "on-scroll-down": "$HOME/.config/waybar/script/shader prev",
+        "on-scroll-up": "$HOME/.config/waybar/script/shader next",
         "return-type": "json",
         "signal": 7,
         "tooltip": false
