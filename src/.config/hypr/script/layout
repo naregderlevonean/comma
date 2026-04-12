@@ -7,6 +7,7 @@ monocle() {
 case "$1" in
     "scrolling")
         monocle
+        hyprctl keyword general:gaps_in 8
         case "$2" in
             "33%")
                 hyprctl keyword scrolling:column_width 0.33
@@ -21,9 +22,11 @@ case "$1" in
         hyprctl keyword general:layout scrolling
         ;;
     "dwindle")
+        hyprctl keyword general:gaps_in 4
         hyprctl keyword general:layout dwindle
         ;;
     "master")
+        hyprctl keyword general:gaps_in 4
         hyprctl keyword general:layout master
         ;;
     *)
