@@ -1,0 +1,12 @@
+[submodule "src/.config/hypr/hyprland/extensions/addons/mousetrap"]
+	path = src/.config/hypr/hyprland/extensions/addons/mousetrap
+	url = https://github.com/naregderlevonean/mousetrap
+[submodule "src/.config/hypr/hyprland/extensions/addons/spin"]
+	path = src/.config/hypr/hyprland/extensions/addons/spin
+	url = https://github.com/naregderlevonean/spin
+[submodule "src/.config/hypr/hyprland/extensions/spin"]
+	path = src/.config/hypr/hyprland/extensions/spin
+	url = https://github.com/naregderlevonean/spin
+[submodule "src/.config/hypr/hyprland/extensions/mousetrap"]
+	path = src/.config/hypr/hyprland/extensions/mousetrap
+	url = https://github.com/naregderlevonean/mousetrap

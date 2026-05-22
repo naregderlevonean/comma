@@ -1,0 +1,5 @@
+require("hyprland.core.rules.layerrules.histui")
+require("hyprland.core.rules.layerrules.hyprlock")
+require("hyprland.core.rules.layerrules.walker")
+require("hyprland.core.rules.layerrules.waybar")
+require("hyprland.core.rules.layerrules.wvkbd")

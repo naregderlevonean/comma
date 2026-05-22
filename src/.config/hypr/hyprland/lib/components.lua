@@ -1,0 +1,5 @@
+components.nightmode = require("hyprland.lib.components.nightmode")
+components.osk = require("hyprland.lib.components.osk")
+components.shader = require("hyprland.lib.components.shader")
+components.waybar = require("hyprland.lib.components.waybar")
+components.waypaper = require("hyprland.lib.components.waypaper")

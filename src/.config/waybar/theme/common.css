@@ -1,0 +1,38 @@
+* {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-family: "Ubuntu Sans Mono";
+    font-size: 13px;
+    min-width: 16px;
+    margin: 0;
+    padding: 0;
+    transition: all 200ms ease-out;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+tooltip {
+    background: @shade_color;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @view_fg_color;
+    margin: 8px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.16);
+}
+

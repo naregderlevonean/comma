@@ -1,0 +1,7 @@
+helpers.bind = require("hyprland.lib.helpers.bind")
+helpers.process = require("hyprland.lib.helpers.process")
+helpers.random = require("hyprland.lib.helpers.random")
+helpers.scheduler = require("hyprland.lib.helpers.scheduler")
+helpers.string = require("hyprland.lib.helpers.string")
+helpers.window = require("hyprland.lib.helpers.window")
+helpers.zoom = require("hyprland.lib.helpers.zoom")

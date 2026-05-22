@@ -1,0 +1,30 @@
+.critical {
+    color: @error_color;
+}
+
+.disabled {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+.drawer-child *:hover {
+    color: @accent_color;
+    opacity: 1;
+}
+
+.normal {
+    color: @text_color;
+}
+
+.off {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+.success {
+    color: @success_color;
+}
+
+.warning {
+    color: @warning_color;
+}

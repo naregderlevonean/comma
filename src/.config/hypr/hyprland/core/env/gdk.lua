@@ -1,0 +1,2 @@
+hl.env("GDK_BACKEND", "wayland,x11,*")
+

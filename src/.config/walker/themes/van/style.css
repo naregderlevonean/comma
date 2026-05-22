@@ -1,0 +1,91 @@
+* {
+    all: unset;
+    font-family: "Ubuntu Sans Mono";
+    font-size: 13px;
+}
+
+.box-wrapper {
+    background: #1a1a1a;
+    border: 1px solid #6b6b6b;
+    border-radius: 32px;
+    min-height: 640px;
+    min-width: 960px;
+    padding: 64px;
+}
+
+child:selected .item-box,
+row:selected .item-box {
+    background: #292929;
+}
+
+.disconnected {
+    opacity: 0.32;
+}
+
+.error {
+    background: #4e0906;
+    color: #e1756d;
+    padding: 8px;
+}
+
+.input {
+    border-bottom: 1px solid #212121;
+    caret-color: #ededed;
+    color: #949494;
+    padding: 16px;
+    padding-left: 58px;
+    padding-right: 58px;
+}
+
+.input placeholder {
+    opacity: 0.5;
+}
+
+.input selection {
+    background: #494949;
+}
+
+.item-box {
+    border-radius: 8px;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.item-subtext {
+    font-size: 10px;
+    font-weight: 500;
+    opacity: 0.32;
+}
+
+.keybind-button {
+    opacity: 0.48;
+}
+
+.keybind-button:hover {
+    opacity: 1.00;
+}
+
+.keybind-label {
+    background: #292929;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.large-icons {
+    -gtk-icon-size: 32px;
+}
+
+.list {
+    color: #ededed;
+}
+
+.normal-icons {
+    -gtk-icon-size: 16px;
+}
+
+.preview {
+    background: #131313;
+    border-radius: 8px;
+    padding: 16px;
+}
