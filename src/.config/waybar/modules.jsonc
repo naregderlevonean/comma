@@ -128,7 +128,7 @@
             "normal": ""
         },
         "interval": 600,
-        "on-click": "hyprctl dispatch exec '[float;size 840 840;center] kitty -e histui'",
+        "on-click": "kitty -e histui",
         "return-type": "json"
     },
     "custom/picker": {
@@ -347,7 +347,6 @@
                 "waypaper"
             ],
             "orientation": "horizontal",
-            "on-click-window": "hyprctl dispatch focuswindow address:{address}",
             "update-active-window": true
         }
     },
