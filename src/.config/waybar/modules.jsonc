@@ -151,7 +151,7 @@
     "custom/radio": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl dispatch togglespecialworkspace radio",
+        "on-click": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"radio\"))'", 
         "tooltip": false
     },
     "custom/reboot": {
@@ -173,13 +173,13 @@
     "custom/special": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl dispatch togglespecialworkspace",
+        "on-click": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"\"))'", 
         "tooltip": false
     },
     "custom/stylus": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl dispatch togglespecialworkspace stylus",
+        "on-click": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"stylus\"))'", 
         "tooltip": false
     },
     "custom/suspend": {
@@ -328,8 +328,8 @@
             "persistent": "•"
         },
         "interval": "once",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"r+1\" })",
+        "on-scroll-up": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"e-1\" })",
         "smooth-scrolling-threshold": 3
     },
     "hyprland/workspaces#windows": {
