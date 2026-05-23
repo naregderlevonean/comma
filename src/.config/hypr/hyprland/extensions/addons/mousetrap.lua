@@ -19,11 +19,11 @@ end, { delay = 1000 })
 
 mousetrap.bind("top", function()
     hl.dispatch(hl.dsp.focus({ workspace = "e-1" }))
-end, { delay = 500 })
+end, { flick = 100 })
 
 mousetrap.bind("bottom", function()
     hl.dispatch(hl.dsp.focus({ workspace = "r+1" }))
-end, { delay = 500 })
+end, { flick = 100 })
 
 addons.mousetrap = mousetrap
 
