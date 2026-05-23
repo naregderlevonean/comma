@@ -1,5 +1,5 @@
 local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
-    geom = {
+    geometry = {
         default = { corner = 4, edge = 2 },
         ["eDP-1"] = { corner = 60, edge = 10 }
     }
