@@ -328,8 +328,8 @@
             "persistent": "•"
         },
         "interval": "once",
-        "on-scroll-down": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"r+1\" })",
-        "on-scroll-up": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"e-1\" })",
+        "on-scroll-down": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"r+1\" }))'",
+        "on-scroll-up": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"e-1\" }))'",
         "smooth-scrolling-threshold": 3
     },
     "hyprland/workspaces#windows": {
