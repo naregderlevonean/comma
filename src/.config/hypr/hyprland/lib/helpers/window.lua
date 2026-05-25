@@ -15,12 +15,22 @@ local nav_handlers = {
     end,
 }
 
-function M.navigate(direction)
+local function navigate(direction)
+    local layout = tostring(hl.get_config("general:layout"))
+    local action_factory = nav_handlers[layout] or nav_handlers["dwindle"]
+    
+    hl.dispatch(action_factory(direction))
+end
+
+function M.prev()
     return function()
-        local layout = tostring(hl.get_config("general:layout"))
-        local action_factory = nav_handlers[layout] or nav_handlers["dwindle"]
-        
-        hl.dispatch(action_factory(direction))
+        navigate("prev")
+    end
+end
+
+function M.next()
+    return function()
+        navigate("next")
     end
 end
 
