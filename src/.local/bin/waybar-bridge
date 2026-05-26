@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    exit 1
+fi
+
+FUNC_NAME="$1"
+PIPE="/tmp/waybar_hypr_${FUNC_NAME}.pipe"
+
+mkfifo "$PIPE" 2>/dev/null
+
+hyprctl eval "local f=io.open([[$PIPE]],[[w]]); f:write(tostring($FUNC_NAME())); f:close()" >/dev/null 2>&1 &
+
+RESULT=$(cat "$PIPE")
+
+if [ "$RESULT" = "true" ] || [ "$RESULT" = "on" ]; then
+    echo '{"class": "on"}'
+else
+    echo '{"class": "off"}'
+fi
+
