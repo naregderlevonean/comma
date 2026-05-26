@@ -23,5 +23,9 @@ function M.toggle(temperature)
     end
 end
 
+function M.status()
+    return helpers.process.status(process)
+end
+
 return M
 

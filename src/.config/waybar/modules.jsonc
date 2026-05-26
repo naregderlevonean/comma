@@ -51,10 +51,21 @@
         "tooltip": false
     },
     "custom/autorotate": {
+        "exec": "waybar-bridge addons.spin.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.autorotate.toggle()()'",
+        "on-click": "hyprctl eval 'addons.spin.toggle()()'",
         "return-type": "json",
+        "signal": 7,
+        "tooltip": false
+    },
+    "custom/mousetrap": {
+        "exec": "waybar-bridge addons.mousetrap.status",
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl eval 'addons.mousetrap.toggle()()'",
+        "return-type": "json",
+        "signal": 7,
         "tooltip": false
     },
     "custom/backlight": {
@@ -97,18 +108,24 @@
         "tooltip-format": "Exit"
     },
     "custom/hyprshade": {
+        "exec": "waybar-bridge components.shader.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.shader.off()()'",
+        "on-click": "hyprctl eval 'components.shader.toggle()()'",
         "on-click-right": "hyprctl eval 'components.shader.next()()'", 
         "on-scroll-down": "hyprctl eval 'components.shader.prev()()'",
         "on-scroll-up": "hyprctl eval 'components.shader.next()()'",
+        "return-type": "json",
+        "signal": 7,
         "tooltip": false
     },
     "custom/hyprsunset": {
+        "exec": "waybar-bridge components.nightmode.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.nightmode.toggle()()'",
+        "on-click": "hyprctl eval 'components.nightmode.toggle()()'; pkill -RTMIN+7 waybar",
+        "return-type": "json",
+        "signal": 7,
         "tooltip": false
     },
     "custom/lock": {
@@ -296,6 +313,7 @@
         "modules": [
             "custom/tools",
             "custom/autorotate",
+            "custom/mousetrap",
             "custom/hyprsunset",
             "custom/hyprshade"
         ],
