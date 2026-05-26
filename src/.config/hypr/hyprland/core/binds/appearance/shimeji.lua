@@ -1,3 +1,2 @@
-hl.bind("SUPER + ALT + F6", hl.dsp.exec_cmd("shimejictl summon 'Black Bunny'"))
-hl.bind("SUPER + SHIFT + ALT + F6", hl.dsp.exec_cmd("shimejictl stop"))
+hl.bind("SUPER + ALT + F7", hl.dsp.exec_cmd("sh -c 'pgrep -x shimeji-overlay > /dev/null && shimejictl stop || shimejictl summon Black\\ Bunny'"), { repeating = false })
 
