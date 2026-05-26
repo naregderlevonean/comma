@@ -1,13 +1,16 @@
 local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
     geometry = {
-        default = { corner = 4, edge = 2 },
-        ["eDP-1"] = { corner = 60, edge = 10 }
+        default = { corner = 16, edge = 4 },
     }
 })
 
 mousetrap.bind("top-left", function()
     hl.exec_cmd("walker")
-end, { flick = 100 })
+end, { flick = 50 })
+
+mousetrap.bind("bottom-left", function()
+    hl.dispatch(hl.dsp.workspace.toggle_special(""))
+end, { flick = 50 })
 
 mousetrap.bind("bottom-right", function()
     hl.exec_cmd("walker --provider windows")

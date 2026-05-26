@@ -53,7 +53,7 @@
     "custom/autorotate": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'tools.autorotate.toggle()()'",
+        "on-click": "hyprctl eval 'components.autorotate.toggle()()'",
         "return-type": "json",
         "tooltip": false
     },
@@ -99,16 +99,16 @@
     "custom/hyprshade": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'tools.shader.off()()'",
-        "on-click-right": "hyprctl eval 'tools.shader.next()()'", 
-        "on-scroll-down": "hyprctl eval 'tools.shader.prev()()'",
-        "on-scroll-up": "hyprctl eval 'tools.shader.next()()'",
+        "on-click": "hyprctl eval 'components.shader.off()()'",
+        "on-click-right": "hyprctl eval 'components.shader.next()()'", 
+        "on-scroll-down": "hyprctl eval 'components.shader.prev()()'",
+        "on-scroll-up": "hyprctl eval 'components.shader.next()()'",
         "tooltip": false
     },
     "custom/hyprsunset": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'tools.nightmode.toggle()()'",
+        "on-click": "hyprctl eval 'components.nightmode.toggle()()'",
         "tooltip": false
     },
     "custom/lock": {

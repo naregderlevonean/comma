@@ -10,7 +10,7 @@ hl.config({
         disable_autoreload = false,
         disable_hyprland_logo = true,
         disable_scale_notification = false,
-        disable_splash_rendering = false,
+        disable_splash_rendering = true,
         disable_watchdog_warning = false,
         disable_xdg_env_checks = false,
         enable_anr_dialog = true,

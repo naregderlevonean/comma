@@ -1,6 +1,6 @@
 local M = {}
 
-local nav_handlers = {
+local handlers = {
     ["scrolling"] = function(dir)
         return hl.dsp.layout(dir == "next" and "move +col" or "move -col")
     end,
@@ -16,11 +16,13 @@ local nav_handlers = {
 }
 
 local function navigate(direction)
-    local layout = tostring(hl.get_config("general:layout"))
-    local action_factory = nav_handlers[layout] or nav_handlers["dwindle"]
-    
-    hl.dispatch(action_factory(direction))
+    local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+    local layout = workspace and workspace.tiled_layout or "dwindle"
+    local action = handlers[layout] or handlers["dwindle"]
+
+    hl.dispatch(action(direction))
 end
+
 
 function M.prev()
     return function()

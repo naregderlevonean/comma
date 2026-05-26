@@ -8,27 +8,11 @@ local spin = require("hyprland.extensions.addons.spin.init").setup({
 })
 
 spin.bind({ "left-up", "right-up" }, function(orientation, transform)
-    helpers.scheduler.config({ general = { layout = "monocle" } })
-    helpers.scheduler.config({
-        general = { layout = "scrolling" },
-        scrolling = { column_width = 1.000000 }
-    })
+    hl.dsp.send_shortcut({ mods = "SUPER + SHIFT + ALT", key = "1" })
 end)
 
-spin.bind("normal", function(orientation, transform)
-    helpers.scheduler.config({ general = { layout = "monocle" } })
-    helpers.scheduler.config({
-        general = { layout = "scrolling" },
-        scrolling = { column_width = 0.500000 }
-    })
-end)
-
-spin.bind("bottom-up", function(orientation, transform)
-    helpers.scheduler.config({ general = { layout = "monocle" } })
-    helpers.scheduler.config({
-        general = { layout = "scrolling" },
-        scrolling = { column_width = 0.500000 }
-    })
+spin.bind({"normal", "bottom-up"}, function(orientation, transform)
+    hl.dsp.send_shortcut({ mods = "SUPER + SHIFT + ALT", key = "2" })
 end)
 
 addons.spin = spin

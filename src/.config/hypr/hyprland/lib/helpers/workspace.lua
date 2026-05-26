@@ -8,7 +8,7 @@ local function workspaces()
     local occupied = {}
 
     for _, workspace in ipairs(workspaces) do
-        if workspace.id > 0 then
+        if workspace.id > 0 and workspace.monitor == active.monitor then
             table.insert(occupied, workspace.id)
         end
     end
