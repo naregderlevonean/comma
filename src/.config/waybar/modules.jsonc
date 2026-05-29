@@ -59,15 +59,6 @@
         "signal": 7,
         "tooltip": false
     },
-    "custom/mousetrap": {
-        "exec": "waybar-bridge addons.mousetrap.status",
-        "format": "",
-        "interval": "once",
-        "on-click": "hyprctl eval 'addons.mousetrap.toggle()()'",
-        "return-type": "json",
-        "signal": 7,
-        "tooltip": false
-    },
     "custom/backlight": {
         "format": "",
         "interval": "once"
@@ -133,6 +124,15 @@
         "interval": "once",
         "on-click": "powermenu lock",
         "tooltip-format": "Lock"
+    },
+    "custom/mousetrap": {
+        "exec": "waybar-bridge addons.mousetrap.status",
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl eval 'addons.mousetrap.toggle()()'",
+        "return-type": "json",
+        "signal": 7,
+        "tooltip": false
     },
     "custom/notifications": {
         "exec": "histui status --all",
@@ -346,8 +346,8 @@
             "persistent": "•"
         },
         "interval": "once",
-        "on-scroll-down": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"r+1\" }))'",
-        "on-scroll-up": "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = \"e-1\" }))'",
+        "on-scroll-down": "hyprctl eval 'helpers.workspace.next()()'",
+        "on-scroll-up": "hyprctl eval 'helpers.workspace.prev()()'",
         "smooth-scrolling-threshold": 3
     },
     "hyprland/workspaces#windows": {
