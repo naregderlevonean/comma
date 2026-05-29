@@ -4,13 +4,13 @@ hl.config({
     plugin = {
         hyprbars = {
             enabled = false,
-            bar_color = 0xff212121,
-            bar_height = 48,
+            bar_color = 0xff292929,
+            bar_height = 6,
             bar_blur = false,
             col = {
                 text = 0xffffffff,
             },
-            bar_title_enabled = true,
+            bar_title_enabled = false,
             bar_text_size = 13,
             bar_text_font = "Ubuntu Sans Mono",
             bar_text_align = "left",
@@ -42,6 +42,6 @@ function hyprbars.toggle()
     end
 end
 
-hl.bind("SUPER + CTRL + B", hyprbars.toggle)
+hl.bind("SUPER + Escape", hyprbars.toggle)
 
 plugins.hyprbars = hyprbars
