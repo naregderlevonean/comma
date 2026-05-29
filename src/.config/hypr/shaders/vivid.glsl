@@ -6,7 +6,7 @@ uniform sampler2D inputTexture;
 out vec4 outputColor;
 
 const vec3 vibranceBalance = vec3(1.0, 1.0, 1.0);
-const float vibranceAmount = 0.2;
+const float vibranceAmount = 0.20;
 const vec3 vibranceCoefficient = vibranceBalance * -vibranceAmount;
 
 void main() {

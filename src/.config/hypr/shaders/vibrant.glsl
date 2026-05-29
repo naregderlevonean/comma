@@ -5,7 +5,7 @@ in vec2 v_texcoord;
 uniform sampler2D inputTexture;
 out vec4 outputColor;
 
-const float vibranceAmount = 1.6;
+const float vibranceAmount = 2.0;
 const vec3 luminanceCoefficients = vec3(0.212656, 0.715158, 0.072186);
 
 vec3 sRgbToLinear(vec3 srgb) {

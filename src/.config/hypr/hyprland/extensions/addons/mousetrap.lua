@@ -12,3 +12,4 @@ mousetrap.bind("top", helpers.workspace.prev(), { flick = 150 })
 mousetrap.bind("bottom", helpers.workspace.next(), { flick = 150 })
 
 addons.mousetrap = mousetrap
+
