@@ -1,42 +1,69 @@
 #!/bin/sh
 
-PROCESS="zenity"
-
 is_process_running() {
-    pgrep "$1" > /dev/null 2>&1
-    return $?
+    pgrep -x "$1" > /dev/null 2>&1
 }
 
-message() {
-    zenity --question --title="" --text="Do you want to $2" &&  systemctl "$1"
+hide_waybar() {
+    running=false
+    if is_process_running "waybar"; then
+        running=true
+        pkill -x "waybar" 2>/dev/null
+    fi
+}
+
+restore_waybar() {
+    if [ "$running" = true ]; then
+        if ! is_process_running "waybar"; then
+            waybar &
+        fi
+    fi
+}
+
+confirm() {
+    if zenity --question --title="" --text="Do you want to $2?"; then
+        systemctl "$1"
+    else
+        restore_waybar
+    fi
 }
 
 closeall() {
-    zenity --question --title="" --text="Are your want to close all open applications?" && hyprctl eval "hl.dispatch(helpers.purge.init())"
+    if zenity --question --title="" --text="Are you want to close all open applications?"; then
+        hyprctl eval "hl.dispatch(helpers.purge.init())"
+    else
+        restore_waybar
+    fi
 }
 
 lock() {
     hyprlock
+    restore_waybar
 }
 
 terminate() {
-    zenity --question --title="" --text="Are your want to Exit?" && loginctl terminate-user $USER
+    if zenity --question --title="" --text="Are you want to Exit?"; then
+        loginctl terminate-user "$USER"
+    else
+        restore_waybar
+    fi
 }
 
 suspend() {
-    message "suspend" "Suspend"
+    confirm "suspend" "Suspend"
 }
 
 restart() {
-    message "reboot" "Reboot"
+    confirm "reboot" "Reboot"
 }
 
 poweroff() {
-    message "poweroff" "Power Off"
+    confirm "poweroff" "Power Off"
 }
 
 dialog() {
-    is_process_running "$PROCESS" && killall "$PROCESS"
+    pkill -x "zenity" 2>/dev/null
+    hide_waybar
 
     choice=$(zenity --info \
         --title "" \
@@ -55,21 +82,22 @@ dialog() {
             closeall
             ;;
         "")  
-            hyprlock
+            lock
             ;;
         "")  
-            loginctl terminate-user $USER
+            terminate
             ;;
         "")  
-            systemctl suspend
+            suspend
             ;;
         "")  
-            systemctl reboot
+            restart
             ;;
         "")  
-            systemctl poweroff
+            poweroff
             ;;
-        *) 
+        *)
+            restore_waybar
             exit 1
             ;;
     esac
@@ -80,9 +108,12 @@ case "$1" in
         dialog
         ;;
     closeall|lock|terminate|suspend|restart|poweroff)
+        hide_waybar
         "$1"
         ;;
     *)
         exit 1
         ;;
 esac
+
+
