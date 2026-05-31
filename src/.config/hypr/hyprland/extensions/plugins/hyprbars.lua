@@ -26,10 +26,10 @@ hl.config({
     },
 })
 
-function hyprbars.set(params)
+function hyprbars.set(config)
     hl.config({
         plugin = {
-            hyprbars = params
+            hyprbars = config
         }
     })
 end
@@ -45,3 +45,4 @@ end
 hl.bind("SUPER + Escape", hyprbars.toggle)
 
 plugins.hyprbars = hyprbars
+

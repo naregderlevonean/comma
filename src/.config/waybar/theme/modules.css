@@ -189,14 +189,13 @@
 }
 
 #workspaces {
-    margin-left: 32px;
-    margin-right: 32px;
 }
 
 #workspaces button {
     background: none;
     box-shadow: none;
     color: @text_color;
+    margin: -4px;
     opacity: 0.3;
 }
 
@@ -205,11 +204,15 @@
 }
 
 #workspaces .taskbar-window {
-    margin-left: 4px;
+    margin-right: 32px;
+}
+
+#workspaces button .taskbar-window {
+    margin-left: -24px;
     opacity: 0.5;
 }
 
-#workspaces .taskbar-window.active {
+#workspaces button .taskbar-window.active {
     opacity: 1;
 }
 

@@ -2,6 +2,7 @@
     {
         "height": 64,
         "include": [ "./modules.jsonc" ],
+        "layer": "top",
         "modifier-reset": "release",
         "modules-left": [
             "custom/apps",
@@ -32,6 +33,7 @@
     {
         "height": 64,
         "include": [ "./modules.jsonc" ],
+        "layer": "top",
         "modifier-reset": "release",
         "modules-left": [
             "custom/special",
@@ -41,12 +43,22 @@
             "custom/separator",
             "group/pinned",
         ],
-        "modules-center": ["hyprland/workspaces"],
         "modules-right": [
            "hyprland/workspaces#windows"
         ],
         "output": ["eDP-1"],
         "position": "bottom",
+        "spacing": 16
+    },
+    {
+        "width": 16,
+        "include": [ "./modules.jsonc" ],
+        "layer": "top",
+        "modifier-reset": "release",
+        "modules-center": ["hyprland/workspaces"],
+        "name": "left",
+        "output": ["eDP-1"],
+        "position": "left",
         "spacing": 16
     }
 ]
