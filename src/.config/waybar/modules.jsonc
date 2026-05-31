@@ -168,7 +168,7 @@
     "custom/radio": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"radio\"))'", 
+        "on-click": "hyprctl eval 'helpers.specialworkspace.toggle(\"radio\")()'", 
         "tooltip": false
     },
     "custom/reboot": {
@@ -190,13 +190,13 @@
     "custom/special": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"\"))'", 
+        "on-click": "hyprctl eval 'helpers.specialworkspace.toggle()()'", 
         "tooltip": false
     },
     "custom/stylus": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special(\"stylus\"))'", 
+        "on-click": "hyprctl eval 'helpers.specialworkspace.toggle(\"stylus\")()'", 
         "tooltip": false
     },
     "custom/suspend": {

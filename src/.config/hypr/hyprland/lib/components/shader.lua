@@ -14,7 +14,7 @@ end
 local function notify(path)
     local name = get_shader_name(path)
     local command = string.format("notify-send -r 9119 -t 1500 'Hyprland' 'Shader: %s' >/dev/null 2>&1 &", helpers.string.escape(name))
-    os.execute(command)
+    hl.exec_cmd(command)
 end
 
 function init()

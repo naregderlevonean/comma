@@ -7,3 +7,5 @@ addons = {}
 plugins = {}
 animations = {}
 themes = {}
+
+isSpecialWorkspace = false

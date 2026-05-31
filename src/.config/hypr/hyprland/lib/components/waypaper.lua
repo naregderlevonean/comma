@@ -2,7 +2,7 @@ local M = {}
 local random = require("hyprland.lib.helpers.random")
 
 local function reset()
-    os.execute("killall mpvpaper hyprpaper waypaper >/dev/null 2>&1")
+    hl.exec_cmd("killall mpvpaper hyprpaper waypaper >/dev/null 2>&1")
 end
 
 local function play(filename)
