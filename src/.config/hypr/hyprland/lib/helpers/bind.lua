@@ -11,7 +11,7 @@ local function get_system_time()
 end
 
 function M.double(action, delay_ms)
-    local max_delay = (delay_ms or 500) / 1000
+    local max_delay = (delay_ms or 200) / 1000
     local last_time = 0 
 
     return function()
