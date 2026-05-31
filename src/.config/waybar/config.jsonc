@@ -28,7 +28,7 @@
         ],
         "output": ["eDP-1"],
         "position": "top",
-        "spacing": 16
+        "spacing": 16,
     },
     {
         "height": 64,
@@ -48,7 +48,7 @@
         ],
         "output": ["eDP-1"],
         "position": "bottom",
-        "spacing": 16
+        "spacing": 16,
     },
     {
         "exclusive": false,
@@ -59,7 +59,7 @@
         "name": "left",
         "output": ["eDP-1"],
         "position": "left",
-        "spacing": 16
+        "spacing": 16,
         "width": 16,
     }
 ]

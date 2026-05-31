@@ -148,6 +148,15 @@
         "on-click": "kitty -e histui",
         "return-type": "json"
     },
+    "custom/osk": {
+        "exec": "waybar-bridge components.osk.status",
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl eval 'components.osk.toggle()()'; pkill -RTMIN+7 waybar",
+        "return-type": "json",
+        "signal": 7,
+        "tooltip": false
+    },
     "custom/picker": {
         "format": "",
         "interval": "once",
@@ -314,6 +323,7 @@
             "custom/tools",
             "custom/autorotate",
             "custom/mousetrap",
+            "custom/osk",
             "custom/hyprsunset",
             "custom/hyprshade"
         ],
