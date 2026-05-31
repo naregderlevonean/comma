@@ -51,7 +51,7 @@
         "spacing": 16
     },
     {
-        "width": 16,
+        "exclusive": false,
         "include": [ "./modules.jsonc" ],
         "layer": "top",
         "modifier-reset": "release",
@@ -60,5 +60,6 @@
         "output": ["eDP-1"],
         "position": "left",
         "spacing": 16
+        "width": 16,
     }
 ]
