@@ -21,7 +21,7 @@ end
 function M.stop(program)
     local name = program:match("%S+")
     if not name then return end
-    hl.exec_cmd("killall " .. name .. " 2>/dev/null")
+    hl.exec_cmd("pkill -9 -x " .. name .. " 2>/dev/null")
 end
 
 function M.toggle(program)

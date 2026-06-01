@@ -1,6 +1,7 @@
 components.hyprsunset = require("hyprland.lib.components.hyprsunset")
 components.osk = require("hyprland.lib.components.osk")
 components.shader = require("hyprland.lib.components.shader")
+components.shimeji = require("hyprland.lib.components.shimeji")
 components.walker = require("hyprland.lib.components.walker")
 components.waybar = require("hyprland.lib.components.waybar")
 components.waypaper = require("hyprland.lib.components.waypaper")
