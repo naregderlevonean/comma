@@ -1,0 +1,6 @@
+actions.purge = require("hyprland.lib.actions.purge")
+actions.scoped = require("hyprland.lib.actions.scoped")
+actions.specialworkspace = require("hyprland.lib.actions.specialworkspace")
+actions.window = require("hyprland.lib.actions.window")
+actions.workspace = require("hyprland.lib.actions.workspace")
+actions.zoom = require("hyprland.lib.actions.zoom")

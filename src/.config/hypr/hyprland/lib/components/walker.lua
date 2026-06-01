@@ -8,24 +8,20 @@ end
 
 function M.start(arguments) 
     return function() 
-        hl.dispatch(hl.dsp.focus({ workspace = "+0" }))
-        helpers.process.start(command(arguments)) 
+        system.process.start(command(arguments)) 
     end 
 end
 
 function M.stop(arguments) 
     return function() 
-        hl.dispatch(hl.dsp.focus({ workspace = "+0" }))
-        helpers.process.stop(command(arguments)) 
+        system.process.stop(command(arguments)) 
     end 
 end
 
 function M.toggle(arguments) 
     return function() 
-        hl.dispatch(hl.dsp.focus({ workspace = "+0" }))
-        helpers.process.toggle(command(arguments)) 
+        system.process.toggle(command(arguments)) 
     end 
 end
 
 return M
-

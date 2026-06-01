@@ -6,23 +6,34 @@ local current = 0
 local total = 0
 local last = 1
 
-local function get_shader_name(path)
+local function name(path)
     if not path or path == "" then return "None" end
     return path:match("([^/]+)%.glsl$") or "Unknown"
 end
 
 local function notify(path)
-    local name = get_shader_name(path)
-    local command = string.format("notify-send -r 9119 -t 1500 'Hyprland' 'Shader: %s' >/dev/null 2>&1 &", helpers.string.escape(name))
+    local name = name(path)
+    local command = string.format("notify-send -r 9119 -t 1500 'Hyprland' 'Shader: %s' >/dev/null 2>&1 &", base.string.escape(name))
     hl.exec_cmd(command)
 end
 
-function init()
+local function apply(index)
+    current = index
+    if index > 0 then
+        last = index
+    end
+    local path = id2path[index] or ""
+    
+    hl.config({ decoration = { screen_shader = path } })
+    notify(path)
+end
+
+local function init()
     id2path = {}
     path2id = {}
     
     local dir = os.getenv("SHADERS") or (os.getenv("HOME") .. "/.config/hypr/shaders")
-    local command = string.format("find %s -maxdepth 1 -name '*.glsl' | sort 2>/dev/null", helpers.string.escape(dir))
+    local command = string.format("find %s -maxdepth 1 -name '*.glsl' | sort 2>/dev/null", base.string.escape(dir))
     
     local p = io.popen(command)
     if p then
@@ -43,43 +54,43 @@ function init()
     if hl.get_config then
         local active = hl.get_config("decoration:screen_shader")
         current = path2id[active] or 0
+        if current > 0 then
+            last = current
+        end
     else
         current = 0
     end
 end
 
-local function apply(index)
-    current = index
-    if index > 0 then
-        last = index
-    end
-    local path = id2path[index] or ""
+local function switch(step)
+    if total == 0 then return end
     
-    hl.config({ decoration = { screen_shader = path } })
-    notify(path)
+    local next
+    if current == 0 then
+        next = (step > 0) and 1 or total
+    else
+        next = current + step
+        if next > total then
+            next = 1
+        elseif next < 1 then
+            next = total
+        end
+    end
+    
+    apply(next)
 end
 
-local function cycle(step)
-    return function()
-        if total == 0 then return end
-        
-        local next
-        if current == 0 then
-            next = (step > 0) and 1 or total
-        else
-            next = (current - 1 + step) % total + 1
-        end
-        
-        apply(next)
-    end
-end
 
 M.next = function()
-    return cycle(1)
+    return function()
+        switch(1)
+    end
 end
 
 M.prev = function()
-    return cycle(-1)
+    return function()
+        switch(-1)
+    end
 end
 
 function M.off()

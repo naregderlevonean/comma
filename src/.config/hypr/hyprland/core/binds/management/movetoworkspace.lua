@@ -1,15 +1,47 @@
-hl.bind("SUPER + CTRL + ALT + Up",   helpers.workspace.movewindowprev())
-hl.bind("SUPER + CTRL + ALT + Down", helpers.workspace.movewindownext())
-
-hl.bind("SUPER + CTRL + ALT + Home", helpers.workspace.movewindowhome())
-hl.bind("SUPER + CTRL + ALT + End",  helpers.workspace.movewindowlast())
-
-hl.bind("SUPER + CTRL + ALT + Left",  hl.dsp.window.move({ workspace = "special" }))
 hl.bind(
-    "SUPER + SHIFT + CTRL + ALT + Right",
-    helpers.scoped.workspace(
-        hl.dsp.window.move({ workspace = "+0" }),
+    "SUPER + CTRL + ALT + Up",
+    actions.scoped.workspace(
+        actions.window.move("prev", { follow = true }),
         { exclude = { "special:stylus", "special:radio" } }
     )
 )
 
+hl.bind(
+    "SUPER + CTRL + ALT + Down",
+    actions.scoped.workspace(
+        actions.window.move("next", { follow = true }),
+        { exclude = { "special:stylus", "special:radio" } }
+    )
+)
+
+hl.bind(
+    "SUPER + CTRL + ALT + Home",
+    actions.scoped.workspace(
+        actions.window.move("home", { follow = true }),
+        { exclude = { "special:stylus", "special:radio" } }
+    )
+)
+
+hl.bind(
+    "SUPER + CTRL + ALT + End",
+    actions.scoped.workspace(
+        actions.window.move("last", { follow = true }),
+        { exclude = { "special:stylus", "special:radio" } }
+    )
+)
+
+hl.bind(
+    "SUPER + CTRL + ALT + Left",
+    actions.scoped.workspace(
+        hl.dsp.window.move({ workspace = "special" }),
+        { exclude = { "special:stylus", "special:radio" } }
+    )
+)
+
+hl.bind(
+    "SUPER + SHIFT + CTRL + ALT + Right",
+    actions.scoped.workspace(
+        hl.dsp.window.move({ workspace = "+0" }),
+        { exclude = { "special:stylus", "special:radio" } }
+    )
+)

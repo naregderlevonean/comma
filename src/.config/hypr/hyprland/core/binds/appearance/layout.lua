@@ -1,7 +1,7 @@
 local function scrolling(width)
     if hl.get_config("general.layout") == "scrolling" then
-        helpers.scheduler.config({ general = { layout = "monocle" } })
-        helpers.scheduler.config({
+        system.scheduler.config({ general = { layout = "monocle" } })
+        system.scheduler.config({
             general = { layout = "scrolling" },
             scrolling = { column_width = width }
         })

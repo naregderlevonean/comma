@@ -1,5 +1,5 @@
 local function launch(application)
-    return helpers.scoped.workspace(
+    return actions.scoped.workspace(
         hl.dsp.exec_cmd(application),
         { exclude = { "special:stylus", "special:radio" } }
     )

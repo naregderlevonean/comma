@@ -11,24 +11,24 @@ local arguments = "-H 320 -L 320 -R 16 -alpha 148"
 
 function M.start()
     return function()
-        helpers.process.start(string.format("%s %s", process, arguments))
+        system.process.start(string.format("%s %s", process, arguments))
     end
 end
 
 function M.stop()
     return function()
-        helpers.process.stop(process)
+        system.process.stop(process)
     end
 end
 
 function M.toggle()
     return function()
-        helpers.process.toggle(string.format("%s %s", process, arguments))
+        system.process.toggle(string.format("%s %s", process, arguments))
     end
 end
 
 function M.status()
-    return helpers.process.status(process)
+    return system.process.status(process)
 end
 
 return M

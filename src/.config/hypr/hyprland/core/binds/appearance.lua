@@ -1,8 +1,10 @@
+require("hyprland.core.binds.appearance.hyprsunset")
 require("hyprland.core.binds.appearance.layout")
-require("hyprland.core.binds.appearance.nightmode")
 require("hyprland.core.binds.appearance.shader")
 require("hyprland.core.binds.appearance.shimeji")
 require("hyprland.core.binds.appearance.theme")
 require("hyprland.core.binds.appearance.waypaper")
 require("hyprland.core.binds.appearance.zoom")
-
+require("hyprland.core.binds.appearance.poweroff")
+require("hyprland.core.binds.appearance.walker")
+require("hyprland.core.binds.appearance.waybar")

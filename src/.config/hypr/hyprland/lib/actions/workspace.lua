@@ -17,7 +17,7 @@ local function workspaces()
     return active.id, occupied
 end
 
-local function compute(direction)
+function M.compute(direction)
     local current, occupied = workspaces()
     if not current then return nil end
 
@@ -53,35 +53,13 @@ local function compute(direction)
     return (target ~= current) and target or nil
 end
 
-local function focus(direction)
+function M.focus(direction)
     return function()
-        local target = compute(direction)
+        local target = M.compute(direction)
         if target then
             hl.dispatch(hl.dsp.focus({ workspace = tostring(target) }))
         end
     end
-end
-
-local function movetoworkspace(direction, follow)
-    return function()
-        local target = compute(direction)
-        if target then
-            local arguments = { workspace = tostring(target) }
-            if follow ~= nil then arguments.follow = follow end
-            hl.dispatch(hl.dsp.window.move(arguments))
-        end
-    end
-end
-
-local directions = { "next", "prev", "home", "last" }
-
-for _, direction in ipairs(directions) do
-    M[direction] = function() return focus(direction) end
-end
-
-for _, direction in ipairs(directions) do
-    M["movewindow" .. direction] = function() return movetoworkspace(direction) end
-    M["movewindow" .. direction .. "silent"] = function() return movetoworkspace(direction, false) end
 end
 
 return M
