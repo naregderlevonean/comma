@@ -127,7 +127,7 @@
     },
     "custom/mousetrap": {
         "exec": "waybar-bridge addons.mousetrap.status",
-        "format": "",
+        "format": "",
         "interval": "once",
         "on-click": "hyprctl eval 'addons.mousetrap.toggle()()'",
         "return-type": "json",
