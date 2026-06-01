@@ -39,7 +39,7 @@ hl.bind(
 )
 
 hl.bind(
-    "SUPER + SHIFT + CTRL + ALT + Right",
+    "SUPER + CTRL + ALT + Right",
     actions.scoped.workspace(
         hl.dsp.window.move({ workspace = "+0" }),
         { exclude = { "special:stylus", "special:radio" } }

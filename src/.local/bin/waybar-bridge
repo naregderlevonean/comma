@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
 fi
 
 FUNC_NAME="$1"
-PIPE="/tmp/waybar_hypr_${FUNC_NAME}.pipe"
+PIPE="/tmp/waybar-bridge-${FUNC_NAME}.pipe"
 
 mkfifo "$PIPE" 2>/dev/null
 

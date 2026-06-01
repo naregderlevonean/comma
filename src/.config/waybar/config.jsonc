@@ -26,6 +26,8 @@
             "custom/separator",
             "group/shutdown"
         ],
+        "on-sigusr1": "show",
+        "on-sigusr2": "hide",
         "output": ["eDP-1"],
         "position": "top",
         "spacing": 16,
@@ -46,6 +48,8 @@
         "modules-right": [
            "hyprland/workspaces#windows"
         ],
+        "on-sigusr1": "show",
+        "on-sigusr2": "hide",
         "output": ["eDP-1"],
         "position": "bottom",
         "spacing": 16,
@@ -57,6 +61,8 @@
         "modifier-reset": "release",
         "modules-center": ["hyprland/workspaces"],
         "name": "left",
+        "on-sigusr1": "show",
+        "on-sigusr2": "hide",
         "output": ["eDP-1"],
         "position": "left",
         "spacing": 16,
@@ -68,6 +74,8 @@
         "layer": "bottom",
         "modifier-reset": "release",
         "name": "right",
+        "on-sigusr1": "show",
+        "on-sigusr2": "hide",
         "output": ["eDP-1"],
         "position": "right",
         "spacing": 16,

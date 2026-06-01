@@ -41,7 +41,7 @@
     "custom/apps": {
         "format": "",
         "interval": "once",
-        "on-click": "walker",
+        "on-click": "hyprctl eval 'actions.scoped.workspace(components.walker.toggle(), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
         "tooltip": false
     },
     "custom/authenticator": {
@@ -111,10 +111,10 @@
         "tooltip": false
     },
     "custom/hyprsunset": {
-        "exec": "waybar-bridge components.nightmode.status",
+        "exec": "waybar-bridge components.hyprsunset.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.nightmode.toggle()()'; pkill -RTMIN+7 waybar",
+        "on-click": "hyprctl eval 'components.hyprsunset.toggle()()'; pkill -RTMIN+7 waybar",
         "return-type": "json",
         "signal": 7,
         "tooltip": false
@@ -177,7 +177,7 @@
     "custom/radio": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'helpers.specialworkspace.toggle(\"radio\")()'", 
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"radio\", { start = function() components.waybar.hide()() end, stop = function() components.waybar.show()() end })()'",
         "tooltip": false
     },
     "custom/reboot": {
@@ -199,13 +199,13 @@
     "custom/special": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'helpers.specialworkspace.toggle()()'", 
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"\", { start = function() components.waybar.hide()() end, stop = function() components.waybar.show()() end })()'",
         "tooltip": false
     },
     "custom/stylus": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'helpers.specialworkspace.toggle(\"stylus\")()'", 
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"stylus\", { start = function() components.waybar.hide()() end, stop = function() components.waybar.show()() end })()'",
         "tooltip": false
     },
     "custom/suspend": {
@@ -356,8 +356,8 @@
             "persistent": "·"
         },
         "interval": "once",
-        "on-scroll-down": "hyprctl eval 'helpers.workspace.next()()'",
-        "on-scroll-up": "hyprctl eval 'helpers.workspace.prev()()'",
+        "on-scroll-down": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"next\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
+        "on-scroll-up": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"prev\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
         "smooth-scrolling-threshold": 3
     },
     "hyprland/workspaces#windows": {
