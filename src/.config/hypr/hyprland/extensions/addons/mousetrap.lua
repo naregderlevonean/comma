@@ -15,7 +15,7 @@ mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }
 
 mousetrap.bind("top-right", function() hl.dsp.exec_cmd("hyprlock") end, { delay = 1000 })
 
-mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { flick = 160 })
-mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { flick = 160 })
+mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { flick = 150 })
+mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { flick = 150 })
 
 addons.mousetrap = mousetrap
