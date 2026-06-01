@@ -33,7 +33,10 @@ hl.bind(
 hl.bind(
     "SUPER + CTRL + ALT + Left",
     actions.scoped.workspace(
-        hl.dsp.window.move({ workspace = "special" }),
+        actions.window.stash({
+            workspace = "special",
+            callback = function() components.waybar.hide()() end
+        }),
         { exclude = { "special:stylus", "special:radio" } }
     )
 )
@@ -41,7 +44,10 @@ hl.bind(
 hl.bind(
     "SUPER + CTRL + ALT + Right",
     actions.scoped.workspace(
-        hl.dsp.window.move({ workspace = "+0" }),
+        actions.window.stash({
+            workspace = "+0",
+            callback = function() components.waybar.show()() end
+        }),
         { exclude = { "special:stylus", "special:radio" } }
     )
 )

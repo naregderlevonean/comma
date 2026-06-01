@@ -29,7 +29,7 @@ end
 
 function M.move(direction, options)
     local opts = options or {}
-    local follow_target = (opts.follow ~= nil) and opts.follow or false
+    local follow = (opts.follow ~= nil) and opts.follow or false
 
     return function()
         local target = workspace.compute(direction)
@@ -37,11 +37,30 @@ function M.move(direction, options)
         if target then
             hl.dispatch(hl.dsp.window.move({
                 workspace = tostring(target),
-                follow = follow_target
+                follow = follo
             }))
         end
     end
 end
+
+function M.stash(options)
+    local opts = options or {}
+    local target_workspace = opts.workspace or "special"
+    local mode = (opts.follow ~= nil) and opts.follow or true
+    local callback = opts.callback
+
+    return function()
+        hl.dispatch(hl.dsp.window.move({ 
+            workspace = target_workspace, 
+            follow = mode 
+        }))
+        
+        if type(callback) == "function" then
+            callback()
+        end
+    end
+end
+
 
 function M.float(options)
     local settings = options or { width = 1200, height = 800 }
