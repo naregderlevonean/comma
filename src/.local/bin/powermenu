@@ -16,11 +16,13 @@ waybar() {
 confirm() {
     if [ "$SKIP_CONFIRM" = "true" ]; then
         systemctl "$1"
+        waybar "show"
         return
     fi
 
     if zenity --question --title="" --text="Do you want to $2?"; then
         systemctl "$1"
+        waybar "show"
     else
         waybar "show"
     fi
@@ -29,6 +31,7 @@ confirm() {
 closeall() {
     if [ "$SKIP_CONFIRM" = "true" ]; then
         hyprctl eval "hl.dispatch(helpers.purge.init())"
+        waybar "show"
         return
     fi
 
@@ -125,4 +128,3 @@ case "$1" in
         exit 1
         ;;
 esac
-
