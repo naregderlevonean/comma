@@ -4,13 +4,6 @@ A modular, Lua-driven configuration framework for the Hyprland compositor.
 
 
 
-
-## Architectural Overview
-
-This repository replaces traditional monolithic `hyprland.conf` deployments with a structured, programmable Lua API. The architecture isolates system core parameters, input maps, visual definitions, and functional keybindings into decoupled modules.
-
-
-
 ### Core Design Principles
 
 - **Programmatic Control:** Uses Lua to evaluate conditions, manage states, and build abstractions dynamically.
