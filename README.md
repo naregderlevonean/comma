@@ -77,15 +77,15 @@ Before launching the session, the following files must be reviewed and adjusted 
 
 ### Application Launchers
 
-| **Key Sequence**    | **Action**                               |
-| ------------------- | ---------------------------------------- |
-| `SUPER + 1`         | Launch Kitty                             |
-| `SUPER + SHIFT + 1` | Launch Kitty (Root Shell)                |
-| `SUPER + 2`         | Launch Nautilus                          |
-| `SUPER + 3`         | Launch Firefox                           |
-| `SUPER + SHIFT + 3` | Launch Firefox (Private Window)          |
-| `SUPER + 4`         | Launch Obsidian                          |
-| `SUPER + 5`         | Launch Firefox Progressive Web App (PWA) |
+| **Key Sequence**| **Action**|
+| --- | --- |
+| `SUPER + 1`| Launch Kitty|
+| `SUPER + SHIFT + 1` | Launch Kitty (Root Shell)|
+| `SUPER + 2`| Launch Nautilus|
+| `SUPER + 3`| Launch Firefox|
+| `SUPER + SHIFT + 3` | Launch Firefox (Private Window)|
+| `SUPER + 4`| Launch Obsidian|
+| `SUPER + 5`| Launch Todoist |
 
 
 
@@ -195,8 +195,6 @@ Before launching the session, the following files must be reviewed and adjusted 
 
 
 ## System Dependencies
-
-
 
 - **Status Bar:** `waybar`
 - **Launcher:** `walker`
