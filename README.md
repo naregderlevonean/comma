@@ -4,16 +4,6 @@ A modular, Lua-driven configuration framework for the Hyprland compositor.
 
 
 
-### Core Design Principles
-
-- **Programmatic Control:** Uses Lua to evaluate conditions, manage states, and build abstractions dynamically.
-    
-- **Decoupled Visual Profiles:** Separates color themes from animation kinematics, allowing runtime combinations without cross-dependency.
-    
-- **Hardware Abstraction:** Isolates host-specific peripherals, display arrangements, and environment initializations from the central WM logic.
-
-
-
 
 ## Repository Structure
 
@@ -208,26 +198,16 @@ Before launching the session, the following files must be reviewed and adjusted 
 
 
 
-### Environment Components
-
-- **Status Bar:** Waybar
-- **Wallpaper Daemons:** Waypaper, Hyprpaper, Mpvpaper
-- **Idle Management:** Hypridle, Hyprlock
-- **Color Temperature:** Hyprsunset
-
-
-
-### Core Software Array
-
-- **Terminal Emulator:** Kitty    
-- **Web Browser:** Firefox
-- **File Manager:** Nautilus  
-
-
-
-### Command-line Utilities
-
-- `brightnessctl` — Backlight subsystem control    
-- `pamixer` — PulseAudio/PipeWire volume management via CLI
-- `notify-send` — Desktop notification routing
+- **Status Bar:** `waybar`
+- **Launcher:** `walker`
+- **Wallpaper Daemons:** `waypaper`, `hyprpaper`, `mpvpaper`
+- **Idle Management:** `hypridle`, `hyprlock`
+- **Color Temperature:** `hyprsunset`
+- **OSK**: `wvkbd`
+- **Terminal Emulator:** `kitty`
+- **Web Browser:** `firefox`
+- **File Manager:** `nautilus`
+- **Backlight**: `brightnessctl`
+- **Audio**: `pamixer`
+- **Notifications**: `notify-send`, `histui`
 
