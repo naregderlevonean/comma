@@ -5,9 +5,10 @@ hl.config({
     }
 })
 
-require("hyprland.core.config.layout.custom")
 require("hyprland.core.config.layout.dwindle")
 require("hyprland.core.config.layout.master")
 require("hyprland.core.config.layout.monocle")
 require("hyprland.core.config.layout.scrolling")
+require("hyprland.core.config.layout.grid")
+require("hyprland.core.config.layout.columns")
 

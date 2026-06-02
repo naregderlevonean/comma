@@ -5,4 +5,3 @@ require("hyprland.visual")
 require("hyprland.core")
 require("hyprland.init")
 
-

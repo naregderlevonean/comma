@@ -1,0 +1,5 @@
+require("hyprland.core.binds.components.shader")
+require("hyprland.core.binds.components.shimeji")
+require("hyprland.core.binds.components.walker")
+require("hyprland.core.binds.components.waybar")
+require("hyprland.core.binds.components.waypaper")

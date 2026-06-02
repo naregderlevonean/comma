@@ -42,7 +42,7 @@ function hyprbars.toggle()
     end
 end
 
-hl.bind("SUPER + Escape", hyprbars.toggle)
+hl.bind("SUPER + CTRL + Space", hyprbars.toggle)
 
 plugins.hyprbars = hyprbars
 

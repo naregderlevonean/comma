@@ -32,3 +32,12 @@ hl.bind("SUPER + SHIFT + ALT + 5", function()
     hl.config({ general = { layout = "master" } })
 end)
 
+hl.bind("SUPER + SHIFT + ALT + 6", function()
+    hl.config({ general = { layout = "lua:grid" } })
+end)
+
+hl.bind("SUPER + SHIFT + ALT + 7", function()
+    hl.config({ general = { layout = "lua:columns" } })
+end)
+
+
