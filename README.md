@@ -199,6 +199,8 @@ Before launching the session, the following files must be reviewed and adjusted 
 
 ### Backlight
 
+| **Key Sequence** | **Action** |
+| --- | --- |
 | `XF86MonBrightnessDown` | Decrement backlight 1% |
 | `ALT + XF86MonBrightnessDown` | Decrement backlight 5% |
 | `SHIFT + XF86MonBrightnessDown` | Set backlight to 1% |
