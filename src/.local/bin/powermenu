@@ -14,6 +14,11 @@ waybar() {
 }
 
 confirm() {
+    if [ "$SKIP_CONFIRM" = "true" ]; then
+        systemctl "$1"
+        return
+    fi
+
     if zenity --question --title="" --text="Do you want to $2?"; then
         systemctl "$1"
     else
@@ -22,6 +27,11 @@ confirm() {
 }
 
 closeall() {
+    if [ "$SKIP_CONFIRM" = "true" ]; then
+        hyprctl eval "hl.dispatch(helpers.purge.init())"
+        return
+    fi
+
     if zenity --question --title="" --text="Are you want to close all open applications?"; then
         hyprctl eval "hl.dispatch(helpers.purge.init())"
     else
@@ -35,6 +45,11 @@ lock() {
 }
 
 terminate() {
+    if [ "$SKIP_CONFIRM" = "true" ]; then
+        loginctl terminate-user "$USER"
+        return
+    fi
+
     if zenity --question --title="" --text="Are you want to Exit?"; then
         loginctl terminate-user "$USER"
     else
@@ -69,6 +84,8 @@ dialog() {
         --extra-button "" \
         --extra-button "" \
         --timeout="16" )
+
+    export SKIP_CONFIRM="true"
 
     case "$choice" in
         "")
@@ -108,5 +125,4 @@ case "$1" in
         exit 1
         ;;
 esac
-
 
