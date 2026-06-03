@@ -4,7 +4,7 @@ function M.init()
     components.waybar.stop()
     hl.config({
         general = {
-            layout = "dwindle",
+            layout = "lua:grid",
         },
         decoration = {
             rounding = 24,

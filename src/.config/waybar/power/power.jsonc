@@ -1,0 +1,52 @@
+{
+    "group/power": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+            "idle_inhibitor"
+        ],
+        "orientation": "inherit"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "charging": [
+                ""
+            ],
+            "default": [
+                ""
+            ]
+        },
+        "interval": "60",
+        "states": {
+            "critical": 20,
+            "warning": 30
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "interval": "once"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            "balanced": "",
+            "default": "",
+            "performance": "",
+            "power-saver": ""
+        },
+        "interval": "once",
+        "tooltip": true,
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
+    },
+}
+

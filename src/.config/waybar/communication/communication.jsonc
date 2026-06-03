@@ -1,0 +1,28 @@
+{
+    "bluetooth": {
+        "format": "",
+        "format-connected": "",
+        "format-disabled": "",
+        "interval": "once",
+        "on-click": "[[ $(bluetoothctl show | grep \"Powered: yes\") ]] && bluetoothctl power off || bluetoothctl power on",
+        "on-click-right": "overskride",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "network": {
+        "format": "",
+        "format-disconnected": "",
+        "format-ethernet": "󰊗",
+        "format-wifi": "",
+        "interface": "wlan0",
+        "interval": "once",
+        "on-click": "iwctl device wlan0 show | grep -q \"Powered\\s*on\" && rfkill block wlan || rfkill unblock wlan",
+        "on-click-right": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) "
+    },
+}
+

@@ -1,0 +1,7 @@
+#custom-pinned:hover {
+    color: @accent_color;
+}
+
+#pinned .drawer-child * {
+    margin-left: 16px;
+}

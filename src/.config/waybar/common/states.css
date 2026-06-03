@@ -7,11 +7,6 @@
     opacity: 0.3;
 }
 
-.drawer-child *:hover {
-    color: @accent_color;
-    opacity: 1;
-}
-
 .normal {
     color: @text_color;
 }
@@ -27,4 +22,9 @@
 
 .warning {
     color: @warning_color;
+}
+
+.drawer-child *:hover {
+    color: @accent_color;
+    opacity: 1;
 }

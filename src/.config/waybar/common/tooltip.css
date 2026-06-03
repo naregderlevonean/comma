@@ -1,0 +1,9 @@
+tooltip {
+    background: @shade_color;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @view_fg_color;
+    margin: 8px;
+}

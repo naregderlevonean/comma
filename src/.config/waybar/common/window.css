@@ -1,0 +1,15 @@
+window#waybar {
+    background: rgba(0, 0, 0, 0.16);
+}
+
+window.left#waybar {
+    background: rgba(0, 0, 0, 0);
+}
+
+window.right#waybar {
+    background: rgba(0, 0, 0, 0);
+}
+
+#window * {
+    color: @text_color;
+}

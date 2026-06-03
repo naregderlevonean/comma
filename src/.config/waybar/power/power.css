@@ -1,0 +1,41 @@
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#battery.discharging.critical {
+    animation: blink 1s infinite;
+}
+
+#idle_inhibitor {
+    color: @text_color;
+}
+
+#idle_inhibitor.deactivated {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+#power .drawer-child * {
+    margin-left: 16px;
+}
+
+#power-profiles-daemon.balanced {
+    color: @text_color;
+    opacity: 0.3;
+}
+
+#power-profiles-daemon.performance {
+    color: @error_color;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @success_color;
+}

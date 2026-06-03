@@ -1,0 +1,38 @@
+{
+    "group/clock": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/time",
+            "custom/separator",
+            "custom/date",
+            "custom/separator",
+            "custom/weather"
+        ],
+        "orientation": "inherit"
+    },
+    "custom/date": {
+        "exec": "date +'%a / %b %d'",
+        "format": "{}",
+        "interval": 3600,
+        "on-click": "gnome-calendar",
+        "tooltip": false
+    },
+    "custom/time": {
+        "exec": "date +'%H:%M'",
+        "format": "{}",
+        "interval": 60,
+        "on-click": "gnome-clocks",
+        "tooltip": false
+    },
+    "custom/weather": {
+        "exec": "curl 'wttr.in?format=%t'",
+        "format": "{}",
+        "interval": 3600,
+        "on-click": "gnome-weather",
+        "tooltip": false
+    },
+}
+

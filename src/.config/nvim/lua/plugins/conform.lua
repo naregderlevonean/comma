@@ -18,7 +18,10 @@ return {
 					prepend_args = { "--indent", "4" },
 				},
 			},
-			format_on_save = false,
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_format = "fallback",
+            },
 		})
 	end,
 }

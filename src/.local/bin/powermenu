@@ -1,80 +1,42 @@
 #!/bin/sh
 
-waybar() {
-    case "$1" in
-        "hide")
-            killall -SIGUSR2 waybar
-            ;;
-        "show")
-            killall -SIGUSR1 waybar
-            ;;
-        *)
-            ;;
-    esac
+PROCESS="zenity"
+
+is_process_running() {
+    pgrep "$1" > /dev/null 2>&1
+    return $?
 }
 
-confirm() {
-    if [ "$SKIP_CONFIRM" = "true" ]; then
-        systemctl "$1"
-        waybar "show"
-        return
-    fi
-
-    if zenity --question --title="" --text="Do you want to $2?"; then
-        systemctl "$1"
-        waybar "show"
-    else
-        waybar "show"
-    fi
+message() {
+    zenity --question --title="" --text="Do you want to $2" &&  systemctl "$1"
 }
 
 closeall() {
-    if [ "$SKIP_CONFIRM" = "true" ]; then
-        hyprctl eval "hl.dispatch(helpers.purge.init())"
-        waybar "show"
-        return
-    fi
-
-    if zenity --question --title="" --text="Are you want to close all open applications?"; then
-        hyprctl eval "hl.dispatch(helpers.purge.init())"
-    else
-        waybar "show"
-    fi
+    zenity --question --title="" --text="Are your want to close all open applications?" && hyprctl eval "hl.dispatch(helpers.purge.init())"
 }
 
 lock() {
     hyprlock
-    waybar "show"
 }
 
 terminate() {
-    if [ "$SKIP_CONFIRM" = "true" ]; then
-        loginctl terminate-user "$USER"
-        return
-    fi
-
-    if zenity --question --title="" --text="Are you want to Exit?"; then
-        loginctl terminate-user "$USER"
-    else
-        waybar "show"
-    fi
+    zenity --question --title="" --text="Are your want to Exit?" && loginctl terminate-user $USER
 }
 
 suspend() {
-    confirm "suspend" "Suspend"
+    message "suspend" "Suspend"
 }
 
 restart() {
-    confirm "reboot" "Reboot"
+    message "reboot" "Reboot"
 }
 
 poweroff() {
-    confirm "poweroff" "Power Off"
+    message "poweroff" "Power Off"
 }
 
 dialog() {
-    pkill -x "zenity" 2>/dev/null
-    waybar "hide"
+    is_process_running "$PROCESS" && killall "$PROCESS"
 
     choice=$(zenity --info \
         --title "" \
@@ -88,29 +50,26 @@ dialog() {
         --extra-button "" \
         --timeout="16" )
 
-    export SKIP_CONFIRM="true"
-
     case "$choice" in
         "")
             closeall
             ;;
         "")  
-            lock
+            hyprlock
             ;;
         "")  
-            terminate
+            loginctl terminate-user $USER
             ;;
         "")  
-            suspend
+            systemctl suspend
             ;;
         "")  
-            restart
+            systemctl reboot
             ;;
         "")  
-            poweroff
+            systemctl poweroff
             ;;
-        *)
-            waybar "show"
+        *) 
             exit 1
             ;;
     esac
@@ -121,7 +80,6 @@ case "$1" in
         dialog
         ;;
     closeall|lock|terminate|suspend|restart|poweroff)
-        waybar "hide"
         "$1"
         ;;
     *)

@@ -1,0 +1,23 @@
+#backlight .drawer-child * {
+    margin: 0;
+    padding: 0;
+    padding-right: 8px;
+}
+
+#backlight-slider slider {
+    background: #ededed;
+    border: 2px solid #ededed;
+    box-shadow: none;
+    min-height: 0px;
+    min-width: 0px;
+}
+
+#backlight-slider trough {
+    background: rgba(239, 239, 239, 0.3);
+    min-width: 128px;
+}
+
+#backlight-slider highlight {
+    background: #ededed;
+    min-width: 1px;
+}

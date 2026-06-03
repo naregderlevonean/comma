@@ -19,11 +19,11 @@ hl.gesture({
 hl.gesture({
     fingers = 4,
     direction = "left",
-    action = actions.specialworkspace.start("", function() components.waybar.hide()() end)
+    action = actions.specialworkspace.start()
 })
 
 hl.gesture({
     fingers = 4,
     direction = "right",
-    action = actions.specialworkspace.stop(function() components.waybar.show()() end)
+    action = actions.specialworkspace.stop()
 })

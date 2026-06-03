@@ -1,0 +1,50 @@
+{
+    "group/pulseaudio": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ],
+        "orientation": "inherit"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-icons": {
+            "car": "",
+            "default": [
+                "",
+                ""
+            ],
+            "hands-free": "",
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": ""
+        },
+        "format-muted": "",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ],
+        "interval": "once",
+        "on-click": "pamixer --toggle-mute ",
+        "on-click-right": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center sound",
+        "reverse-scrolling": true,
+        "scroll-step": 3,
+        "states": {
+            "normal": 50,
+            "warning": 80,
+            "critical": 1000
+        },
+        "tooltip-format": "{desc}\n{volume} %"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    }
+}

@@ -1,0 +1,11 @@
+#custom-specialworkspace {
+    color: @warning_color;
+    margin-left: 32px;
+}
+
+#custom-specialworkspace:hover,
+#custom-specialworkspace-radio:hover,
+#custom-specialworkspace-stylus:hover
+{
+    color: @accent_color;
+}

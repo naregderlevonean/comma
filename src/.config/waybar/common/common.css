@@ -1,0 +1,16 @@
+#custom-apps {
+    margin-left: 32px;
+}
+
+#custom-apps:hover {
+    color: @accent_color;
+}
+
+#custom-notifications.error {
+    color: @text_color;
+    opacity: 0.32;
+}
+
+#custom-separator {
+    opacity: 0.3;
+}

@@ -1,8 +1,17 @@
 [
     {
         "height": 64,
-        "include": [ "./modules.jsonc" ],
-        "layer": "top",
+        "include": [
+            "backlight/backlight.jsonc",
+            "clock/clock.jsonc",
+            "common/common.jsonc",
+            "communication/communication.jsonc",
+            "hyprland/hyprland.jsonc",
+            "power/power.jsonc",
+            "pulseaudio/pulseaudio.jsonc",
+            "shutdown/shutdown.jsonc",
+            "tools/tools.jsonc"
+        ],
         "modifier-reset": "release",
         "modules-left": [
             "custom/apps",
@@ -15,9 +24,9 @@
         ],
         "modules-center": ["group/clock"],
         "modules-right": [
-            "group/volume",
+            "group/pulseaudio",
             "custom/separator",
-            "group/brightness",
+            "group/backlight",
             "custom/separator",
             "bluetooth",
             "network",
@@ -34,14 +43,18 @@
     },
     {
         "height": 64,
-        "include": [ "./modules.jsonc" ],
-        "layer": "top",
+        "include": [
+            "common/common.jsonc",
+            "hyprland/hyprland.jsonc",
+            "pinned/pinned.jsonc",
+            "specialworkspace/specialworkspace.jsonc",
+        ],
         "modifier-reset": "release",
         "modules-left": [
-            "custom/special",
+            "custom/specialworkspace",
             "custom/separator",
-            "custom/stylus",
-            "custom/radio",
+            "custom/specialworkspace-stylus",
+            "custom/specialworkspace-radio",
             "custom/separator",
             "group/pinned",
         ],
@@ -56,8 +69,9 @@
     },
     {
         "exclusive": false,
-        "include": [ "./modules.jsonc" ],
-        "layer": "bottom",
+        "include": [
+            "hyprland/hyprland.jsonc",
+        ],
         "modifier-reset": "release",
         "modules-center": ["hyprland/workspaces"],
         "name": "left",
@@ -70,8 +84,6 @@
     },
     {
         "exclusive": false,
-        "include": [ "./modules.jsonc" ],
-        "layer": "bottom",
         "modifier-reset": "release",
         "name": "right",
         "on-sigusr1": "show",

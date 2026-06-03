@@ -1,0 +1,65 @@
+{
+    "group/pinned": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/pinned",
+            "custom/waypaper",
+            "custom/calculator",
+            "custom/translator",
+            "custom/character",
+            "custom/picker",
+            "custom/screenshot",
+            "custom/authenticator"
+        ],
+        "orientation": "inherit"
+    },
+    "custom/authenticator": {
+        "format": "",
+        "interval": "once",
+        "on-click": "authenticator",
+        "tooltip": false
+    },
+    "custom/calculator": {
+        "format": "",
+        "interval": "once",
+        "on-click": "gnome-calculator",
+        "tooltip": false
+    },
+    "custom/character": {
+        "format": "",
+        "interval": "once",
+        "on-click": "gnome-characters",
+        "tooltip": false
+    },
+    "custom/picker": {
+        "format": "",
+        "interval": "once",
+        "on-click": "eyedropper",
+        "tooltip": false
+    },
+    "custom/pinned": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/screenshot": {
+        "format": "",
+        "interval": "once",
+        "on-click": "gradia --screenshot"
+    },
+    "custom/translator": {
+        "format": "",
+        "interval": "once",
+        "on-click": "dialect",
+        "tooltip": false
+    },
+    "custom/waypaper": {
+        "format": "",
+        "interval": "once",
+        "on-click": "waypaper",
+        "tooltip": false
+    },
+}

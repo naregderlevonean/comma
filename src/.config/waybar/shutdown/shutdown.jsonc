@@ -1,0 +1,57 @@
+{
+    "group/shutdown": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/end",
+            "custom/closeall",
+            "custom/lock",
+            "custom/exit",
+            "custom/suspend",
+            "custom/reboot",
+            "custom/poweroff"
+        ],
+        "orientation": "inherit"
+    },
+    "custom/closeall": {
+        "format": "",
+        "interval": "once",
+        "on-click": "powermenu closeall",
+        "tooltip-format": "Close All"
+    },
+    "custom/end": {
+        "format": "",
+        "on-click": "powermenu",
+        "tooltip": false
+    },
+    "custom/exit": {
+        "format": "",
+        "on-click": "powermenu terminate",
+        "tooltip-format": "Exit"
+    },
+    "custom/lock": {
+        "format": "",
+        "interval": "once",
+        "on-click": "powermenu lock",
+        "tooltip-format": "Lock"
+    },
+    "custom/poweroff": {
+        "format": "",
+        "interval": "once",
+        "on-click": "powermenu poweroff",
+        "tooltip-format": "Power Off"
+    },
+    "custom/reboot": {
+        "format": "",
+        "interval": "once",
+        "on-click": "powermenu restart",
+        "tooltip-format": "Reboot"
+    },
+    "custom/suspend": {
+        "format": "",
+        "on-click": "powermenu suspend",
+        "tooltip-format": "Suspend"
+    },
+}

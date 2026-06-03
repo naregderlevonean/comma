@@ -1,3 +1,26 @@
-@import url("theme/common.css");
-@import url("theme/modules.css");
-@import url("theme/states.css");
+@import "backlight/backlight.css";
+@import "clock/clock.css";
+@import "common/common.css";
+@import "common/states.css";
+@import "common/tooltip.css";
+@import "common/window.css";
+@import "communication/communication.css";
+@import "hyprland/hyprland.css";
+@import "pinned/pinned.css";
+@import "power/power.css";
+@import "pulseaudio/pulseaudio.css";
+@import "shutdown/shutdown.css";
+@import "specialworkspace/specialworkspace.css";
+@import "tools/tools.css";
+
+* {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-family: "Ubuntu Sans Mono";
+    font-size: 13px;
+    min-width: 16px;
+    margin: 0;
+    padding: 0;
+    transition: all 200ms ease-out;
+}

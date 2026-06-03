@@ -1,0 +1,31 @@
+#pulseaudio.muted {
+    opacity: 0.3;
+}
+
+#pulseaudio.bluetooth {
+    color: @success_color;
+}
+
+#pulseaudio-slider slider {
+    background: #ededed;
+    border: 2px solid #ededed;
+    box-shadow: none;
+    min-height: 0px;
+    min-width: 0px;
+}
+
+#pulseaudio-slider trough {
+    background: rgba(239, 239, 239, 0.3);
+    min-width: 128px;
+}
+
+#pulseaudio-slider highlight {
+    background: #ededed;
+    min-width: 1px;
+}
+
+#volume .drawer-child * {
+    margin: 0;
+    padding: 0;
+    padding-right: 8px;
+}

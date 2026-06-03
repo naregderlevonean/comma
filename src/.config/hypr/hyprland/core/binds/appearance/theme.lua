@@ -4,7 +4,7 @@ hl.bind("SUPER + SHIFT + ALT + T", function() themes.tape.init() end)
 hl.bind("SUPER + SHIFT + ALT + Z", function() themes.zero.init() end)
 
 hl.bind("SUPER + SHIFT + ALT + Escape", function()
-    components.waybar.start()()
+    components.waybar.show()()
     hl.exec_cmd("hyprctl reload")
 end)
 

@@ -1,11 +1,9 @@
 local function scrolling(width)
-    if hl.get_config("general.layout") == "scrolling" then
-        system.scheduler.config({ general = { layout = "monocle" } })
+    system.scheduler.config({ general = { layout = "monocle" } })
         system.scheduler.config({
             general = { layout = "scrolling" },
             scrolling = { column_width = width }
         })
-    end
 end
 
 hl.bind("SUPER + SHIFT + ALT + 0", function()

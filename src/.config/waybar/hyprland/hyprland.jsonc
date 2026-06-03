@@ -1,0 +1,41 @@
+{
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "🇺🇸 US",
+        "format-ru": "🇷🇺 RU",
+        "interval": "once",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    },
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "•",
+            "default": "·",
+            "persistent": "·"
+        },
+        "interval": "once",
+        "on-scroll-down": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"next\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
+        "on-scroll-up": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"prev\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
+        "smooth-scrolling-threshold": 3
+    },
+    "hyprland/workspaces#windows": {
+         "active-only": true,
+         "format": "{windows}",
+         "workspace-taskbar": {
+            "enable": true,
+            "format": "{icon}",
+            "icon-size": 16,
+            "ignore-list": [
+                "app.drey.Dialect",
+                "com.github.finefindus.eyedropper",
+                "dialect",
+                "org.gnome.Calculator",
+                "waypaper"
+            ],
+            "orientation": "horizontal",
+            "update-active-window": true
+        }
+    },
+}
+

@@ -1,43 +1,44 @@
 local M = {}
 
-local workspace = require("hyprland.lib.actions.workspace")
+local space = require("hyprland.lib.actions.workspace")
 
-local actions = {
-    ["scrolling"] = function(direction)
-        return hl.dsp.layout(direction == "next" and "move +col" or "move -col")
+local layouts = {
+    scrolling = function(dir)
+        return hl.dsp.layout(dir == "next" and "move +col" or "move -col")
     end,
-    ["dwindle"] = function(direction)
-        return hl.dsp.movefocus(direction == "next" and "r" or "l")
+    dwindle = function(dir)
+        return hl.dsp.focus({ direction = dir == "next" and "r" or "l" })
     end,
-    ["master"] = function(direction)
-        return hl.dsp.movefocus(direction == "next" and "r" or "l")
+    master = function(dir)
+        return hl.dsp.focus({ direction = dir == "next" and "r" or "l" })
     end,
-    ["monocle"] = function(direction)
-        return direction == "next" and hl.dsp.layout("cyclenext") or hl.dsp.layout("cycleprev")
+    monocle = function(dir)
+        return hl.dsp.layout(dir == "next" and "cyclenext" or "cycleprev")
     end,
 }
 
-function M.focus(direction)
+function M.focus(dir)
     return function()
-        local current = hl.get_active_special_workspace() or hl.get_active_workspace()
-        local layout = current and current.tiled_layout or "dwindle"
-        local action = actions[layout] or actions["dwindle"]
+        local active = hl.get_active_special_workspace() or hl.get_active_workspace()
+        local current = active and active.tiled_layout or "dwindle"
+        local step = layouts[current] or layouts.dwindle
 
-        hl.dispatch(action(direction))
+        hl.dispatch(step(dir))
     end
 end
 
-function M.move(direction, options)
+function M.move(dir, options)
     local opts = options or {}
     local follow = (opts.follow ~= nil) and opts.follow or false
 
     return function()
-        local target = workspace.compute(direction)
+        local target = space.compute(dir)
         
         if target then
-            hl.dispatch(hl.dsp.window.move({
+            hl.dispatch(hl.dsp.window({
+                action = "move",
                 workspace = tostring(target),
-                follow = follo
+                follow = follow
             }))
         end
     end
@@ -45,14 +46,15 @@ end
 
 function M.stash(options)
     local opts = options or {}
-    local target_workspace = opts.workspace or "special"
-    local mode = (opts.follow ~= nil) and opts.follow or true
+    local target = opts.workspace or "special"
+    local follow = (opts.follow ~= nil) and opts.follow or true
     local callback = opts.callback
 
     return function()
-        hl.dispatch(hl.dsp.window.move({ 
-            workspace = target_workspace, 
-            follow = mode 
+        hl.dispatch(hl.dsp.window({ 
+            action = "move",
+            workspace = target, 
+            follow = follow 
         }))
         
         if type(callback) == "function" then
@@ -61,22 +63,22 @@ function M.stash(options)
     end
 end
 
-
 function M.float(options)
-    local settings = options or { width = 1200, height = 800 }
+    local opts = options or { width = 1200, height = 800 }
     
     return function()
-        local target = hl.get_active_window()
-        if not target then return end
+        local win = hl.get_active_window()
+        if not win then return end
         
-        if target.floating then
-            hl.dispatch(hl.dsp.window.float({ action = "disable" }))
+        if win.floating then
+            hl.dispatch(hl.dsp.window({ action = "togglefloating" }))
         else
-            hl.dispatch(hl.dsp.window.float({ action = "enable" }))
-            hl.dispatch(hl.dsp.window.resize({ x = settings.width, y = settings.height }))
-            hl.dispatch(hl.dsp.window.center())
+            hl.dispatch(hl.dsp.window({ action = "togglefloating" }))
+            hl.dispatch(hl.dsp.window({ action = "resize", x = opts.width, y = opts.height }))
+            hl.dispatch(hl.dsp.window({ action = "center" }))
         end
     end
 end
 
 return M
+

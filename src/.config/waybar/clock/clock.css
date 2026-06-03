@@ -1,0 +1,7 @@
+#clock .drawer-child * {
+    margin-left: 16px;
+}
+
+#custom-date:hover {
+    color: @accent_color;
+}

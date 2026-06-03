@@ -6,10 +6,7 @@ local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 
 mousetrap.bind("top-left", components.walker.toggle(), { delay = 300 })
 
-mousetrap.bind("bottom-left", actions.specialworkspace.toggle("", {
-        start = function() components.waybar.hide()() end,
-        stop  = function() components.waybar.show()() end
-    }), { delay = 300 })
+mousetrap.bind("bottom-left", actions.specialworkspace.toggle(), { delay = 300 })
 
 mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }), { delay = 100 })
 
