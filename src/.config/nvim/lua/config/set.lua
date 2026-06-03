@@ -13,15 +13,15 @@ vim.opt.incsearch = true
 vim.opt.number = true
 vim.opt.cursorline = true
 
-vim.opt.clipboard = 'unnamed,unnamedplus'
+vim.opt.clipboard = "unnamed,unnamedplus"
 
-vim.cmd.colorscheme('van')
+vim.cmd.colorscheme("van")
 
-vim.cmd [[
+vim.cmd([[
   highlight Normal guibg=none
   highlight NonText guibg=none
   highlight Normal ctermbg=none
   highlight NonText ctermbg=none
-]]
+]])
 
-vim.keymap.set({'n', 'i', 'v'}, '<C-s>', '<Esc>:w<cr>', { desc = 'Save file' })
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<cr>", { desc = "Save file" })

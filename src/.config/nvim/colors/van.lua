@@ -1,1 +1,1 @@
-local colors = require('schemes.van')
+local colors = require("schemes.van")
