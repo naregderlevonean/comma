@@ -1,5 +1,4 @@
 hl.workspace_rule({
-    workspace = "special:radio",
-    layout = "monocle",
+	workspace = "special:radio",
+	layout = "monocle",
 })
-

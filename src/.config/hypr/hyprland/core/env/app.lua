@@ -1,4 +1,3 @@
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("TDESKTOP_DISABLE_GTK_INTEGRATION", "1")
-

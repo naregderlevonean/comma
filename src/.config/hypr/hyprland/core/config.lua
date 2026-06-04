@@ -14,4 +14,3 @@ require("hyprland.core.config.opengl")
 require("hyprland.core.config.quirks")
 require("hyprland.core.config.render")
 require("hyprland.core.config.xwayland")
-

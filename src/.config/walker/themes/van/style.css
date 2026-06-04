@@ -7,10 +7,10 @@
 .box-wrapper {
     background: #1a1a1a;
     border: 1px solid #6b6b6b;
-    border-radius: 32px;
+    border-radius: 48px;
     min-height: 640px;
     min-width: 480px;
-    padding: 64px;
+    padding: 96px;
 }
 
 child:selected .item-box,
@@ -63,7 +63,7 @@ row:selected .item-box {
 }
 
 .keybind-button:hover {
-    opacity: 1.00;
+    opacity: 1;
 }
 
 .keybind-label {

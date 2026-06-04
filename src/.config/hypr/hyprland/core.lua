@@ -8,4 +8,3 @@ require("hyprland.core.config")
 require("hyprland.core.devices")
 require("hyprland.core.gestures")
 require("hyprland.core.rules")
-

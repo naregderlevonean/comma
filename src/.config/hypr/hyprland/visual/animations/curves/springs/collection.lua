@@ -18,4 +18,3 @@ hl.curve("controlled", { type = "spring", mass = 0.90, stiffness = 260, dampenin
 hl.curve("firmEase", { type = "spring", mass = 1.00, stiffness = 220, dampening = 30 })
 hl.curve("softPop", { type = "spring", mass = 1.00, stiffness = 188, dampening = 23 })
 hl.curve("rhythmicPulse", { type = "spring", mass = 1.50, stiffness = 580, dampening = 45 })
-

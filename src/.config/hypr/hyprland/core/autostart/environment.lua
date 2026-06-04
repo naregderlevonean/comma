@@ -1,5 +1,4 @@
 return {
-    "waypaper --random",
-    "waybar",
+	"waypaper --random",
+	"waybar",
 }
-

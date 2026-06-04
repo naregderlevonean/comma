@@ -6,4 +6,3 @@ require("hyprland.core.env.hardware")
 require("hyprland.core.env.other")
 require("hyprland.core.env.qt")
 require("hyprland.core.env.xdg")
-

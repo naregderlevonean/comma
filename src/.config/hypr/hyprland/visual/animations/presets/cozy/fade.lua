@@ -11,4 +11,3 @@ hl.animation({ leaf = "fadePopups", enabled = true, speed = 3, bezier = "easeOut
 hl.animation({ leaf = "fadePopupsIn", enabled = true, speed = 3, bezier = "easeOutQuad" })
 hl.animation({ leaf = "fadePopupsOut", enabled = true, speed = 1, bezier = "easeInSine" })
 hl.animation({ leaf = "fadeDpms", enabled = true, speed = 5, bezier = "easeOutQuad" })
-

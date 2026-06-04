@@ -1,6 +1,5 @@
 hl.config({
-    opengl = {
-        nvidia_anti_flicker = false,
-    }
+	opengl = {
+		nvidia_anti_flicker = false,
+	},
 })
-

@@ -12,4 +12,3 @@ require("hyprland.core.binds.management.movegroup")
 
 require("hyprland.core.binds.management.workspace")
 require("hyprland.core.binds.management.specialworkspace")
-

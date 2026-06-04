@@ -1,6 +1,5 @@
 hl.config({
-    quirks = {
-        prefer_hdr = 0,
-    }
+	quirks = {
+		prefer_hdr = 0,
+	},
 })
-
