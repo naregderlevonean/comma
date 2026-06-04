@@ -2,37 +2,25 @@ local M = {}
 
 local space = require("hyprland.lib.actions.workspace")
 
-local layouts = {
-	scrolling = function(dir)
-		return hl.dsp.layout(dir == "next" and "move +col" or "move -col")
-	end,
-	dwindle = function(dir)
-		return hl.dsp.focus({ direction = dir == "next" and "r" or "l" })
-	end,
-	master = function(dir)
-		return hl.dsp.focus({ direction = dir == "next" and "r" or "l" })
-	end,
-	monocle = function(dir)
-		return hl.dsp.layout(dir == "next" and "cyclenext" or "cycleprev")
-	end,
-}
-
-function M.focus(dir)
+function M.focus(direction)
 	return function()
 		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
-		local current = active and active.tiled_layout or "dwindle"
-		local step = layouts[current] or layouts.dwindle
 
-		hl.dispatch(step(dir))
+		if active and active.tiled_layout == "monocle" then
+			local action = (direction == "r") and "cyclenext" or "cycleprev"
+			hl.dispatch(hl.dsp.layout(action))
+		else
+			hl.dispatch(hl.dsp.focus({ direction = direction }))
+		end
 	end
 end
 
-function M.move(dir, options)
+function M.move(direction, options)
 	local opts = options or {}
 	local follow = (opts.follow ~= nil) and opts.follow or false
 
 	return function()
-		local target = space.compute(dir)
+		local target = space.compute(direction)
 
 		if target then
 			hl.dispatch(hl.dsp.window({
