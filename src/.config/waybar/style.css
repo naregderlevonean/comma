@@ -12,6 +12,7 @@
 @import "shutdown/shutdown.css";
 @import "specialworkspace/specialworkspace.css";
 @import "tools/tools.css";
+@import "workspace/workspace.css";
 
 * {
     background: transparent;

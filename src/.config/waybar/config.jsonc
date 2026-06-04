@@ -48,6 +48,7 @@
             "hyprland/hyprland.jsonc",
             "pinned/pinned.jsonc",
             "specialworkspace/specialworkspace.jsonc",
+            "workspace/workspace.jsonc",
         ],
         "modifier-reset": "release",
         "modules-left": [
@@ -58,6 +59,7 @@
             "custom/separator",
             "group/pinned",
         ],
+        "modules-center": ["group/workspace"],
         "modules-right": [
            "hyprland/workspaces#windows"
         ],
