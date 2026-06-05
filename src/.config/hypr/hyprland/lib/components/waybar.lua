@@ -5,7 +5,7 @@ local process = "waybar"
 function M.refresh()
 	return function()
 		hl.exec_cmd("pkill -RTMIN+" .. (code or 7) .. " waybar")
-    end
+	end
 end
 
 function M.show()

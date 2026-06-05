@@ -10,7 +10,7 @@
             "power/power.jsonc",
             "pulseaudio/pulseaudio.jsonc",
             "shutdown/shutdown.jsonc",
-            "tools/tools.jsonc"
+            "tools/tools.jsonc",
         ],
         "modifier-reset": "release",
         "modules-left": [
@@ -20,9 +20,11 @@
             "custom/separator",
             "hyprland/language",
             "custom/separator",
-            "custom/notifications"
+            "custom/notifications",
         ],
-        "modules-center": ["group/clock"],
+        "modules-center": [
+            "group/clock"
+        ],
         "modules-right": [
             "group/pulseaudio",
             "custom/separator",
@@ -33,11 +35,13 @@
             "custom/separator",
             "group/tools",
             "custom/separator",
-            "group/shutdown"
+            "group/shutdown",
         ],
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": ["eDP-1"],
+        "output": [
+            "eDP-1"
+        ],
         "position": "top",
         "spacing": 16,
     },
@@ -59,13 +63,17 @@
             "custom/separator",
             "group/pinned",
         ],
-        "modules-center": ["group/workspace"],
+        "modules-center": [
+            "group/workspace"
+        ],
         "modules-right": [
            "hyprland/workspaces#windows"
         ],
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": ["eDP-1"],
+        "output": [
+            "eDP-1",
+        ],
         "position": "bottom",
         "spacing": 16,
     },
@@ -75,11 +83,15 @@
             "hyprland/hyprland.jsonc",
         ],
         "modifier-reset": "release",
-        "modules-center": ["hyprland/workspaces"],
+        "modules-center": [
+            "hyprland/workspaces",
+        ],
         "name": "left",
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": ["eDP-1"],
+        "output": [
+            "eDP-1",
+        ],
         "position": "left",
         "spacing": 16,
         "width": 24,
@@ -90,7 +102,9 @@
         "name": "right",
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": ["eDP-1"],
+        "output": [
+            "eDP-1",
+        ],
         "position": "right",
         "spacing": 16,
         "width": 20,
