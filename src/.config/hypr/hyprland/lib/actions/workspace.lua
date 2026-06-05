@@ -19,6 +19,16 @@ local function workspaces()
 	return active.id, occupied
 end
 
+function M.blanket(layout)
+	local workspaces = hl.get_workspaces()
+	for _, ws in ipairs(workspaces) do
+		hl.workspace_rule({
+			workspace = ws.name,
+			layout = layout, 
+		})
+	end
+end
+
 function M.compute(direction)
 	local current, occupied = workspaces()
 	if not current then

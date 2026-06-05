@@ -1,0 +1,6 @@
+require("hyprland.core.binds.layouts.columns")
+require("hyprland.core.binds.layouts.dwindle")
+require("hyprland.core.binds.layouts.grid")
+require("hyprland.core.binds.layouts.master")
+require("hyprland.core.binds.layouts.monocle")
+require("hyprland.core.binds.layouts.scrolling")

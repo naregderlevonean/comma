@@ -16,20 +16,19 @@ function M.focus(direction)
 end
 
 function M.move(direction, options)
-	local opts = options or {}
-	local follow = (opts.follow ~= nil) and opts.follow or false
+    local opts = options or {}
+    local follow = (opts.follow ~= nil) and opts.follow or false
 
-	return function()
-		local target = space.compute(direction)
-
-		if target then
-			hl.dispatch(hl.dsp.window({
-				action = "move",
-				workspace = tostring(target),
-				follow = follow,
-			}))
-		end
-	end
+    return function()
+        local target = space.compute(direction)
+        
+        if target then
+            hl.dispatch(hl.dsp.window.move({
+                workspace = target,
+                follow = follow
+            }))
+        end
+    end
 end
 
 function M.stash(options)
@@ -61,11 +60,15 @@ function M.float(options)
 		end
 
 		if win.floating then
-			hl.dispatch(hl.dsp.window({ action = "togglefloating" }))
+			hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
 		else
-			hl.dispatch(hl.dsp.window({ action = "togglefloating" }))
-			hl.dispatch(hl.dsp.window({ action = "resize", x = opts.width, y = opts.height }))
-			hl.dispatch(hl.dsp.window({ action = "center" }))
+			hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+			hl.dispatch(hl.dsp.window.resize({
+				x = opts.width,
+				y = opts.height,
+				exact = true
+			}))
+			hl.dispatch(hl.dsp.window.center())
 		end
 	end
 end

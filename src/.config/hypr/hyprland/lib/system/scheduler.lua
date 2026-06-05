@@ -1,17 +1,22 @@
+
 local M = {}
 
-local types = {}
-local values = {}
-local delays = {}
+local type = type
+local hl_timer = hl.timer
 
+local default_timeout = 50
+
+local queue = {}
 local head = 1
 local tail = 1
 local busy = false
 
-local tasks = {
+local handlers = {
 	config = hl.config,
-	dispatch = hl.dsp.exec_cmd,
 	exec = hl.exec_cmd,
+	callback = function(callback)
+		callback()
+	end,
 }
 
 local function run()
@@ -24,28 +29,33 @@ local function run()
 
 	busy = true
 
-	local kind = types[head]
-	local data = values[head]
-	local wait = delays[head]
-
-	types[head] = nil
-	values[head] = nil
-	delays[head] = nil
+	local task = queue[head]
 	head = head + 1
 
-	local action = tasks[kind]
-	if action then
-		action(data)
+	local handler = handlers[task.kind]
+	if handler and task.data then
+		pcall(handler, task.data)
 	end
 
-	local time = type(wait) == "number" and wait or 50
-	hl.timer(run, { timeout = time, type = "oneshot" })
+	local wait = task.wait
+	
+	hl_timer(run, { 
+		timeout = type(wait) == "number" and wait or default_timeout, 
+		type = "oneshot" 
+	})
 end
 
 local function add(kind, data, wait)
-	types[tail] = kind
-	values[tail] = data
-	delays[tail] = wait
+	local task = queue[tail]
+	if not task then
+		task = {}
+		queue[tail] = task
+	end
+
+	task.kind = kind
+	task.data = data
+	task.wait = wait
+
 	tail = tail + 1
 
 	if not busy then
@@ -57,12 +67,13 @@ function M.config(data, wait)
 	add("config", data, wait)
 end
 
-function M.dispatch(data, wait)
-	add("dispatch", data, wait)
-end
-
 function M.exec(data, wait)
 	add("exec", data, wait)
 end
 
+function M.callback(callback, wait)
+	add("callback", callback, wait)
+end
+
 return M
+

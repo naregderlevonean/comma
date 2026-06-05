@@ -2,6 +2,12 @@ local M = {}
 
 local process = "waybar"
 
+function M.refresh()
+	return function()
+		hl.exec_cmd("pkill -RTMIN+" .. (code or 7) .. " waybar")
+    end
+end
+
 function M.show()
 	return function()
 		hl.exec_cmd("killall -SIGUSR1 " .. process)
