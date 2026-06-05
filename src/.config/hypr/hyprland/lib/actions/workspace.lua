@@ -19,13 +19,20 @@ local function workspaces()
 	return active.id, occupied
 end
 
-function M.blanket(layout)
+function M.blanket(layout, config)
+	config = config or {}
+	local special = config.specialworkspace or false
+
 	local workspaces = hl.get_workspaces()
-	for _, ws in ipairs(workspaces) do
-		hl.workspace_rule({
-			workspace = ws.name,
-			layout = layout, 
-		})
+	for _, worksapce in ipairs(workspaces) do
+		local isspecial = string.find(worksapce.name, "^special:") ~= nil
+
+		if not isspecial or special then
+			hl.workspace_rule({
+				workspace = worksapce.name,
+				layout = layout,
+			})
+		end
 	end
 end
 
