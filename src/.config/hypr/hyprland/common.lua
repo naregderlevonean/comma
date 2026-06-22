@@ -11,3 +11,5 @@ plugins = {}
 
 animations = {}
 themes = {}
+
+layouts = { "monocle", "scrolling", "dwindle", "master", "lua:grid", "lua:columns" }

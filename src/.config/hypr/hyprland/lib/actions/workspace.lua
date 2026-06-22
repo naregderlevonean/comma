@@ -82,13 +82,29 @@ end
 
 function M.layout(name)
 	local active = hl.get_active_workspace()
-
-	if active and active.name then
-		hl.workspace_rule({
-			workspace = active.name,
-			layout = name,
-		})
+	if not active or not active.name then
+		return
 	end
+
+	local target = name
+
+	if not target then
+		local current = active.tiled_layout or "dwindle"
+		local number = 1
+
+		for i, l in ipairs(layouts) do
+			if l == current then
+				number = (i % #layouts) + 1
+				break
+			end
+		end
+		target = layouts[number]
+	end
+
+	hl.workspace_rule({
+		workspace = active.name,
+		layout = target,
+	})
 end
 
 return M

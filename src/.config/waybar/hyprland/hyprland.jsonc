@@ -30,6 +30,8 @@
                 "app.drey.Dialect",
                 "com.github.finefindus.eyedropper",
                 "dialect",
+                "org.belmoussaoui.Authernticator",
+                "org.gnome.Characters",
                 "org.gnome.Calculator",
                 "waypaper"
             ],

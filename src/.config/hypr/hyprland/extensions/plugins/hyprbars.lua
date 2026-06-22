@@ -5,7 +5,7 @@ hl.config({
 		hyprbars = {
 			enabled = false,
 			bar_color = 0xff292929,
-			bar_height = 6,
+			bar_height = 8,
 			bar_blur = false,
 			col = {
 				text = 0xffffffff,
@@ -21,7 +21,7 @@ hl.config({
 			bar_button_padding = 8,
 			icon_on_hover = false,
 			inactive_button_color = nil,
-			on_double_click = "",
+			on_double_click = 'hyprctl eval \'hl.dispatch(actions.scoped.workspace(hl.dsp.window.close(), { exclude = { "special:stylus", "special:radio" } }))\'',
 		},
 	},
 })

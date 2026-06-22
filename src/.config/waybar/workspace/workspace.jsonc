@@ -22,6 +22,7 @@
         "exec": "hyprctl activeworkspace -j | jq -r '.tiledLayout' | tr '[:lower:]' '[:upper:]'",
         "format": "{}",
         "interval": "once",
+        "on-click": "hyprctl eval 'actions.workspace.layout()'",
         "signal": 7, 
         "tooltip": false
     }
