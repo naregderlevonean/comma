@@ -25,4 +25,8 @@ function M.toggle(arguments)
 	end
 end
 
+function M.status()
+	return system.process.status(process)
+end
+
 return M

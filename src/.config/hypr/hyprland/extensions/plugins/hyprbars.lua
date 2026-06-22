@@ -3,7 +3,7 @@ local hyprbars = {}
 hl.config({
 	plugin = {
 		hyprbars = {
-			enabled = false,
+			enabled = true,
 			bar_color = 0xff292929,
 			bar_height = 8,
 			bar_blur = false,

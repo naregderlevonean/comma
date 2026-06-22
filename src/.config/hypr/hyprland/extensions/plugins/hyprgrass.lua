@@ -9,6 +9,16 @@ hl.config({
 	},
 })
 
+local function swap(active, target)
+	return function()
+		if active.status() then
+			active.stop()()
+		else
+			target.start()()
+		end
+	end
+end
+
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
 	action = actions.scoped.workspace(actions.workspace.focus("prev")),
@@ -63,6 +73,26 @@ hl.plugin.hyprgrass.bind({
 		actions.window.stash({ workspace = "+0", follow = false }),
 		{ exclude = { "special:stylus", "special:radio" } }
 	),
+})
+
+hl.plugin.hyprgrass.bind({
+	pattern = { kind = "swipe", fingers = 4, direction = "up" },
+	action = swap(components.walker, components.osk),
+})
+
+hl.plugin.hyprgrass.bind({
+	pattern = { kind = "swipe", fingers = 4, direction = "down" },
+	action = swap(components.osk, components.walker),
+})
+
+hl.plugin.hyprgrass.bind({
+	pattern = { kind = "swipe", fingers = 5, direction = "right" },
+	action = actions.specialworkspace.start("stylus"),
+})
+
+hl.plugin.hyprgrass.bind({
+	pattern = { kind = "swipe", fingers = 5, direction = "left" },
+	action = actions.specialworkspace.stop(),
 })
 
 hl.plugin.hyprgrass.bind({
