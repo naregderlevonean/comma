@@ -86,12 +86,12 @@ hl.plugin.hyprgrass.bind({
 })
 
 hl.plugin.hyprgrass.bind({
-	pattern = { kind = "swipe", fingers = 5, direction = "right" },
+	pattern = { kind = "swipe", fingers = 4, direction = "right" },
 	action = actions.specialworkspace.start("stylus"),
 })
 
 hl.plugin.hyprgrass.bind({
-	pattern = { kind = "swipe", fingers = 5, direction = "left" },
+	pattern = { kind = "swipe", fingers = 4, direction = "left" },
 	action = actions.specialworkspace.stop(),
 })
 

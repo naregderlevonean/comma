@@ -35,7 +35,7 @@
                 "org.gnome.Calculator",
                 "waypaper"
             ],
-            "orientation": "horizontal",
+            "on-click-window": "hyprctl dispatch 'hl.dsp.focus({ window = \"address:{address}\" })'",
             "update-active-window": true
         }
     },

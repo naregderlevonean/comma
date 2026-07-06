@@ -7,7 +7,7 @@ hl.config({
 			ignore_opacity = true,
 			input_methods = false,
 			input_methods_ignorealpha = 0.2,
-			new_optimizations = true,
+			new_optimizations = false,
 			noise = 0.0240,
 			passes = 4,
 			popups = true,

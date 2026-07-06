@@ -1,3 +1,7 @@
+* {
+    box-shadow: none !important;
+}
+
 undershoot.top,
 undershoot.bottom,
 undershoot.right,
@@ -10,4 +14,17 @@ TerminalScreen,
 vte-terminal {
     padding: 16px;
     -vteterminal-inner-border: 16px;
+}
+
+check,
+radio {
+    border: 2px solid #949494;
+}
+
+check {
+    border-radius: 8px;
+}
+
+button {
+    border-radius: 8px;
 }

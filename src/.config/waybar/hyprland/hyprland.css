@@ -1,24 +1,28 @@
-#workspaces {
+window.left #workspaces {
+    margin-left: 4px;
+}
+
+window.left #workspaces button {
+    background: transparent;
+    box-shadow: none;
+    color: @text_color;
+    margin: -4px;
+    margin-right: 2px;
+    opacity: 0.5;
+}
+
+window.left #workspaces button.active {
+    opacity: 1;
 }
 
 #workspaces button {
     background: none;
     box-shadow: none;
     color: @text_color;
-    margin: -5px;
-    opacity: 0.5;
-}
-
-#workspaces button.active {
-    opacity: 1;
-}
-
-#workspaces .taskbar-window {
     margin-right: 32px;
 }
 
 #workspaces button .taskbar-window {
-    margin-left: -24px;
     opacity: 0.5;
 }
 

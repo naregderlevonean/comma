@@ -1,3 +1,9 @@
+#pulseaudio .drawer-child * {
+    margin: 0;
+    padding: 0;
+    padding-right: 8px;
+}
+
 #pulseaudio.muted {
     opacity: 0.3;
 }
@@ -22,10 +28,4 @@
 #pulseaudio-slider highlight {
     background: #ededed;
     min-width: 1px;
-}
-
-#volume .drawer-child * {
-    margin: 0;
-    padding: 0;
-    padding-right: 8px;
 }
