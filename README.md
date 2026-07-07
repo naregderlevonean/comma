@@ -1,12 +1,3 @@
-# Comma
-
-A modular, Lua-driven configuration framework for the Hyprland compositor.
-
-
-
-
-## Repository Structure
-
 ```
 .
 ├── core/
