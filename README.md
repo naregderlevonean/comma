@@ -27,7 +27,7 @@ The deployment utilizes external components integrated via Git submodules.
 To clone the repository with all components initialized:
 
 ```bash
-git clone --recursive <repository-url>
+git clone --recursive https://github.com/naregderlevonean/comma
 cd comma
 ```
 
