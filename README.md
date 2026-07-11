@@ -1,12 +1,3 @@
-# Comma
-
-A modular, Lua-driven configuration framework for the Hyprland compositor.
-
-
-
-
-## Repository Structure
-
 ```
 .
 ├── core/
@@ -36,7 +27,7 @@ The deployment utilizes external components integrated via Git submodules.
 To clone the repository with all components initialized:
 
 ```bash
-git clone --recursive <repository-url>
+git clone --recursive https://github.com/naregderlevonean/comma
 cd comma
 ```
 
