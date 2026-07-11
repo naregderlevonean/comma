@@ -1,20 +1,20 @@
 {
-    "custom/specialworkspace-radio": {
-        "format": "",
-        "interval": "once",
-        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"radio\", { start = function() components.waybar.hide()() end, stop = function() components.waybar.show()() end })()'",
-        "tooltip": false
-    },
     "custom/specialworkspace": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"\", { start = function() components.waybar.hide()() end, stop = function() components.waybar.show()() end })()'",
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"\")()'",
+        "tooltip": false
+    },
+    "custom/specialworkspace-radio": {
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"radio\")()'",
         "tooltip": false
     },
     "custom/specialworkspace-stylus": {
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"stylus\", { start = function() components.waybar.hide()() end, stop = function() components.waybar.show()() end })()'",
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"stylus\")()'",
         "tooltip": false
     },
 }

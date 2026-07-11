@@ -10,11 +10,12 @@
         "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
-            "active": "•",
-            "default": "·",
-            "persistent": "·"
+            "active": "●",
+            "default": "●",
+            "empty": "○",
         },
         "interval": "once",
+        "on-click": "hyprctl dispatch \"hl.dsp.focus(\\{ workspace = {id} \\})\"",
         "on-scroll-down": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"next\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
         "on-scroll-up": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"prev\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
         "smooth-scrolling-threshold": 3

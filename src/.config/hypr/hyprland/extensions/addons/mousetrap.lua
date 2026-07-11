@@ -14,10 +14,10 @@ mousetrap.bind("top-right", function()
 	hl.exec_cmd("hyprlock")
 end, { delay = 1000 })
 
-mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { flick = 50 })
-mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { flick = 50 })
+mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")))
+mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")))
 
-mousetrap.bind("left", actions.window.focus("l"), { flick = 20 })
-mousetrap.bind("right", actions.window.focus("r"), { flick = 20 })
+mousetrap.bind("left", actions.window.focus("l"))
+mousetrap.bind("right", actions.window.focus("r"))
 
 addons.mousetrap = mousetrap

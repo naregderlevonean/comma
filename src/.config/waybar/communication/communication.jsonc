@@ -1,8 +1,6 @@
 {
     "bluetooth": {
         "format": "",
-        "format-connected": "",
-        "format-disabled": "",
         "interval": "once",
         "on-click": "[[ $(bluetoothctl show | grep \"Powered: yes\") ]] && bluetoothctl power off || bluetoothctl power on",
         "on-click-right": "overskride",
