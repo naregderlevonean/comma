@@ -15,7 +15,7 @@ hl.config({
 		manual_crash = 0,
 		overlay = false,
 		pass = false,
-		suppress_errors = false,
+		suppress_errors = true,
 		vfr = true,
 	},
 })

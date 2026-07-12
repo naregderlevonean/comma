@@ -21,12 +21,12 @@ end
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
-	action = actions.scoped.workspace(actions.workspace.focus("prev")),
+	action = swap(components.osk, components.walker),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "d", direction = "u" },
-	action = actions.scoped.workspace(actions.workspace.focus("next")),
+	action = swap(components.walker, components.osk),
 })
 
 hl.plugin.hyprgrass.bind({
@@ -77,12 +77,12 @@ hl.plugin.hyprgrass.bind({
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "up" },
-	action = swap(components.walker, components.osk),
+	action = actions.scoped.workspace(actions.workspace.focus("next")),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "down" },
-	action = swap(components.osk, components.walker),
+	action = actions.scoped.workspace(actions.workspace.focus("prev")),
 })
 
 hl.plugin.hyprgrass.bind({

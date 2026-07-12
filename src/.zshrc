@@ -96,4 +96,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
+if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
+    exec start-hyprland > /dev/null 2>&1
+    exit
+fi
+
 clear

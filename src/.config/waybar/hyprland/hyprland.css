@@ -6,8 +6,8 @@ window.left #workspaces button {
     background: transparent;
     box-shadow: none;
     color: @text_color;
-    margin: 0;
-    margin-right: 2px;
+    margin: -2px;
+    margin-right: 4px;
     opacity: 0.5;
 }
 
