@@ -21,12 +21,12 @@ end
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
-	action = swap(components.osk, components.walker),
+	action = swap(components.osk, components.sysmenu),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "d", direction = "u" },
-	action = swap(components.walker, components.osk),
+	action = swap(components.sysmenu, components.osk),
 })
 
 hl.plugin.hyprgrass.bind({
