@@ -1,4 +1,4 @@
 return {
-	"waypaper --random",
-	"waybar",
+	"sleep 2; hyprlock",
+	"sleep 3; waybar",
 }
