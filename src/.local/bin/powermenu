@@ -12,7 +12,7 @@ message() {
 }
 
 closeall() {
-    zenity --question --title="" --text="Are your want to close all open applications?" && hyprctl eval "hl.dispatch(actions.purge.init())"
+    zenity --question --title="" --text="Are your want to close all open applications?" && hyprctl eval "actions.scoped.workspace(hl.dispatch(actions.purge.init()), { exclude = { 'special:stylus', 'special:radio' } })"
 }
 
 lock() {
