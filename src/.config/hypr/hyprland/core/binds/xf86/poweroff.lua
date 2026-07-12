@@ -1,1 +1,1 @@
-hl.bind("XF86PowerOff", hl.dsp.exec_cmd("powermenu"))
+hl.bind("XF86PowerOff", hl.dsp.exec_cmd("powermenu lock"))

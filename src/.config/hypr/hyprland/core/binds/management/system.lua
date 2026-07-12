@@ -2,5 +2,5 @@ hl.bind("SUPER + SHIFT + CTRL + ALT + Escape", hl.dsp.exec_cmd("powermenu powero
 hl.bind("SUPER + SHIFT + CTRL + ALT + Delete", hl.dsp.exec_cmd("powermenu restart"))
 hl.bind("SUPER + SHIFT + CTRL + ALT + End", hl.dsp.exec_cmd("powermenu suspend"))
 hl.bind("SUPER + SHIFT + CTRL + ALT + Backspace", hl.dsp.exec_cmd("powermenu terminate"))
-hl.bind("SUPER + SHIFT + CTRL + ALT + Enter", hl.dsp.exec_cmd("powermenu lock"))
+hl.bind("SUPER + SHIFT + CTRL + ALT + Return", hl.dsp.exec_cmd("powermenu lock"))
 hl.bind("SUPER + SHIFT + CTRL + ALT + Space", hl.dsp.exec_cmd("powermenu closeall"))
