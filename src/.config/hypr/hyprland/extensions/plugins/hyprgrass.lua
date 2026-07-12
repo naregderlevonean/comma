@@ -2,31 +2,21 @@ hl.config({
 	plugin = {
 		hyprgrass = {
 			sensitivity = 1.0,
-			long_press_delay = 400,
+			long_press_delay = 1000,
 			resize_on_border_long_press = true,
 			edge_margin = 8,
 		},
 	},
 })
 
-local function swap(active, target)
-	return function()
-		if active.status() then
-			active.stop()()
-		else
-			target.start()()
-		end
-	end
-end
-
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
-	action = swap(components.osk, components.sysmenu),
+	action = components.sysmenu.toggle(),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "d", direction = "u" },
-	action = swap(components.sysmenu, components.osk),
+	action = components.osk.toggle(),
 })
 
 hl.plugin.hyprgrass.bind({
@@ -96,7 +86,7 @@ hl.plugin.hyprgrass.bind({
 })
 
 hl.plugin.hyprgrass.bind({
-	pattern = { kind = "longpress", fingers = 5 },
+	pattern = { kind = "longpress", fingers = 4 },
 	action = actions.specialworkspace.toggle(),
 })
 
@@ -105,7 +95,7 @@ hl.plugin.hyprgrass.bind({
 	action = actions.scoped.workspace(hl.dsp.exec_cmd("kitty"), { exclude = { "special:stylus", "special:radio" } }),
 })
 
-hl.plugin.hyprgrass.gesture({
+hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 5, direction = "down" },
 	action = "close",
 })
