@@ -1,0 +1,6 @@
+hl.bind("SUPER + SHIFT + CTRL + ALT + Escape", launch("powermenu poweroff"))
+hl.bind("SUPER + SHIFT + CTRL + ALT + Delete", launch("powermenu restart"))
+hl.bind("SUPER + SHIFT + CTRL + ALT + End", launch("powermenu suspend"))
+hl.bind("SUPER + SHIFT + CTRL + ALT + Backspace", launch("powermenu terminate"))
+hl.bind("SUPER + SHIFT + CTRL + ALT + Enter", launch("powermenu lock"))
+hl.bind("SUPER + SHIFT + CTRL + ALT + Space", launch("powermenu closeall"))

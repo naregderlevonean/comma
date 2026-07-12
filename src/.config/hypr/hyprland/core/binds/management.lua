@@ -1,4 +1,5 @@
 require("hyprland.core.binds.management.process")
+require("hyprland.core.binds.management.system")
 
 require("hyprland.core.binds.management.window")
 require("hyprland.core.binds.management.resize")
