@@ -1,7 +1,7 @@
 hl.window_rule({
 	name = "settings",
 	match = { class = "org.gnome.Settings" },
-	animation = "slide",
+	animation = "slide top",
 	float = true,
 	pin = true,
 	size = "512 768",
