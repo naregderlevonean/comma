@@ -5,19 +5,14 @@ local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 })
 
 mousetrap.bind("top-left", components.walker.toggle())
+mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }))
 
 mousetrap.bind("bottom-left", actions.specialworkspace.toggle())
 
-mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }))
+mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { delay = 100 })
+mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { delay = 100 })
 
-mousetrap.bind("top-right", function()
-	hl.exec_cmd("hyprlock")
-end, { delay = 1000 })
-
-mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")))
-mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")))
-
-mousetrap.bind("left", actions.window.focus("l"))
-mousetrap.bind("right", actions.window.focus("r"))
+mousetrap.bind("left", actions.window.focus("l"), { delay = 100 })
+mousetrap.bind("right", actions.window.focus("r"), { delay = 100 })
 
 addons.mousetrap = mousetrap

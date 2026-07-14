@@ -19,7 +19,7 @@ hl.config({
 			bar_precedence_over_border = true,
 			bar_padding = 24,
 			bar_button_padding = 8,
-			icon_on_hover = false,
+			icon_on_hover = true,
 			inactive_button_color = nil,
 			on_double_click = 'hyprctl eval \'hl.dispatch(actions.scoped.workspace(hl.dsp.window.close(), { exclude = { "special:stylus", "special:radio" } }))\'',
 		},
