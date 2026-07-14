@@ -8,7 +8,7 @@ hl.config({
 		dim_special = 0.00,
 		dim_strength = 1.00,
 		fullscreen_opacity = 1.00,
-		inactive_opacity = 0.90,
+		inactive_opacity = 0.80,
 		rounding = 20,
 		rounding_power = 10.0,
 		screen_shader = SHADERS .. "/vivid.glsl",
