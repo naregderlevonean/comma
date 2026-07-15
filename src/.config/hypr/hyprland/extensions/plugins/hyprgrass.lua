@@ -11,12 +11,18 @@ hl.config({
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
-	action = components.sysmenu.toggle(),
+	action = function()
+		components.osk.stop()()
+		components.waybar.show()()
+	end,
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "d", direction = "u" },
-	action = components.osk.toggle(),
+	action = function()
+		components.osk.start()()
+		components.waybar.hide()()
+	end,
 })
 
 hl.plugin.hyprgrass.bind({
@@ -77,7 +83,7 @@ hl.plugin.hyprgrass.bind({
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "right" },
-	action = actions.specialworkspace.start("stylus"),
+	action = actions.specialworkspace.start(),
 })
 
 hl.plugin.hyprgrass.bind({
@@ -97,5 +103,5 @@ hl.plugin.hyprgrass.bind({
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 5, direction = "down" },
-	action = "close",
+	action = actions.scoped.workspace(hl.dsp.window.close(), { exclude = { "special:stylus", "special:radio" } }),
 })

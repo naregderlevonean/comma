@@ -1,12 +1,12 @@
 local M = {}
 
 local process = "wvkbd-mobintl"
-local arguments = " -H 320 -L 320 -R 16 -alpha 148"
-	.. " --fn 'Ubuntu Sans Mono Bold 10'"
-	.. " --bg '#131313' --fg '#ededed' --fg-sp '#949494'"
-	.. " --press '#1a1a1a' --press-sp '#1a1a1a'"
-	.. " --swipe '#212121' --swipe-sp '#292929'"
-	.. " --text '#ededed' --text-sp '#949494'"
+local arguments = " -H 320 -L 320 -R 16 -alpha 255"
+	.. " --fn 'Ubuntu Sans Mono 10'"
+	.. " --bg '080808' --fg '131313' --fg-sp '1a1a1a'"
+	.. " --press '1a1a1a' --press-sp '1a1a1a'"
+	.. " --swipe '212121' --swipe-sp '292929'"
+	.. " --text 'ededed' --text-sp 'ededed'"
 	.. " -l simple,cyrillic,emoji"
 
 function M.show()
