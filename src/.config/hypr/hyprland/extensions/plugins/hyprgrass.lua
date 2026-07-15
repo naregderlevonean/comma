@@ -2,7 +2,7 @@ hl.config({
 	plugin = {
 		hyprgrass = {
 			sensitivity = 1.0,
-			long_press_delay = 1000,
+			long_press_delay = 500,
 			resize_on_border_long_press = true,
 			edge_margin = 8,
 		},
