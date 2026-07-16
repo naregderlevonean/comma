@@ -2,12 +2,22 @@ window.left #workspaces {
     margin-left: 4px;
 }
 
+window.left #workspaces {
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 4px;
+    margin-left: 0px;
+    margin-right: 12px;
+}
+
 window.left #workspaces button {
     background: transparent;
     box-shadow: none;
     color: @text_color;
-    margin: -2px;
-    margin-right: 4px;
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
     opacity: 0.5;
 }
 

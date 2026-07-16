@@ -79,6 +79,7 @@
     },
     {
         "exclusive": false,
+        "layer": "top",
         "include": [
             "hyprland/hyprland.jsonc",
         ],
@@ -89,24 +90,19 @@
         "name": "left",
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": [
-            "eDP-1",
-        ],
         "position": "left",
         "spacing": 16,
-        "width": 24,
+        "width": 32,
     },
     {
         "exclusive": false,
+        "layer": "top",
         "modifier-reset": "release",
         "name": "right",
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": [
-            "eDP-1",
-        ],
         "position": "right",
         "spacing": 16,
-        "width": 20,
+        "width": 32,
     }
 ]

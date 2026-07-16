@@ -4,7 +4,7 @@ hl.config({
 		emulate_discrete_scroll = 1,
 		float_switch_override_focus = 1,
 		focus_on_close = 0,
-		follow_mouse = 0,
+		follow_mouse = 1,
 		follow_mouse_shrink = 0,
 		follow_mouse_threshold = 0.0,
 		force_no_accel = false,
