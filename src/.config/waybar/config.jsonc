@@ -1,7 +1,7 @@
 [
     {
+        "exclusive": false,
         "height": 64,
-        "layer": "top",
         "include": [
             "backlight/backlight.jsonc",
             "clock/clock.jsonc",
@@ -13,7 +13,6 @@
             "shutdown/shutdown.jsonc",
             "tools/tools.jsonc",
         ],
-        "modifier-reset": "release",
         "modules-left": [
             "custom/apps",
             "custom/separator",
@@ -47,8 +46,8 @@
         "spacing": 16,
     },
     {
+        "exclusive": false,
         "height": 64,
-        "layer": "top",
         "include": [
             "common/common.jsonc",
             "hyprland/hyprland.jsonc",
@@ -56,7 +55,6 @@
             "specialworkspace/specialworkspace.jsonc",
             "workspace/workspace.jsonc",
         ],
-        "modifier-reset": "release",
         "modules-left": [
             "custom/specialworkspace",
             "custom/separator",
@@ -74,37 +72,24 @@
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
         "output": [
-            "eDP-1",
+            "eDP-1"
         ],
         "position": "bottom",
         "spacing": 16,
     },
     {
         "exclusive": false,
-        "layer": "top",
         "include": [
             "hyprland/hyprland.jsonc",
         ],
-        "modifier-reset": "release",
+        "layer": "top",
         "modules-center": [
             "hyprland/workspaces",
         ],
-        "name": "left",
-        "on-sigusr1": "show",
-        "on-sigusr2": "hide",
+        "name": "dots",
+        "passthrough": true,
         "position": "left",
         "spacing": 16,
-        "width": 32,
+        "width": 96,
     },
-    {
-        "exclusive": false,
-        "layer": "top",
-        "modifier-reset": "release",
-        "name": "right",
-        "on-sigusr1": "show",
-        "on-sigusr2": "hide",
-        "position": "right",
-        "spacing": 16,
-        "width": 32,
-    }
 ]

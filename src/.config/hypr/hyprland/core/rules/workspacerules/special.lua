@@ -1,4 +1,5 @@
 hl.workspace_rule({
 	workspace = "special:special",
-	layout = "scrolling",
+	layout = "monocle",
+	no_anim = true,
 })

@@ -14,7 +14,7 @@ function M.show()
 	end
 end
 
-function M.hide()
+function M.flip()
 	return function()
 		hl.exec_cmd("killall -SIGUSR2 " .. process)
 	end

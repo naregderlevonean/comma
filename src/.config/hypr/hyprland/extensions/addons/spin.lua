@@ -18,11 +18,21 @@ local function scrolling(width)
 end
 
 spin.bind({ "left-up", "right-up" }, function(orientation, transform)
-	scrolling(1.000000)
+	scrolling(0.90)
+	hl.config({
+		master = {
+			orientation = "top",
+		},
+	})
 end)
 
 spin.bind({ "normal", "bottom-up" }, function(orientation, transform)
-	scrolling(0.500000)
+	scrolling(0.50)
+	hl.config({
+		master = {
+			orientation = "left",
+		},
+	})
 end)
 
 addons.spin = spin
