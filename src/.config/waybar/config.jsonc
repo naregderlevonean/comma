@@ -82,7 +82,7 @@
         "include": [
             "hyprland/hyprland.jsonc",
         ],
-        "layer": "top",
+        "layer": "overlay",
         "modules-center": [
             "hyprland/workspaces",
         ],

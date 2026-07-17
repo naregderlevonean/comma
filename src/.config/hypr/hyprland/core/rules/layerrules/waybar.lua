@@ -4,4 +4,6 @@ hl.layer_rule({
 	above_lock = 1,
 	animation = "fade",
 	blur = true,
+	order = 0,
+	above_lock = 0,
 })
