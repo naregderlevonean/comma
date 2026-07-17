@@ -1,6 +1,7 @@
 [
     {
         "height": 64,
+        "layer": "top",
         "include": [
             "backlight/backlight.jsonc",
             "clock/clock.jsonc",
@@ -47,6 +48,7 @@
     },
     {
         "height": 64,
+        "layer": "top",
         "include": [
             "common/common.jsonc",
             "hyprland/hyprland.jsonc",

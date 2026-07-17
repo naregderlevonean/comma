@@ -4,25 +4,29 @@ hl.config({
 			sensitivity = 1.0,
 			long_press_delay = 500,
 			resize_on_border_long_press = true,
-			edge_margin = 8,
+			edge_margin = 16,
 		},
 	},
 })
 
 hl.plugin.hyprgrass.bind({
+	pattern = { kind = "edge", origin = "l", direction = "r" },
+	action = actions.window.focus("left"),
+})
+
+hl.plugin.hyprgrass.bind({
+	pattern = { kind = "edge", origin = "r", direction = "l" },
+	action = actions.window.focus("right"),
+})
+
+hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
-	action = function()
-		components.osk.stop()()
-		components.waybar.show()()
-	end,
+	action = components.osk.stop(),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "d", direction = "u" },
-	action = function()
-		components.osk.start()()
-		components.waybar.hide()()
-	end,
+	action = components.osk.start(),
 })
 
 hl.plugin.hyprgrass.bind({
