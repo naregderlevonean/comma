@@ -12,7 +12,7 @@ message() {
 }
 
 closeall() {
-    zenity --question --title="" --text="Are your want to close all open applications?" && sleep 1 && hyprctl eval "actions.purge.init()()"
+    zenity --question --title="" --text="Are your want to close all?" && sleep 1 && hyprctl eval "actions.purge.init()()"
 }
 
 lock() {
@@ -24,7 +24,7 @@ terminate() {
 }
 
 suspend() {
-    systemctl suspend
+    message "suspend" "Suspend"
 }
 
 restart() {
