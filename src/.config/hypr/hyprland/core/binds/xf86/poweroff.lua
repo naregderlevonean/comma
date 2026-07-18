@@ -1,1 +1,1 @@
-hl.bind("XF86PowerOff", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("XF86PowerOff", hl.dsp.exec_cmd("powermenu suspend"), { locked = true })

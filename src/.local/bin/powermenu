@@ -24,7 +24,7 @@ terminate() {
 }
 
 suspend() {
-    message "suspend" "Suspend"
+    systemctl suspend
 }
 
 restart() {
