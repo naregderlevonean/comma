@@ -8,11 +8,11 @@ is_process_running() {
 }
 
 message() {
-    zenity --question --title="" --text="Do you want to $2" &&  systemctl "$1"
+    zenity --question --title="" --text="Do you want to $2" && sleep 1 && systemctl "$1"
 }
 
 closeall() {
-    zenity --question --title="" --text="Are your want to close all open applications?" && hyprctl eval "actions.purge.init()()"
+    zenity --question --title="" --text="Are your want to close all open applications?" && sleep 1 && hyprctl eval "actions.purge.init()()"
 }
 
 lock() {
@@ -20,7 +20,7 @@ lock() {
 }
 
 terminate() {
-    zenity --question --title="" --text="Are your want to Exit?" && loginctl terminate-user $USER
+    zenity --question --title="" --text="Are your want to Exit?" && sleep 1 && loginctl terminate-user $USER
 }
 
 suspend() {
