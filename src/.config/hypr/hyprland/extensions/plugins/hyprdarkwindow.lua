@@ -16,7 +16,7 @@ hl.plugin.darkwindow.load_shader("reverse", {
 	introduces_transparency = false,
 })
 
-hl.bind("SUPER + SHIFT + CTRL + Return", function()
+hl.bind("SUPER + CTRL + I", function()
 	globalInversionActive = not globalInversionActive
 
 	if globalInversionActive then
