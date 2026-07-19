@@ -1,5 +1,5 @@
 hl.gesture({
-	fingers = 3,
+	fingers = 4,
 	direction = "up",
 	action = actions.scoped.workspace(
 		actions.workspace.focus("next"),
@@ -8,7 +8,7 @@ hl.gesture({
 })
 
 hl.gesture({
-	fingers = 3,
+	fingers = 4,
 	direction = "down",
 	action = actions.scoped.workspace(
 		actions.workspace.focus("prev"),
@@ -17,13 +17,13 @@ hl.gesture({
 })
 
 hl.gesture({
-	fingers = 3,
-	direction = "left",
+	fingers = 4,
+	direction = "right",
 	action = actions.specialworkspace.start(),
 })
 
 hl.gesture({
-	fingers = 3,
-	direction = "right",
+	fingers = 4,
+	direction = "left",
 	action = actions.specialworkspace.stop(),
 })
