@@ -11,12 +11,12 @@ hl.config({
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "l", direction = "r" },
-	action = actions.window.focus("left"),
+	action = actions.window.focus("l"),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "edge", origin = "r", direction = "l" },
-	action = actions.window.focus("right"),
+	action = actions.window.focus("r"),
 })
 
 hl.plugin.hyprgrass.bind({
