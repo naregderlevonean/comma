@@ -10,7 +10,7 @@ function M.focus(direction)
 			local action = (direction == "r") and "cyclenext" or "cycleprev"
 			hl.dispatch(hl.dsp.layout(action))
 		elseif active and active.tiled_layout == "scrolling" then
-			local action = (direction == "r") and "move +860" or "move -860"
+			local action = (direction == "r") and "move -860" or "move +860"
 			hl.dispatch(hl.dsp.layout(action))
 		else
 			hl.dispatch(hl.dsp.focus({ direction = direction }))

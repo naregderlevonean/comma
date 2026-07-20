@@ -11,7 +11,7 @@ hl.config({
 		layout = "scrolling",
 		locale = "",
 		modal_parent_blocking = true,
-		no_focus_fallback = false,
+		no_focus_fallback = true,
 		resize_corner = 0,
 		resize_on_border = false,
 	},

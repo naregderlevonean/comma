@@ -87,8 +87,8 @@
         ],
         "name": "dots",
         "passthrough": true,
-        "position": "left",
+        "position": "right",
         "spacing": 16,
-        "width": 96,
+        "width": 56,
     },
 ]
