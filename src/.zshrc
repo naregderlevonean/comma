@@ -40,6 +40,8 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+eval "$(fnm env --use-on-cd)"
+
 source $ZSH/oh-my-zsh.sh
 
 export HISTFILE=~/.histfile
