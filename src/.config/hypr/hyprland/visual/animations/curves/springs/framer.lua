@@ -1,0 +1,5 @@
+hl.curve("framerWobbly", { type = "spring", mass = 1.0, stiffness = 180, dampening = 12 })
+hl.curve("framerDefault", { type = "spring", mass = 1.0, stiffness = 100, dampening = 10 })
+hl.curve("framerGentle", { type = "spring", mass = 1.0, stiffness = 120, dampening = 14 })
+hl.curve("framerStiff", { type = "spring", mass = 1.0, stiffness = 210, dampening = 20 })
+hl.curve("framerMolasses", { type = "spring", mass = 1.0, stiffness = 40, dampening = 15 })

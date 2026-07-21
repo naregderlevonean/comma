@@ -1,0 +1,5 @@
+hl.curve("elasticPop", { type = "spring", mass = 1.0, stiffness = 260, dampening = 20 })
+hl.curve("elasticSnap", { type = "spring", mass = 1.0, stiffness = 440, dampening = 42 })
+hl.curve("elasticUniform", { type = "spring", mass = 1.0, stiffness = 160, dampening = 25.3 })
+hl.curve("elasticMassive", { type = "spring", mass = 1.5, stiffness = 110, dampening = 25.7 })
+hl.curve("elasticLinear", { type = "spring", mass = 1.0, stiffness = 150, dampening = 28 })

@@ -1,3 +1,4 @@
-require("hyprland.visual.animations.curves.springs.collection")
-require("hyprland.visual.animations.curves.springs.gum")
-require("hyprland.visual.animations.curves.springs.react")
+require("hyprland.visual.animations.curves.springs.apple")
+require("hyprland.visual.animations.curves.springs.google")
+require("hyprland.visual.animations.curves.springs.elastic")
+require("hyprland.visual.animations.curves.springs.framer")

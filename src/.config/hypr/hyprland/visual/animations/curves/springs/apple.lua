@@ -1,0 +1,5 @@
+hl.curve("appleBouncy", { type = "spring", mass = 1.0, stiffness = 200, dampening = 15 })
+hl.curve("appleDefault", { type = "spring", mass = 1.0, stiffness = 300, dampening = 30 })
+hl.curve("appleSnappy", { type = "spring", mass = 1.0, stiffness = 380, dampening = 35 })
+hl.curve("appleSoft", { type = "spring", mass = 1.0, stiffness = 140, dampening = 24 })
+hl.curve("appleSmooth", { type = "spring", mass = 1.0, stiffness = 120, dampening = 22 })

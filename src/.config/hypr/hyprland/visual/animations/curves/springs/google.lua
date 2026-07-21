@@ -1,0 +1,5 @@
+hl.curve("googleExpressive", { type = "spring", mass = 1.0, stiffness = 100, dampening = 11 })
+hl.curve("googleStandard", { type = "spring", mass = 1.0, stiffness = 170, dampening = 26 })
+hl.curve("googleStrict", { type = "spring", mass = 1.0, stiffness = 220, dampening = 35 })
+hl.curve("googleHeavy", { type = "spring", mass = 2.0, stiffness = 140, dampening = 28 })
+hl.curve("googleLegacy", { type = "spring", mass = 1.0, stiffness = 380, dampening = 40 })
