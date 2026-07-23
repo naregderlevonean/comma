@@ -1,7 +1,7 @@
 local M = {}
 
 local function reset()
-	hl.exec_cmd("killall mpvpaper hyprpaper waypaper >/dev/null 2>&1")
+	hl.exec_cmd("killall mpvpaper >/dev/null 2>&1")
 end
 
 local function play(filename)
