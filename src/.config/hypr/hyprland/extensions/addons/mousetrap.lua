@@ -33,10 +33,10 @@ mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }
 
 mousetrap.bind("bottom-left", actions.specialworkspace.toggle(), { delay = 500 })
 
-mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { delay = 50 })
-mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { delay = 50 })
+mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { flick = 50 })
+mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { flick = 50 })
 
-mousetrap.bind("left", actions.window.focus("l"), { delay = 50 })
-mousetrap.bind("right", actions.window.focus("r"), { delay = 50 })
+mousetrap.bind("left", actions.window.focus("l"), { flick = 50 })
+mousetrap.bind("right", actions.window.focus("r"), { flick = 50 })
 
 addons.mousetrap = mousetrap

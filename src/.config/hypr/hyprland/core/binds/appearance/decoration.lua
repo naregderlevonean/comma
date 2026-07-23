@@ -23,9 +23,9 @@ hl.bind("SUPER + CTRL + O", function()
 	else
 		hl.config({
 			decoration = {
-				active_opacity = 0.92,
-				fullscreen_opacity = 0.92,
-				inactive_opacity = 0.72,
+				active_opacity = 0.96,
+				fullscreen_opacity = 0.96,
+				inactive_opacity = 0.84,
 			},
 		})
 	end
