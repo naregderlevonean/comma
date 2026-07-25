@@ -5,12 +5,12 @@
 }
 
 .box-wrapper {
-    background: #1a1a1a;
-    border: 1px solid #6b6b6b;
-    border-radius: 48px;
+    background: #131313;
+    border: 2px solid #ededed49;
+    border-radius: 96px;
     min-height: 640px;
     min-width: 480px;
-    padding: 96px;
+    padding: 128px;
 }
 
 child:selected .item-box,
@@ -29,7 +29,7 @@ row:selected .item-box {
 }
 
 .input {
-    border-bottom: 1px solid #212121;
+    border-bottom: 1px solid #1a1a1a;
     caret-color: #ededed;
     color: #949494;
     padding: 16px;
@@ -42,7 +42,7 @@ row:selected .item-box {
 }
 
 .input selection {
-    background: #494949;
+    background: #313131;
 }
 
 .item-box {
@@ -67,7 +67,7 @@ row:selected .item-box {
 }
 
 .keybind-label {
-    background: #292929;
+    background: #212121;
     border-radius: 8px;
     padding: 8px;
 }
@@ -85,7 +85,6 @@ row:selected .item-box {
 }
 
 .preview {
-    background: #131313;
     border-radius: 8px;
     padding: 16px;
 }
