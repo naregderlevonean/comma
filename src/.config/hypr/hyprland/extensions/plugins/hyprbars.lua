@@ -6,7 +6,7 @@ hl.config({
 			bar_blur = false,
 			bar_button_padding = 8,
 			bar_buttons_alignment = "right",
-			bar_color = 0x49ffffff,
+			bar_color = 0x49ededed,
 			bar_height = 8,
 			bar_padding = 24,
 			bar_part_of_window = true,
@@ -16,7 +16,7 @@ hl.config({
 			bar_text_size = 13,
 			bar_title_enabled = false,
 			col = {
-				text = 0xffffffff,
+				text = 0xedededff,
 			},
 			enabled = true,
 			icon_on_hover = true,

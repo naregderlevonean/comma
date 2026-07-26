@@ -45,15 +45,15 @@ hl.bind("SUPER + CTRL + I", function()
 		hl.config({
 			general = {
 				col = {
-					active_border = 0x94ffffff,
-					inactive_border = 0x49ffffff,
+					active_border = 0x94ededed,
+					inactive_border = 0x49ededed,
 				},
 			},
 			plugin = {
 				hyprbars = {
 					bar_color = 0xff292929,
 					col = {
-						text = 0xffffffff,
+						text = 0xedededff,
 					},
 				},
 			},
