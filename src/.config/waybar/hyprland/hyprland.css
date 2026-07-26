@@ -1,17 +1,11 @@
-window.left #workspaces {
-    margin-left: 4px;
-}
-
-window.left #workspaces {
+window.right #workspaces {
     border-radius: 8px;
     padding-top: 4px;
     padding-bottom: 4px;
     margin: 4px;
-    margin-left: 0px;
-    margin-right: 0px;
 }
 
-window.left #workspaces button {
+window.right #workspaces button {
     background: transparent;
     box-shadow: none;
     color: @text_color;
@@ -19,7 +13,7 @@ window.left #workspaces button {
     opacity: 0.5;
 }
 
-window.left #workspaces button.active {
+window.right #workspaces button.active {
     opacity: 1;
 }
 

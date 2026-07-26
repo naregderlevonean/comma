@@ -89,6 +89,6 @@
         "passthrough": true,
         "position": "right",
         "spacing": 16,
-        "width": 56,
+        "width": 144,
     },
 ]
