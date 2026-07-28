@@ -8,6 +8,6 @@ hl.bind(
 )
 
 hl.bind(
-	"SUPER + CTRL + Tab",
+	"SUPER + CTRL + Space",
 	actions.scoped.workspace(hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 )
