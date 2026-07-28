@@ -3,9 +3,16 @@ return {
 	build = ":TSUpdate",
 	lazy = false,
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			highlight = { enable = true },
-			indent = { enable = true },
+		require("nvim-treesitter").setup()
+
+		require("nvim-treesitter").install({
+			"lua",
+			"rust",
+			"typescript",
+			"javascript",
+			"json",
+			"html",
+			"css",
 		})
 	end,
 }

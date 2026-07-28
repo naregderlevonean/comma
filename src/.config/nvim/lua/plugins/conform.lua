@@ -10,14 +10,6 @@ return {
 				rust = { "rustfmt", lsp_format = "fallback" },
 				css = { "prettierd", "prettier", "css_beautify" },
 			},
-			formatters = {
-				prettier = {
-					prepend_args = { "--tab-width", "4" },
-				},
-				jq = {
-					prepend_args = { "--indent", "4" },
-				},
-			},
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_format = "fallback",

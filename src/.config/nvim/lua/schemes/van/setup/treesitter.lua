@@ -1,5 +1,5 @@
 return function(colors)
-	return ts = {
+	local ts = {
 		["@annotation"] = { fg = colors.Rose18, bold = true },
 		["@attribute"] = { fg = colors.Rose18, bold = true },
 		["@boolean"] = { fg = colors.Wine12, bold = true },
@@ -102,4 +102,6 @@ return function(colors)
 		["@variable.parameter"] = { fg = colors.Aqua12 },
 		["@variable.parameter.builtin"] = { fg = colors.Sky8 },
 	}
+
+	return ts
 end
