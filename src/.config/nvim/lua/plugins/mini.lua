@@ -1,7 +1,13 @@
 return {
 	"echasnovski/mini.nvim",
-	version = "*",
-	config = function()
-		require("mini.align").setup()
+	event = { "BufReadPost", "BufNewFile" },
+	opts = {
+		align = {
+			enabled = true,
+			mappings = { start = "ga", start_with_preview = "gA" },
+		},
+	},
+	config = function(_, opts)
+		require("mini.align").setup(opts.align)
 	end,
 }

@@ -1,50 +1,40 @@
 return {
 	"hrsh7th/nvim-cmp",
-
 	event = "InsertEnter",
-
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp",
-
-		"L3MON4D3/LuaSnip",
+		{
+			"L3MON4D3/LuaSnip",
+			build = "make install_jsregexp",
+			dependencies = { "rafamadriz/friendly-snippets" },
+			opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+		},
 		"saadparwaiz1/cmp_luasnip",
-
-		"rafamadriz/friendly-snippets",
-		"windwp/nvim-autopairs",
+		{ "windwp/nvim-autopairs", opts = {} },
 	},
-
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-
 		require("luasnip.loaders.from_vscode").lazy_load()
-
 		cmp.setup({
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-
 			window = {
-				completion = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered({ winhighlight = "Normal:Pmenu,FloatBorder:Pmenu" }),
 				documentation = cmp.config.window.bordered(),
 			},
-
-			mapping = cmp.mapping.preset.insert({
+			completion = { completeopt = "menu,menuone,noinsert" },
+			mapping = {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
-
 				["<C-Space>"] = cmp.mapping.complete(),
-
 				["<C-e>"] = cmp.mapping.abort(),
-
-				["<CR>"] = cmp.mapping.confirm({
-					select = true,
-				}),
-
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
@@ -54,7 +44,6 @@ return {
 						fallback()
 					end
 				end, { "i", "s" }),
-
 				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -64,33 +53,27 @@ return {
 						fallback()
 					end
 				end, { "i", "s" }),
-			}),
-
-			sources = cmp.config.sources({
-				{
-					name = "nvim_lsp",
-				},
-
-				{
-					name = "luasnip",
-				},
-
-				{
-					name = "path",
-				},
-
-				{
-					name = "buffer",
-				},
-			}),
-
-			experimental = {
-				ghost_text = true,
 			},
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp", priority = 1000 },
+				{ name = "luasnip", priority = 750 },
+				{ name = "path", priority = 500 },
+				{ name = "buffer", priority = 250 },
+			}),
+			sorting = {
+				priority_weight = 2,
+				comparators = {
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.kind,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.length,
+				},
+			},
+			experimental = { ghost_text = false },
 		})
-
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }

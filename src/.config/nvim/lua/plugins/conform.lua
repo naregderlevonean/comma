@@ -1,35 +1,41 @@
+local prettier = { "prettierd", "prettier" }
+
 return {
 	"stevearc/conform.nvim",
-
-	event = {
-		"BufWritePre",
-	},
-
-	cmd = {
-		"ConformInfo",
-	},
-
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
 	opts = {
 		notify_on_error = true,
-
-		format_on_save = {
-			timeout_ms = 500,
+		format_on_save = { async = false },
+		default_format_opts = {
 			lsp_format = "fallback",
+			timeout_ms = 1000,
+			stop_after_first = true,
 		},
-
+		formatters = {
+			prettierd = { require_cwd = true },
+		},
 		formatters_by_ft = {
 			lua = { "stylua" },
 			rust = { "rustfmt" },
-			javascript = { "prettierd", "prettier" },
-			javascriptreact = { "prettierd", "prettier" },
-			typescript = { "prettierd", "prettier" },
-			typescriptreact = { "prettierd", "prettier" },
-			json = { "prettierd", "prettier" },
-			html = { "prettierd", "prettier" },
-			css = { "prettierd", "prettier" },
-			yaml = { "prettierd", "prettier" },
-			markdown = { "prettierd", "prettier" },
+			javascript = prettier,
+			javascriptreact = prettier,
+			typescript = prettier,
+			typescriptreact = prettier,
+			vue = prettier,
+			json = prettier,
+			jsonc = prettier,
+			html = prettier,
+			css = prettier,
+			scss = prettier,
+			less = prettier,
+			yaml = prettier,
+			markdown = prettier,
+			graphql = prettier,
+			xml = prettier,
+			toml = { "taplo" },
 			sh = { "shfmt" },
+			bash = { "shfmt" },
 		},
 	},
 }
