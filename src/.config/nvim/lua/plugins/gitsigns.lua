@@ -11,6 +11,14 @@ return {
 			untracked = { text = " " },
 		},
 		signcolumn = true,
+		numhl = true,
+		linehl = false,
+		word_diff = true,
+		current_line_blame = false,
+		current_line_blame_opts = { delay = 500, virtual_text = true },
+		watch_gitdir = { follow_files = true },
+		update_debounce = 100,
+		preview_hunk = { border = "rounded" },
 	},
 	config = function(_, opts)
 		local gs = require("gitsigns")
@@ -46,5 +54,7 @@ return {
 		map("n", "<leader>hd", gs.diffthis, { desc = "Diff This" })
 		map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "Toggle Git Blame" })
 		map("n", "<leader>tw", gs.toggle_word_diff, { desc = "Toggle Word Diff" })
+		map("n", "<leader>tl", gs.toggle_linehl, { desc = "Toggle Line Highlight" })
+		map("n", "<leader>tn", gs.toggle_numhl, { desc = "Toggle Num Highlight" })
 	end,
 }
