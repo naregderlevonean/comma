@@ -49,6 +49,8 @@ return {
 						open = "",
 						empty = "",
 						empty_open = "",
+						symlink = "",
+						symlink_open = "",
 					},
 				},
 				git_placement = "before",
@@ -60,7 +62,7 @@ return {
 					icon = " ",
 					folder_arrow = " ",
 				},
-				symlink_arrow = " ➛ ",
+				symlink_arrow = "   ",
 				web_devicons = {
 					file = {
 						enable = true,
