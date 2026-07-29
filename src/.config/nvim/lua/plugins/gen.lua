@@ -1,6 +1,29 @@
+local model = "qwen2.5-coder:7b"
+
+local system_prompt = [[
+You are a senior software engineer.
+Write concise, correct, idiomatic and maintainable code.
+Prefer modern language features and avoid unnecessary complexity.
+]]
+
+local commands = {
+	explain = {
+		prompt = "Explain this code clearly and in detail:",
+	},
+	refactor = {
+		prompt = "Refactor this code for readability, maintainability and performance without changing behavior:",
+	},
+	fix = {
+		prompt = "Find and fix bugs, errors and potential issues in this code:",
+	},
+	test = {
+		prompt = "Write comprehensive unit tests for this code:",
+	},
+}
+
 return {
 	"David-Kunz/gen.nvim",
-	cmd = { "Gen" },
+	cmd = "Gen",
 	keys = {
 		{ "<leader>ai", "<cmd>Gen<cr>", desc = "AI Generate" },
 		{ "<leader>ae", "<cmd>Gen explain<cr>", desc = "Explain Code" },
@@ -8,32 +31,43 @@ return {
 		{ "<leader>af", "<cmd>Gen fix<cr>", desc = "Fix Issues" },
 	},
 	opts = {
-		model = "qwen2.5-coder:7b",
+		model = model,
 		temperature = 0.2,
-		top_p = 0.9,
 		max_tokens = 2048,
-		system_prompt = "You are a senior software engineer. Provide concise, accurate, and well-structured responses.",
+		system_prompt = system_prompt,
 		quit_map = "q",
 		display_mode = "float",
 		show_model = true,
 		no_auto_close = true,
-		commands = {
-			explain = { prompt = "Explain the following code in detail:" },
-			refactor = { prompt = "Refactor this code to improve readability and performance:" },
-			fix = { prompt = "Identify and fix any bugs or issues in this code:" },
-			test = { prompt = "Write unit tests for this code:" },
-		},
+		commands = commands,
 		output = function(response)
-			vim.api.nvim_put({ response }, "", { after = true, pos = "end" })
+			vim.api.nvim_put(vim.split(response, "\n"), "", true, true)
 		end,
 		init = function()
-			vim.system({ "ollama", "list" }, { text = true }, function(out)
-				if not out.stdout:match("qwen2%.5%-coder:7b") then
+			if vim.fn.executable("ollama") == 0 then
+				return
+			end
+
+			vim.system({ "ollama", "list" }, { text = true }, function(result)
+				if result.code ~= 0 then
+					return
+				end
+
+				local stdout = result.stdout or ""
+
+				for line in stdout:gmatch("[^\r\n]+") do
+					local name = line:match("^(%S+)")
+					if name == model then
+						return
+					end
+				end
+
+				vim.schedule(function()
 					vim.notify(
-						"Model 'qwen2.5-coder:7b' not found. Pull with: ollama pull qwen2.5-coder:7b",
+						("Model '%s' not found. Pull it with: ollama pull %s"):format(model, model),
 						vim.log.levels.WARN
 					)
-				end
+				end)
 			end)
 		end,
 	},

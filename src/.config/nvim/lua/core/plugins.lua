@@ -1,27 +1,38 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
-end
-vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
+
+if not vim.uv.fs_stat(lazypath) then
+	if vim.fn.executable("git") == 0 then
+		vim.notify("Git is required to install lazy.nvim", vim.log.levels.ERROR)
+		vim.cmd.quitall()
+	end
+
+	local repository = "https://github.com/folke/lazy.nvim.git"
+	local output = vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--branch=stable",
+		repository,
+		lazypath,
+	})
+
+	if vim.v.shell_error ~= 0 then
+		vim.notify(output, vim.log.levels.ERROR)
+		vim.cmd.quitall()
+	end
+end
+
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ import = "plugins" },
+		{
+			import = "plugins",
+		},
 	},
-
 	ui = {
 		border = "rounded",
 		icons = {
@@ -39,15 +50,19 @@ require("lazy").setup({
 			lazy = " ",
 		},
 	},
-
 	checker = {
 		enabled = true,
 		frequency = 86400,
-		notify = true,
+		notify = false,
 	},
-
+	change_detection = {
+		enabled = true,
+		notify = false,
+	},
 	performance = {
-		cache = { enabled = true },
+		cache = {
+			enabled = true,
+		},
 		rtp = {
 			disabled_plugins = {
 				"gzip",
@@ -61,8 +76,12 @@ require("lazy").setup({
 			},
 		},
 	},
-
 	install = {
-		colorscheme = { "van" },
+		colorscheme = {
+			"van",
+			"default",
+		},
 	},
 })
+
+vim.cmd("colorscheme van")

@@ -3,12 +3,36 @@ return {
 	main = "ibl",
 	event = { "BufReadPost", "BufNewFile" },
 	opts = {
-		indent = { char = "┊", tab_char = "│" },
-		scope = { enabled = true, show_start = true, show_end = false, injected_languages = true },
-		whitespace = { remove_blankline_trail = true },
+		indent = {
+			char = "┊",
+		},
+		scope = {
+			enabled = true,
+			show_start = false,
+			show_end = false,
+			show_exact_scope = true,
+			injected_languages = true,
+		},
+		whitespace = {
+			remove_blankline_trail = true,
+		},
 		exclude = {
-			filetypes = { "help", "terminal", "lazy", "mason", "NvimTree", "neo-tree", "dashboard", "alpha" },
-			buftypes = { "terminal", "nofile", "quickfix", "prompt" },
+			filetypes = {
+				"alpha",
+				"dashboard",
+				"help",
+				"lazy",
+				"mason",
+				"neo-tree",
+				"NvimTree",
+				"terminal",
+			},
+			buftypes = {
+				"nofile",
+				"prompt",
+				"quickfix",
+				"terminal",
+			},
 		},
 	},
 }

@@ -1,8 +1,15 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
+		cmd = {
+			"Mason",
+			"MasonInstall",
+			"MasonUninstall",
+			"MasonUpdate",
+		},
 		opts = {
+			PATH = "prepend",
+			max_concurrent_installers = 2,
 			ui = {
 				border = "rounded",
 				icons = {
@@ -15,30 +22,42 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"williamboman/mason.nvim",
+		},
 		opts = {
 			ensure_installed = {
-				"lua_ls",
-				"rust_analyzer",
-				"ts_ls",
-				"html",
-				"cssls",
-				"jsonls",
-				"yamlls",
 				"bashls",
-				"tailwindcss",
+				"cssls",
 				"dockerls",
+				"html",
+				"jsonls",
+				"lua_ls",
 				"marksman",
+				"rust_analyzer",
+				"tailwindcss",
 				"taplo",
+				"ts_ls",
+				"yamlls",
 			},
 			automatic_enable = true,
 		},
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		dependencies = { "williamboman/mason.nvim" },
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
 		opts = {
-			ensure_installed = { "stylua", "prettierd", "prettier", "shfmt", "taplo" },
+			ensure_installed = {
+				"prettier",
+				"prettierd",
+				"shfmt",
+				"stylua",
+				"taplo",
+			},
+			automatic_installation = false,
 			auto_update = false,
 			run_on_start = true,
 		},

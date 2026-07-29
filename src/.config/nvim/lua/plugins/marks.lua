@@ -4,13 +4,35 @@ return {
 	opts = {
 		default_mappings = true,
 		signs = true,
-		sign_priority = 10,
-		excluded_filetypes = { "help", "lazy", "mason", "NvimTree", "neo-tree", "dashboard", "alpha", "terminal" },
-		excluded_buftypes = { "nofile", "terminal", "quickfix", "prompt" },
-		marks = {
-			bookmark = { sign = "⚑", virt_text = "⚑", virt_line = false, annotate = false },
-			cyclic = { sign = "→" },
+		sign_priority = 100,
+		refresh_interval = 150,
+		excluded_filetypes = {
+			"alpha",
+			"dashboard",
+			"help",
+			"lazy",
+			"mason",
+			"neo-tree",
+			"NvimTree",
+			"terminal",
 		},
-		refresh_interval = 250,
+		excluded_buftypes = {
+			"nofile",
+			"prompt",
+			"quickfix",
+			"terminal",
+		},
+		marks = {
+			bookmark = {
+				sign = "⚑",
+				virt_text = "⚑",
+				virt_line = false,
+				annotate = false,
+			},
+			cyclic = {
+				sign = " ",
+				virt_text = " ",
+			},
+		},
 	},
 }

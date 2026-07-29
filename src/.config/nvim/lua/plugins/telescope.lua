@@ -3,7 +3,10 @@ return {
 	cmd = "Telescope",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
 	},
 	keys = {
 		{
@@ -28,13 +31,6 @@ return {
 			desc = "Buffers",
 		},
 		{
-			"<leader>fh",
-			function()
-				require("telescope.builtin").help_tags()
-			end,
-			desc = "Help Tags",
-		},
-		{
 			"<leader>fr",
 			function()
 				require("telescope.builtin").oldfiles()
@@ -42,25 +38,11 @@ return {
 			desc = "Recent Files",
 		},
 		{
-			"<leader>fc",
+			"<leader>fh",
 			function()
-				require("telescope.builtin").current_buffer_fuzzy_find()
+				require("telescope.builtin").help_tags()
 			end,
-			desc = "Current Buffer",
-		},
-		{
-			"<leader>fs",
-			function()
-				require("telescope.builtin").lsp_document_symbols()
-			end,
-			desc = "Document Symbols",
-		},
-		{
-			"<leader>fS",
-			function()
-				require("telescope.builtin").lsp_workspace_symbols()
-			end,
-			desc = "Workspace Symbols",
+			desc = "Help Tags",
 		},
 		{
 			"<leader>fd",
@@ -68,6 +50,13 @@ return {
 				require("telescope.builtin").diagnostics()
 			end,
 			desc = "Diagnostics",
+		},
+		{
+			"<leader>fs",
+			function()
+				require("telescope.builtin").lsp_document_symbols()
+			end,
+			desc = "Document Symbols",
 		},
 		{
 			"<leader>fk",
@@ -80,26 +69,25 @@ return {
 	opts = {
 		defaults = {
 			layout_strategy = "horizontal",
-			layout_config = { horizontal = { preview_width = 0.55 } },
 			sorting_strategy = "ascending",
 			prompt_prefix = "  ",
 			selection_caret = "  ",
-			path_display = "smart",
-			dynamic_preview_title = true,
-			file_ignore_patterns = { "node_modules", "%.git/", "target/", "dist/", "build/", "vendor/", "%.cache/" },
-			vimgrep_arguments = {
-				"rg",
-				"--color=never",
-				"--no-heading",
-				"--with-filename",
-				"--line-number",
-				"--column",
-				"--smart-case",
-				"--hidden",
-				"--glob",
-				"!**/.git/*",
-				"--glob",
-				"!**/node_modules/*",
+			path_display = {
+				"smart",
+			},
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+					preview_width = 0.55,
+				},
+			},
+			file_ignore_patterns = {
+				"^.git/",
+				"node_modules/",
+				"target/",
+				"dist/",
+				"build/",
+				"vendor/",
 			},
 			mappings = {
 				i = {
@@ -107,24 +95,46 @@ return {
 					["<C-k>"] = "move_selection_previous",
 					["<C-q>"] = "send_to_qflist",
 				},
-				n = { ["q"] = "close" },
+				n = {
+					q = "close",
+				},
 			},
 		},
 		pickers = {
-			find_files = { hidden = true },
-			buffers = { sort_mru = true, ignore_current_buffer = true },
+			find_files = {
+				hidden = true,
+				find_command = {
+					"rg",
+					"--files",
+					"--hidden",
+					"--glob",
+					"!**/.git/*",
+				},
+			},
+			live_grep = {
+				additional_args = function()
+					return {
+						"--hidden",
+					}
+				end,
+			},
+			buffers = {
+				sort_mru = true,
+				ignore_current_buffer = true,
+			},
 		},
 		extensions = {
 			fzf = {
 				fuzzy = true,
-				override_generic_sorter = true,
 				override_file_sorter = true,
+				override_generic_sorter = true,
 				case_mode = "smart_case",
 			},
 		},
 	},
 	config = function(_, opts)
 		local telescope = require("telescope")
+
 		telescope.setup(opts)
 		telescope.load_extension("fzf")
 	end,

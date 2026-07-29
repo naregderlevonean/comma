@@ -1,60 +1,163 @@
+local function git()
+	return require("gitsigns")
+end
+
 return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		signs = {
-			add = { text = " " },
-			change = { text = " " },
-			delete = { text = " " },
-			topdelete = { text = " " },
-			changedelete = { text = " " },
-			untracked = { text = " " },
+			add = { text = "│" },
+			change = { text = "│" },
+			delete = { text = "┊" },
+			topdelete = { text = "┊" },
+			changedelete = { text = "┊" },
+			untracked = { text = "┆" },
+		},
+		signs_staged = {
+			add = { text = "│" },
+			change = { text = "│" },
+			delete = { text = "┊" },
+			topdelete = { text = "┊" },
+			changedelete = { text = "┊" },
+			untracked = { text = "┊" },
 		},
 		signcolumn = true,
-		numhl = true,
+		numhl = false,
 		linehl = false,
-		word_diff = true,
+		word_diff = false,
 		current_line_blame = false,
-		current_line_blame_opts = { delay = 500, virtual_text = true },
-		watch_gitdir = { follow_files = true },
-		update_debounce = 100,
-		preview_hunk = { border = "rounded" },
+		current_line_blame_opts = {
+			delay = 500,
+			virtual_text = true,
+		},
+		watch_gitdir = {
+			follow_files = true,
+			attach_to_untracked = true,
+		},
 	},
-	config = function(_, opts)
-		local gs = require("gitsigns")
-		gs.setup(opts)
-		local map = vim.keymap.set
-		map("n", "]c", function()
-			if vim.wo.diff then
-				vim.cmd.normal({ "]c", bang = true })
-			else
-				gs.nav_hunk("next")
-			end
-		end, { desc = "Next Hunk" })
-		map("n", "[c", function()
-			if vim.wo.diff then
-				vim.cmd.normal({ "[c", bang = true })
-			else
-				gs.nav_hunk("prev")
-			end
-		end, { desc = "Previous Hunk" })
-		map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage Hunk" })
-		map("n", "<leader>hr", gs.reset_hunk, { desc = "Reset Hunk" })
-		map("v", "<leader>hs", function()
-			gs.stage_hunk({ vim.fn.line("'<"), vim.fn.line("'>") })
-		end, { desc = "Stage Selection" })
-		map("v", "<leader>hr", function()
-			gs.reset_hunk({ vim.fn.line("'<"), vim.fn.line("'>") })
-		end, { desc = "Reset Selection" })
-		map("n", "<leader>hS", gs.stage_buffer, { desc = "Stage Buffer" })
-		map("n", "<leader>hR", gs.reset_buffer, { desc = "Reset Buffer" })
-		map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo Stage Hunk" })
-		map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview Hunk" })
-		map("n", "<leader>hb", gs.blame_line, { desc = "Blame Line" })
-		map("n", "<leader>hd", gs.diffthis, { desc = "Diff This" })
-		map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "Toggle Git Blame" })
-		map("n", "<leader>tw", gs.toggle_word_diff, { desc = "Toggle Word Diff" })
-		map("n", "<leader>tl", gs.toggle_linehl, { desc = "Toggle Line Highlight" })
-		map("n", "<leader>tn", gs.toggle_numhl, { desc = "Toggle Num Highlight" })
-	end,
+	keys = {
+		{
+			"]c",
+			function()
+				if vim.wo.diff then
+					vim.cmd.normal({ "]c", bang = true })
+				else
+					git().nav_hunk("next")
+				end
+			end,
+			desc = "Next Hunk",
+		},
+		{
+			"[c",
+			function()
+				if vim.wo.diff then
+					vim.cmd.normal({ "[c", bang = true })
+				else
+					git().nav_hunk("prev")
+				end
+			end,
+			desc = "Previous Hunk",
+		},
+		{
+			"<leader>hs",
+			function()
+				git().stage_hunk()
+			end,
+			desc = "Stage Hunk",
+		},
+		{
+			"<leader>hr",
+			function()
+				git().reset_hunk()
+			end,
+			desc = "Reset Hunk",
+		},
+		{
+			"<leader>hs",
+			mode = "v",
+			function()
+				git().stage_hunk({ vim.fn.line("'<"), vim.fn.line("'>") })
+			end,
+			desc = "Stage Selection",
+		},
+		{
+			"<leader>hr",
+			mode = "v",
+			function()
+				git().reset_hunk({ vim.fn.line("'<"), vim.fn.line("'>") })
+			end,
+			desc = "Reset Selection",
+		},
+		{
+			"<leader>hS",
+			function()
+				git().stage_buffer()
+			end,
+			desc = "Stage Buffer",
+		},
+		{
+			"<leader>hR",
+			function()
+				git().reset_buffer()
+			end,
+			desc = "Reset Buffer",
+		},
+		{
+			"<leader>hu",
+			function()
+				git().undo_stage_hunk()
+			end,
+			desc = "Undo Stage Hunk",
+		},
+		{
+			"<leader>hp",
+			function()
+				git().preview_hunk()
+			end,
+			desc = "Preview Hunk",
+		},
+		{
+			"<leader>hb",
+			function()
+				git().blame_line()
+			end,
+			desc = "Blame Line",
+		},
+		{
+			"<leader>hd",
+			function()
+				git().diffthis()
+			end,
+			desc = "Diff This",
+		},
+		{
+			"<leader>tb",
+			function()
+				git().toggle_current_line_blame()
+			end,
+			desc = "Toggle Git Blame",
+		},
+		{
+			"<leader>tw",
+			function()
+				git().toggle_word_diff()
+			end,
+			desc = "Toggle Word Diff",
+		},
+		{
+			"<leader>tl",
+			function()
+				git().toggle_linehl()
+			end,
+			desc = "Toggle Line Highlight",
+		},
+		{
+			"<leader>tn",
+			function()
+				git().toggle_numhl()
+			end,
+			desc = "Toggle Num Highlight",
+		},
+	},
 }
