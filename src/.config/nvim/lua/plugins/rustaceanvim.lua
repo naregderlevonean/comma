@@ -1,6 +1,6 @@
 return {
 	"mrcjkb/rustaceanvim",
-	version = "^5",
+	branch = "main",
 	ft = "rust",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
@@ -30,25 +30,18 @@ return {
 						cargo = {
 							allFeatures = true,
 						},
-						checkOnSave = {
+						check = {
 							command = "clippy",
 						},
+						checkOnSave = true,
 						procMacro = {
 							enable = true,
 						},
 						inlayHints = {
-							bindingModeHints = {
-								enable = true,
-							},
-							closureReturnTypeHints = {
-								enable = "always",
-							},
-							lifetimeElisionHints = {
-								enable = "skip_trivial",
-							},
-							reborrowHints = {
-								enable = "always",
-							},
+							bindingModeHints = { enable = true },
+							closureReturnTypeHints = { enable = "always" },
+							lifetimeElisionHints = { enable = "skip_trivial" },
+							reborrowHints = { enable = "always" },
 						},
 					},
 				},
