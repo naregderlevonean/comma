@@ -8,8 +8,8 @@ return {
 		},
 		scope = {
 			enabled = true,
-			show_start = false,
-			show_end = false,
+			show_start = true,
+			show_end = true,
 			show_exact_scope = true,
 			injected_languages = true,
 		},
