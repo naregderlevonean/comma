@@ -18,7 +18,7 @@ return function(colors)
 		NvimTreeGitDirty = { fg = colors.Orange16 },
 		NvimTreeGitIgnored = { fg = colors.Gray08 },
 		NvimTreeGitMerge = { fg = colors.Red16 },
-		NvimTreeGitNew = { fg = colors.Wine16 },
+		NvimTreeGitNew = { fg = colors.Orchid16 },
 		NvimTreeGitRenamed = { fg = colors.Yellow08 },
 		NvimTreeGitStaged = { fg = colors.Green16 },
 		NvimTreeImageFile = { fg = colors.Magenta16 },
