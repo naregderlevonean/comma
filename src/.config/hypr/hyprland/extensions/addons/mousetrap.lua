@@ -1,42 +1,158 @@
 local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 	geometry = {
-		default = { corner = 2, edge = 2 },
+		default = {
+			corner = 2,
+			edge = 2,
+		},
 	},
 })
 
-mousetrap.pressed = false
+mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), {
+	velocity = 100,
+})
 
-hl.bind("mouse:272", function()
-	mousetrap.pressed = true
-end, { mouse = true, non_consuming = true, release = false })
+mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), {
+	velocity = 100,
+})
 
-hl.bind("mouse:272", function()
-	mousetrap.pressed = false
-end, { mouse = true, non_consuming = true, release = true })
+mousetrap.bind("left", actions.window.focus("l"), {
+	velocity = 100,
+})
 
-local original = mousetrap.bind
-mousetrap.bind = function(zone, action, opts)
-	local wrapped = function(...)
-		if not mousetrap.pressed then
-			if type(action) == "function" then
-				return action(...)
-			elseif type(action) == "table" and getmetatable(action) and getmetatable(action).__call then
-				return action(...)
+mousetrap.bind("right", actions.window.focus("r"), {
+	velocity = 100,
+})
+
+do
+	local mouse_buttons = {}
+	local cooldown = 0.15
+
+	mousetrap.mouse_pressed = false
+	mousetrap.block_until = 0
+
+	local function update_mouse_state()
+		mousetrap.mouse_pressed = false
+
+		for _, pressed in pairs(mouse_buttons) do
+			if pressed then
+				mousetrap.mouse_pressed = true
+				break
 			end
 		end
 	end
-	return original(zone, wrapped, opts)
+
+	local function set_mouse_button(button, state)
+		mouse_buttons[button] = state
+
+		update_mouse_state()
+
+		if not state then
+			mousetrap.block_until = os.clock() + cooldown
+		end
+	end
+
+	for _, button in ipairs({
+		272,
+		273,
+		274,
+	}) do
+		hl.bind("mouse:" .. button, function()
+			set_mouse_button(button, true)
+		end, {
+			mouse = true,
+			non_consuming = true,
+			release = false,
+		})
+
+		hl.bind("mouse:" .. button, function()
+			set_mouse_button(button, false)
+		end, {
+			mouse = true,
+			non_consuming = true,
+			release = true,
+		})
+	end
+
+	local original = mousetrap.bind
+
+	mousetrap.bind = function(zone, action, opts)
+		local wrapped = function(...)
+			if not mousetrap.mouse_pressed and os.clock() >= mousetrap.block_until then
+				return action(...)
+			end
+		end
+
+		return original(zone, wrapped, opts)
+	end
 end
 
-mousetrap.bind("top-left", components.walker.toggle(), { delay = 500 })
-mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }), { delay = 500 })
+do
+	hl.bind(
+		"CONTROL_L",
+		mousetrap.modifiers({
+			ctrl = true,
+		})
+	)
 
-mousetrap.bind("bottom-left", actions.specialworkspace.toggle(), { delay = 500 })
+	hl.bind(
+		"CONTROL + CONTROL_L",
+		mousetrap.modifiers({
+			ctrl = false,
+		}),
+		{
+			release = true,
+		}
+	)
 
-mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), { flick = 50 })
-mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), { flick = 50 })
+	mousetrap.bind("top", actions.scoped.workspace(actions.workspace.focus("prev")), {
+		delay = 250,
+		loop = true,
+		modifiers = {
+			ctrl = true,
+		},
+	})
 
-mousetrap.bind("left", actions.window.focus("l"), { flick = 50 })
-mousetrap.bind("right", actions.window.focus("r"), { flick = 50 })
+	mousetrap.bind("bottom", actions.scoped.workspace(actions.workspace.focus("next")), {
+		delay = 250,
+		loop = true,
+		modifiers = {
+			ctrl = true,
+		},
+	})
+
+	mousetrap.bind("left", actions.window.focus("l"), {
+		delay = 250,
+		loop = true,
+		modifiers = {
+			ctrl = true,
+		},
+	})
+
+	mousetrap.bind("right", actions.window.focus("r"), {
+		delay = 250,
+		loop = true,
+		modifiers = {
+			ctrl = true,
+		},
+	})
+end
+
+mousetrap.bind("top-left", components.walker.toggle(), {
+	delay = 500,
+})
+
+mousetrap.bind(
+	"bottom-right",
+	components.walker.toggle({
+		provider = "windows",
+	}),
+	{
+		delay = 500,
+	}
+)
+
+mousetrap.bind("bottom-left", actions.specialworkspace.toggle(), {
+	delay = 500,
+})
 
 addons.mousetrap = mousetrap
