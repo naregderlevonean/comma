@@ -4,3 +4,6 @@
 [submodule "src/.config/hypr/hyprland/extensions/addons/spin"]
 	path = src/.config/hypr/hyprland/extensions/addons/spin
 	url = https://github.com/naregderlevonean/spin
+[submodule "src/.config/hypr/hyprland/extensions/addons/orbit"]
+	path = src/.config/hypr/hyprland/extensions/addons/orbit
+	url = https://github.com/naregderlevonean/orbit.git

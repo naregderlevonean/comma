@@ -1,12 +1,12 @@
 hl.config({
 	general = {
 		allow_tearing = false,
-		border_size = 1,
+		border_size = 2,
 		extend_border_grab_area = 15,
 		float_gaps = 24,
 		gaps_in = { bottom = 16, left = 0, right = 16, top = 0 },
 		gaps_out = { bottom = 96, left = 32, right = 32, top = 96 },
-		gaps_workspaces = 128,
+		gaps_workspaces = 800,
 		hover_icon_on_border = true,
 		layout = "scrolling",
 		locale = "",

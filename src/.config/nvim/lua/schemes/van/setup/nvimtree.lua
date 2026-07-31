@@ -21,7 +21,7 @@ return function(colors)
 		NvimTreeGitNew = { fg = colors.Orchid16 },
 		NvimTreeGitRenamed = { fg = colors.Yellow08 },
 		NvimTreeGitStaged = { fg = colors.Green16 },
-		NvimTreeImageFile = { fg = colors.Magenta16 },
+		NvimTreeImageFile = { fg = colors.Rose16 },
 		NvimTreeIndent = { fg = colors.Gray04 },
 		NvimTreeLiveFilterBackground = { bg = colors.Gray1 },
 		NvimTreeLiveFilterPrefix = { fg = colors.Gray16 },
