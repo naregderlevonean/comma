@@ -59,7 +59,7 @@ local function start()
 	hl.dispatch(hl.dsp.submap("hyprexpo"))
 end
 
-hl.bind("SUPER + ALT + Escape", start)
+hl.bind("SUPER + ALT + Escape", actions.scoped.workspace(start))
 
 hl.define_submap("hyprexpo", function()
 	hl.bind("Left", function()
