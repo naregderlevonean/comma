@@ -2,7 +2,7 @@ hl.config({
 	plugin = {
 		hyprexpo = {
 			animate_entry = 0,
-			bg_col = "0x08131313",
+			bg_col = "0x08080808",
 			border_color = "0x94ededed",
 			border_color_current = "0x94ededed",
 			border_color_focus = "0x94ededed",
