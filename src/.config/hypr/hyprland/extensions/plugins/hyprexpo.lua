@@ -113,10 +113,12 @@ hl.define_submap("hyprexpo", function()
 
 	hl.bind("Return", function()
 		hl.plugin.hyprexpo.kb_confirm()
+		hl.plugin.hyprexpo.expo("cancel")
 		hl.dispatch(hl.dsp.submap("reset"))
 	end)
 
 	hl.bind("Escape", function()
+		hl.plugin.hyprexpo.kb_confirm()
 		hl.plugin.hyprexpo.expo("cancel")
 		hl.dispatch(hl.dsp.submap("reset"))
 	end)

@@ -7,13 +7,13 @@ local addon = require("hyprland.extensions.addons.mousetrap.init").setup({
 	},
 })
 
-addon.bind("right", actions.scoped.workspace(actions.workspace.focus("prev")), {
+addon.bind("right", actions.scoped.workspace(actions.workspace.focus("next")), {
 	direction = "up",
 	distance = 300,
 	loop = true,
 })
 
-addon.bind("right", actions.scoped.workspace(actions.workspace.focus("next")), {
+addon.bind("right", actions.scoped.workspace(actions.workspace.focus("prev")), {
 	direction = "down",
 	distance = 300,
 	loop = true,
