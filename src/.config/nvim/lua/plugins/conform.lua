@@ -16,6 +16,10 @@ return {
 		formatters = {
 			prettierd = {
 				require_cwd = true,
+				prepend_args = { "--tab-width", "4" },
+			},
+			prettier = {
+				prepend_args = { "--tab-width", "4" },
 			},
 		},
 		formatters_by_ft = {

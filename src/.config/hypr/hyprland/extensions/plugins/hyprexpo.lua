@@ -9,7 +9,7 @@ hl.config({
 			border_color_hover = "0x49ededed",
 			border_width = 2,
 			cancel_key = "escape",
-			columns = 3,
+			columns = 4,
 			drag_drop_enable = 1,
 			drag_drop_proxy_active_color = "0x94080808",
 			drag_drop_proxy_border_color = "0x00000000",
@@ -54,7 +54,40 @@ hl.config({
 	},
 })
 
+local function count()
+	local workspaces = hl.get_workspaces()
+
+	if not workspaces then
+		return 1
+	end
+
+	local max = 1
+
+	for _, ws in ipairs(workspaces) do
+		if ws.id > 0 and ws.id > max then
+			max = ws.id
+		end
+	end
+
+	return max
+end
+
+local function grid(num)
+	return math.max(2, math.ceil(math.sqrt(num)))
+end
+
 local function start()
+	local workspaces = count()
+	local columns = grid(workspaces)
+
+	hl.config({
+		plugin = {
+			hyprexpo = {
+				columns = columns,
+			},
+		},
+	})
+
 	hl.plugin.hyprexpo.expo("toggle")
 	hl.dispatch(hl.dsp.submap("hyprexpo"))
 end
