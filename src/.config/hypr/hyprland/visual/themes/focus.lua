@@ -1,7 +1,7 @@
 local M = {}
 
 function M.init()
-	components.waybar.start()()
+	hl.dispatch(components.waybar.start())
 	hl.config({
 		general = {
 			layout = "monocle",

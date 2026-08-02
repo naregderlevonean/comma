@@ -19,9 +19,9 @@ end
 function M.toggle()
 	return function()
 		if system.process.status(daemon) then
-			M.stop()()
+			hl.dispatch(M.stop())
 		else
-			M.start()()
+			hl.dispatch(M.start())
 		end
 	end
 end

@@ -15,15 +15,4 @@ hl.bind("SUPER + SHIFT + CTRL + 1", hl.dsp.layout("colresize all 0.9"))
 hl.bind("SUPER + SHIFT + CTRL + 2", hl.dsp.layout("colresize all 0.5"))
 hl.bind("SUPER + SHIFT + CTRL + 3", hl.dsp.layout("colresize all 0.333333"))
 
-hl.bind("SUPER + CTRL + C", function()
-	local state = tonumber(hl.get_config("scrolling:focus_fit_method"))
-	local next = (state == 1) and 0 or 1
-
-	hl.config({
-		scrolling = {
-			focus_fit_method = next,
-		},
-	})
-
-	hl.dispatch(hl.dsp.layout(string.format("move %+d", (1 - state * 2) * 480)))
-end)
+hl.bind("SUPER + CTRL + C", actions.window.fit())

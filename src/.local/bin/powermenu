@@ -3,7 +3,7 @@
 PROCESS="zenity"
 
 is_process_running() {
-    pgrep "$1" > /dev/null 2>&1
+    pgrep "$1" >/dev/null 2>&1
     return $?
 }
 
@@ -12,7 +12,7 @@ message() {
 }
 
 closeall() {
-    zenity --question --title="" --text="Are your want to close all?" && sleep 1 && hyprctl eval "actions.purge.init()()"
+    zenity --question --title="" --text="Are your want to close all?" && sleep 1 && hyprctl eval "hl.dispatch(actions.purge.init())"
 }
 
 lock() {
@@ -48,41 +48,41 @@ dialog() {
         --extra-button "" \
         --extra-button "" \
         --extra-button "" \
-        --timeout="16" )
+        --timeout="16")
 
     case "$choice" in
-        "")
-            closeall
-            ;;
-        "")  
-            hyprlock
-            ;;
-        "")  
-            loginctl terminate-user $USER
-            ;;
-        "")  
-            systemctl suspend
-            ;;
-        "")  
-            systemctl reboot
-            ;;
-        "")  
-            systemctl poweroff
-            ;;
-        *) 
-            exit 1
-            ;;
-    esac
-}
-
-case "$1" in
-    "")
-        dialog
+    "")
+        closeall
         ;;
-    closeall|lock|terminate|suspend|restart|poweroff)
-        "$1"
+    "")
+        hyprlock
+        ;;
+    "")
+        loginctl terminate-user $USER
+        ;;
+    "")
+        systemctl suspend
+        ;;
+    "")
+        systemctl reboot
+        ;;
+    "")
+        systemctl poweroff
         ;;
     *)
         exit 1
         ;;
+    esac
+}
+
+case "$1" in
+"")
+    dialog
+    ;;
+closeall | lock | terminate | suspend | restart | poweroff)
+    "$1"
+    ;;
+*)
+    exit 1
+    ;;
 esac

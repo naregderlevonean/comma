@@ -15,6 +15,6 @@ hl.bind("SUPER + SHIFT + ALT + Z", function()
 end)
 
 hl.bind("SUPER + SHIFT + ALT + Escape", function()
-	components.waybar.show()()
+	hl.dispatch(components.waybar.show())
 	hl.exec_cmd("hyprctl reload")
 end)

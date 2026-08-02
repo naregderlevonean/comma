@@ -2,7 +2,7 @@
     "group/tools": {
         "drawer": {
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": false,
         },
         "modules": [
             "custom/tools",
@@ -10,61 +10,61 @@
             "custom/mousetrap",
             "custom/osk",
             "custom/hyprsunset",
-            "custom/hyprshade"
+            "custom/hyprshade",
         ],
-        "orientation": "inherit"
+        "orientation": "inherit",
     },
     "custom/tools": {
         "format": "",
         "interval": "once",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/osk": {
         "exec": "waybar-bridge components.osk.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.osk.toggle()()'; pkill -RTMIN+7 waybar",
+        "on-click": "hyprctl eval 'hl.dispatch(components.osk.toggle())'; pkill -RTMIN+7 waybar",
         "return-type": "json",
         "signal": 7,
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/spin": {
         "exec": "waybar-bridge addons.spin.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'addons.spin.toggle()()'",
+        "on-click": "hyprctl eval 'hl.dispatch(addons.spin.toggle())'",
         "return-type": "json",
         "signal": 7,
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/hyprshade": {
         "exec": "waybar-bridge components.shader.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.shader.toggle()()'",
-        "on-click-right": "hyprctl eval 'components.shader.next()()'", 
-        "on-scroll-down": "hyprctl eval 'components.shader.prev()()'",
-        "on-scroll-up": "hyprctl eval 'components.shader.next()()'",
+        "on-click": "hyprctl eval 'hl.dispatch(components.shader.toggle())'",
+        "on-click-right": "hyprctl eval 'hl.dispatch(components.shader.next())'",
+        "on-scroll-down": "hyprctl eval 'hl.dispatch(components.shader.prev())'",
+        "on-scroll-up": "hyprctl eval 'hl.dispatch(components.shader.next())'",
         "return-type": "json",
         "signal": 7,
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/hyprsunset": {
         "exec": "waybar-bridge components.hyprsunset.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'components.hyprsunset.toggle()()'; pkill -RTMIN+7 waybar",
+        "on-click": "hyprctl eval 'hl.dispatch(components.hyprsunset.toggle())'; pkill -RTMIN+7 waybar",
         "return-type": "json",
         "signal": 7,
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/mousetrap": {
         "exec": "waybar-bridge addons.mousetrap.status",
         "format": "",
         "interval": "once",
-        "on-click": "hyprctl eval 'addons.mousetrap.toggle()()'",
+        "on-click": "hyprctl eval 'hl.dispatch(addons.mousetrap.toggle())'",
         "return-type": "json",
         "signal": 7,
-        "tooltip": false
+        "tooltip": false,
     },
 }

@@ -88,6 +88,8 @@ local function start()
 		},
 	})
 
+	hl.dispatch(components.walker.stop())
+
 	hl.plugin.hyprexpo.expo("toggle")
 	hl.dispatch(hl.dsp.submap("hyprexpo"))
 end

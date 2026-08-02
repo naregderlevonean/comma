@@ -31,4 +31,8 @@ addon.bind("bottom", actions.window.focus("l"), {
 	loop = true,
 })
 
+addon.bind("left", actions.window.fit(), {
+	velocity = 100,
+})
+
 addons.mousetrap = addon

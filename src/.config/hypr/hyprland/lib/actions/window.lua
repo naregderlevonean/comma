@@ -76,4 +76,20 @@ function M.float(options)
 	end
 end
 
+function M.fit(method)
+	return function()
+		local value = hl.get_config("scrolling:focus_fit_method")
+		local state = tonumber(value)
+		local next = method ~= nil and method or ((state == 1) and 0 or 1)
+
+		hl.config({
+			scrolling = {
+				focus_fit_method = next,
+			},
+		})
+
+		hl.dispatch(hl.dsp.layout(string.format("move %+d", (1 - state * 2) * 480)))
+	end
+end
+
 return M

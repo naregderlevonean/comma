@@ -1,7 +1,7 @@
 local M = {}
 
 function M.init()
-	components.waybar.stop()()
+	hl.dispatch(components.waybar.stop())
 	hl.config({
 		animations = {
 			enabled = false,
