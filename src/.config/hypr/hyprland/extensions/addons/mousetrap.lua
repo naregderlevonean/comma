@@ -46,7 +46,7 @@ addon.bind("bottom", actions.window.focus("r"), {
 })
 
 addon.bind("left", actions.window.fit(), {
-	delay = 300,
+	flick = 100,
 })
 
 addon.bind("bottom", function()
