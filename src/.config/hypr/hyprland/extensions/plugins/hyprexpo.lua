@@ -94,7 +94,7 @@ local function start()
 	hl.dispatch(hl.dsp.submap("hyprexpo"))
 end
 
-hl.bind("SUPER + ALT + Escape", actions.scoped.workspace(start))
+hl.bind("SUPER + ALT + Space", actions.scoped.workspace(start))
 
 hl.define_submap("hyprexpo", function()
 	hl.bind("Left", function()
@@ -120,6 +120,12 @@ hl.define_submap("hyprexpo", function()
 	end)
 
 	hl.bind("Escape", function()
+		hl.plugin.hyprexpo.kb_confirm()
+		hl.plugin.hyprexpo.expo("cancel")
+		hl.dispatch(hl.dsp.submap("reset"))
+	end)
+
+	hl.bind("SUPER + ALT + Space", function()
 		hl.plugin.hyprexpo.kb_confirm()
 		hl.plugin.hyprexpo.expo("cancel")
 		hl.dispatch(hl.dsp.submap("reset"))
