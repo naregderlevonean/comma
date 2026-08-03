@@ -8,7 +8,7 @@
         "orientation": "inherit",
     },
     "custom/name": {
-        "exec": "hyprctl activeworkspace -j | jq -r '.id' | awk '{printf \"%02X\", $1}'",
+        "exec": "hyprctl activeworkspace -j | jq -r '.id'",
         "format": "{}",
         "interval": "once",
         "signal": 7,
