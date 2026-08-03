@@ -7,7 +7,7 @@ local modules = {
 	"schemes.van.setup.gitsigns",
 	"schemes.van.setup.indent",
 	"schemes.van.setup.interface",
-	"schemes.van.setup.nvimtree",
+	"schemes.van.setup.nvim-tree",
 	"schemes.van.setup.treesitter",
 }
 
