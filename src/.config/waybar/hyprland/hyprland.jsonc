@@ -4,7 +4,7 @@
         "format-en": "🇺🇸 US",
         "format-ru": "🇷🇺 RU",
         "interval": "once",
-        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
     },
     "hyprland/workspaces": {
         "all-outputs": false,
@@ -15,15 +15,15 @@
             "empty": "○",
         },
         "interval": "once",
-        "on-click": "hyprctl dispatch \"hl.dsp.focus(\\{ workspace = {id} \\})\"",
-        "on-scroll-down": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"next\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
-        "on-scroll-up": "hyprctl eval 'actions.scoped.workspace(actions.workspace.focus(\"prev\"), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
-        "smooth-scrolling-threshold": 3
+        "persistent-workspaces": {
+            "*": 16,
+        },
+        "smooth-scrolling-threshold": 3,
     },
     "hyprland/workspaces#windows": {
-         "active-only": true,
-         "format": "{windows}",
-         "workspace-taskbar": {
+        "active-only": true,
+        "format": "{windows}",
+        "workspace-taskbar": {
             "enable": true,
             "format": "{icon}",
             "icon-size": 16,
@@ -34,11 +34,10 @@
                 "org.belmoussaoui.Authernticator",
                 "org.gnome.Characters",
                 "org.gnome.Calculator",
-                "waypaper"
+                "waypaper",
             ],
             "on-click-window": "hyprctl dispatch 'hl.dsp.focus({ window = \"address:{address}\" })'",
-            "update-active-window": true
-        }
+            "update-active-window": true,
+        },
     },
 }
-

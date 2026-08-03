@@ -22,9 +22,7 @@
             "custom/separator",
             "custom/notifications",
         ],
-        "modules-center": [
-            "group/clock"
-        ],
+        "modules-center": ["group/clock"],
         "modules-right": [
             "group/pulseaudio",
             "custom/separator",
@@ -39,9 +37,7 @@
         ],
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": [
-            "eDP-1"
-        ],
+        "output": ["eDP-1"],
         "position": "top",
         "spacing": 16,
     },
@@ -63,32 +59,22 @@
             "custom/separator",
             "group/pinned",
         ],
-        "modules-center": [
-            "group/workspace"
-        ],
-        "modules-right": [
-           "hyprland/workspaces#windows"
-        ],
+        "modules-center": ["group/workspace"],
+        "modules-right": ["hyprland/workspaces#windows"],
         "on-sigusr1": "show",
         "on-sigusr2": "hide",
-        "output": [
-            "eDP-1"
-        ],
+        "output": ["eDP-1"],
         "position": "bottom",
         "spacing": 16,
     },
     {
         "exclusive": false,
-        "include": [
-            "hyprland/hyprland.jsonc",
-        ],
-        "modules-center": [
-            "hyprland/workspaces",
-        ],
+        "include": ["hyprland/hyprland.jsonc"],
+        "modules-center": ["hyprland/workspaces"],
         "name": "dots",
         "passthrough": true,
         "position": "right",
         "spacing": 16,
-        "width": 144,
+        "width": 96,
     },
 ]

@@ -1,35 +1,18 @@
 local M = {}
 
-local function workspaces()
-	local active = hl.get_active_workspace()
-	if not active then
-		return nil, {}
-	end
-
-	local workspaces = hl.get_workspaces()
-	local occupied = {}
-
-	for _, workspace in ipairs(workspaces) do
-		if workspace.id > 0 and workspace.monitor == active.monitor then
-			table.insert(occupied, workspace.id)
-		end
-	end
-
-	table.sort(occupied)
-	return active.id, occupied
-end
+local limit = 16
 
 function M.blanket(layout, config)
 	config = config or {}
+
 	local special = config.specialworkspace or false
 
-	local workspaces = hl.get_workspaces()
-	for _, worksapce in ipairs(workspaces) do
-		local isspecial = string.find(worksapce.name, "^special:") ~= nil
+	for _, workspace in ipairs(hl.get_workspaces()) do
+		local isspecial = workspace.name:match("^special:")
 
 		if not isspecial or special then
 			hl.workspace_rule({
-				workspace = worksapce.name,
+				workspace = workspace.name,
 				layout = layout,
 			})
 		end
@@ -37,51 +20,47 @@ function M.blanket(layout, config)
 end
 
 function M.compute(direction)
-	local current, occupied = workspaces()
-	if not current then
+	local active = hl.get_active_workspace()
+	if not active then
 		return nil
 	end
 
-	local maximum = occupied[#occupied] or 1
+	local current = active.id
 	local target = current
 
 	if direction == "next" then
-		for _, workspace in ipairs(occupied) do
-			if workspace > current then
-				target = workspace
-				break
-			end
-		end
-		if target == current and current == maximum then
+		if current < limit then
 			target = current + 1
 		end
 	elseif direction == "prev" then
-		for i = #occupied, 1, -1 do
-			if occupied[i] < current then
-				target = occupied[i]
-				break
-			end
+		if current > 1 then
+			target = current - 1
 		end
 	elseif direction == "home" then
 		target = 1
 	elseif direction == "last" then
-		target = maximum + 1
+		target = limit
 	end
 
-	return (target ~= current) and target or nil
+	return target ~= current and target or nil
 end
 
 function M.focus(direction)
 	return function()
 		local target = M.compute(direction)
+
 		if target then
-			hl.dispatch(hl.dsp.focus({ workspace = tostring(target) }))
+			hl.dispatch(hl.dsp.focus({
+				workspace = tostring(target),
+				on_current_monitor = true,
+			}))
 		end
 	end
 end
 
 function M.layout(name)
 	local active = hl.get_active_workspace()
+
 	if not active or not active.name then
 		return
 	end
@@ -89,16 +68,16 @@ function M.layout(name)
 	local target = name
 
 	if not target then
-		local current = active.tiled_layout or "dwindle"
-		local number = 1
+		local current = active.tiled_layout or layouts[1]
 
-		for i, l in ipairs(layouts) do
-			if l == current then
-				number = (i % #layouts) + 1
+		for i, layout in ipairs(layouts) do
+			if layout == current then
+				target = layouts[(i % #layouts) + 1]
 				break
 			end
 		end
-		target = layouts[number]
+
+		target = target or layouts[1]
 	end
 
 	hl.workspace_rule({

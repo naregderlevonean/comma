@@ -10,10 +10,17 @@ window.right #workspaces button {
     box-shadow: none;
     color: @text_color;
     margin: 0;
+}
+
+window.right #workspaces button.empty {
     opacity: 0.5;
 }
 
 window.right #workspaces button.active {
+    opacity: 1;
+}
+
+window.right #workspace button.empty.active {
     opacity: 1;
 }
 
