@@ -25,16 +25,27 @@ return {
 	branch = "main",
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
+
 	opts = {
 		ensure_installed = parsers,
-		auto_install = true,
+		matchup = {
+			enable = true,
+		},
 	},
-	config = function(_, opts)
-		require("nvim-treesitter").setup(opts)
 
-		vim.opt.foldmethod = "expr"
-		vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		vim.opt.foldlevel = 99
-		vim.opt.foldlevelstart = 99
+	config = function(_, opts)
+		local ts = require("nvim-treesitter")
+
+		ts.setup(opts)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local ok, lang = pcall(vim.treesitter.language.get_lang, args.match)
+
+				if ok and lang then
+					pcall(vim.treesitter.start, args.buf, lang)
+				end
+			end,
+		})
 	end,
 }
