@@ -63,9 +63,9 @@ local function count()
 
 	local max = 1
 
-	for _, ws in ipairs(workspaces) do
-		if ws.id > 0 and ws.id > max then
-			max = ws.id
+	for _, workspace in ipairs(workspaces) do
+		if workspace.id > 0 and workspace.id > max then
+			max = workspace.id
 		end
 	end
 
