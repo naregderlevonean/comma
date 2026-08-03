@@ -2,29 +2,24 @@
     "group/workspace": {
         "drawer": {
             "transition-duration": 500,
-            "transition-left-to-right": true
+            "transition-left-to-right": true,
         },
-        "modules": [
-            "custom/name",
-            "custom/separator",
-            "custom/layout",
-        ],
-        "orientation": "inherit"
+        "modules": ["custom/name", "custom/separator", "custom/layout"],
+        "orientation": "inherit",
     },
     "custom/name": {
-        "exec": "hyprctl activeworkspace -j | jq -r '.name'",
+        "exec": "hyprctl activeworkspace -j | jq -r '.id' | awk '{printf \"%02X\", $1}'",
         "format": "{}",
         "interval": "once",
-        "signal": 7, 
-        "tooltip": false
+        "signal": 7,
+        "tooltip": false,
     },
     "custom/layout": {
         "exec": "hyprctl activeworkspace -j | jq -r '.tiledLayout' | tr '[:lower:]' '[:upper:]'",
         "format": "{}",
         "interval": "once",
         "on-click": "hyprctl eval 'actions.workspace.layout()'",
-        "signal": 7, 
-        "tooltip": false
-    }
+        "signal": 7,
+        "tooltip": false,
+    },
 }
-
