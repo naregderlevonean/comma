@@ -33,15 +33,33 @@ return {
 						check = {
 							command = "clippy",
 						},
-						checkOnSave = true,
+						completion = {
+							callable = {
+								snippets = "fill_arguments",
+							},
+						},
+						imports = {
+							granularity = {
+								group = "module",
+							},
+							prefix = "self",
+						},
 						procMacro = {
 							enable = true,
 						},
 						inlayHints = {
-							bindingModeHints = { enable = true },
-							closureReturnTypeHints = { enable = "always" },
-							lifetimeElisionHints = { enable = "skip_trivial" },
-							reborrowHints = { enable = "always" },
+							bindingModeHints = {
+								enable = true,
+							},
+							closureReturnTypeHints = {
+								enable = "always",
+							},
+							lifetimeElisionHints = {
+								enable = "skip_trivial",
+							},
+							reborrowHints = {
+								enable = "always",
+							},
 						},
 					},
 				},

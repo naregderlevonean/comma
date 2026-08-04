@@ -27,7 +27,7 @@ return {
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		local highlight = vim.api.nvim_create_augroup("lsp-highlight", { clear = true })
+		local highlight = vim.api.nvim_create_augroup("LspHighlight", { clear = true })
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "LSP keymaps",
@@ -55,10 +55,17 @@ return {
 				map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
 				map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
 				map("n", "<leader>f", function()
-					vim.lsp.buf.format({ async = false })
+					require("conform").format({
+						async = false,
+						lsp_format = "fallback",
+					})
 				end, "Format")
-				map("n", "[d", vim.diagnostic.goto_prev, "Previous Diagnostic")
-				map("n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
+				map("n", "[d", function()
+					vim.diagnostic.jump({ count = -1 })
+				end, "Previous Diagnostic")
+				map("n", "]d", function()
+					vim.diagnostic.jump({ count = 1 })
+				end, "Next Diagnostic")
 				map("n", "<leader>e", vim.diagnostic.open_float, "Line Diagnostics")
 				map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, "Add Workspace Folder")
 				map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, "Remove Workspace Folder")
@@ -76,6 +83,12 @@ return {
 					})
 
 					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+						group = highlight,
+						buffer = bufnr,
+						callback = vim.lsp.buf.clear_references,
+					})
+
+					vim.api.nvim_create_autocmd("LspDetach", {
 						group = highlight,
 						buffer = bufnr,
 						callback = vim.lsp.buf.clear_references,
@@ -103,8 +116,8 @@ return {
 			lua_ls = vim.tbl_extend("force", base, {
 				settings = {
 					Lua = {
-						diagnostics = {
-							globals = { "vim" },
+						completion = {
+							callSnippet = "Replace",
 						},
 						workspace = {
 							checkThirdParty = false,
@@ -119,7 +132,6 @@ return {
 
 		for server, config in pairs(servers) do
 			vim.lsp.config(server, config)
-			vim.lsp.enable(server)
 		end
 	end,
 }

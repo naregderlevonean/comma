@@ -8,8 +8,7 @@ return {
 			"MasonUpdate",
 		},
 		opts = {
-			PATH = "prepend",
-			max_concurrent_installers = 2,
+			max_concurrent_installers = 4,
 			ui = {
 				border = "rounded",
 				icons = {
@@ -51,15 +50,19 @@ return {
 		},
 		opts = {
 			ensure_installed = {
+				"black",
+				"clang-format",
+				"goimports",
+				"isort",
 				"prettier",
 				"prettierd",
 				"shfmt",
 				"stylua",
 				"taplo",
 			},
-			automatic_installation = false,
 			auto_update = false,
 			run_on_start = true,
+			start_delay = 3000,
 		},
 	},
 }

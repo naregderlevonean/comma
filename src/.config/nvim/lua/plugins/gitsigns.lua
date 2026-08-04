@@ -28,11 +28,12 @@ return {
 		word_diff = false,
 		current_line_blame = false,
 		current_line_blame_opts = {
-			delay = 500,
+			delay = 300,
 			virt_text = true,
 		},
 		watch_gitdir = {
 			follow_files = true,
+			update_debounce = 100,
 		},
 		attach_to_untracked = true,
 	},
@@ -43,7 +44,7 @@ return {
 				if vim.wo.diff then
 					vim.cmd.normal({ "]c", bang = true })
 				else
-					git().nav_hunk("next")
+					git().nav_hunk("next", { target = "all" })
 				end
 			end,
 			desc = "Next Hunk",
@@ -54,7 +55,7 @@ return {
 				if vim.wo.diff then
 					vim.cmd.normal({ "[c", bang = true })
 				else
-					git().nav_hunk("prev")
+					git().nav_hunk("prev", { target = "all" })
 				end
 			end,
 			desc = "Previous Hunk",
@@ -130,6 +131,21 @@ return {
 				git().diffthis()
 			end,
 			desc = "Diff This",
+		},
+		{
+			"<leader>hD",
+			function()
+				git().diffthis("~")
+			end,
+			desc = "Diff Against HEAD",
+		},
+		{
+			"ih",
+			function()
+				git().select_hunk()
+			end,
+			mode = { "o", "x" },
+			desc = "Git Hunk",
 		},
 		{
 			"<leader>tb",

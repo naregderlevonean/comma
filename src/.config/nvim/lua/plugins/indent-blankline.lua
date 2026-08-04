@@ -20,13 +20,16 @@ return {
 		exclude = {
 			filetypes = {
 				"alpha",
+				"checkhealth",
 				"dashboard",
 				"help",
 				"lazy",
+				"lspinfo",
+				"man",
 				"mason",
 				"neo-tree",
 				"NvimTree",
-				"terminal",
+				"TelescopePrompt",
 			},
 			buftypes = {
 				"nofile",

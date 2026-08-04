@@ -70,7 +70,7 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "path", keyword_length = 2 },
+				{ name = "path", keyword_length = 1 },
 				{ name = "buffer", keyword_length = 2 },
 			},
 			sorting = {
@@ -79,6 +79,7 @@ return {
 					cmp.config.compare.offset,
 					cmp.config.compare.exact,
 					cmp.config.compare.score,
+					cmp.config.compare.locality,
 					cmp.config.compare.kind,
 					cmp.config.compare.sort_text,
 					cmp.config.compare.length,

@@ -1,8 +1,20 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	keys = {
-		{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
-		{ "<leader>fE", "<cmd>NvimTreeFindFile<CR>", desc = "Find Current File" },
+		{
+			"<leader>e",
+			function()
+				require("nvim-tree.api").tree.toggle()
+			end,
+			desc = "Toggle File Explorer",
+		},
+		{
+			"<leader>fE",
+			function()
+				require("nvim-tree.api").tree.find_file()
+			end,
+			desc = "Find Current File",
+		},
 	},
 	init = function()
 		vim.g.loaded_netrw = 1
@@ -14,7 +26,7 @@ return {
 					return
 				end
 
-				vim.api.nvim_set_current_dir(data.file)
+				vim.fn.chdir(data.file)
 				require("nvim-tree.api").tree.open()
 			end,
 		})
@@ -47,8 +59,8 @@ return {
 					folder = {
 						default = "",
 						open = "",
-						empty = "",
-						empty_open = "",
+						empty = "󰜌",
+						empty_open = "󰜌",
 						symlink = "",
 						symlink_open = "",
 					},
@@ -77,7 +89,6 @@ return {
 		},
 		update_focused_file = {
 			enable = true,
-			update_root = true,
 			ignore_list = {},
 		},
 		filters = {

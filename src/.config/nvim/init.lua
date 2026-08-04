@@ -1,1 +1,4 @@
-require("core")
+require("core.keymaps")
+require("core.options")
+require("core.other")
+require("core.plugins")

@@ -4,17 +4,20 @@ return {
 	opts = {
 		default_mappings = true,
 		signs = true,
-		sign_priority = 100,
-		refresh_interval = 150,
+		sign_priority = 50,
+		refresh_interval = 250,
 		excluded_filetypes = {
 			"alpha",
+			"checkhealth",
 			"dashboard",
 			"help",
 			"lazy",
+			"lspinfo",
+			"man",
 			"mason",
 			"neo-tree",
 			"NvimTree",
-			"terminal",
+			"TelescopePrompt",
 		},
 		excluded_buftypes = {
 			"nofile",

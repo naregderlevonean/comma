@@ -1,7 +1,9 @@
 local parsers = {
 	"bash",
 	"css",
+	"diff",
 	"dockerfile",
+	"gitcommit",
 	"gitignore",
 	"html",
 	"javascript",
@@ -25,14 +27,9 @@ return {
 	branch = "main",
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
-
 	opts = {
 		ensure_installed = parsers,
-		matchup = {
-			enable = true,
-		},
 	},
-
 	config = function(_, opts)
 		local ts = require("nvim-treesitter")
 

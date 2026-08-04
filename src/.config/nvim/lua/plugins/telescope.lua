@@ -1,6 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	cmd = "Telescope",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -72,9 +71,7 @@ return {
 			sorting_strategy = "ascending",
 			prompt_prefix = "  ",
 			selection_caret = "  ",
-			path_display = {
-				"smart",
-			},
+			path_display = { "smart" },
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
@@ -82,7 +79,7 @@ return {
 				},
 			},
 			file_ignore_patterns = {
-				"^.git/",
+				"^%.git/",
 				"node_modules/",
 				"target/",
 				"dist/",
@@ -115,6 +112,8 @@ return {
 				additional_args = function()
 					return {
 						"--hidden",
+						"--glob",
+						"!.git/*",
 					}
 				end,
 			},

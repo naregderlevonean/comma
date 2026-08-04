@@ -1,4 +1,8 @@
-local prettier = { "prettierd", "prettier" }
+local prettier = {
+	"prettierd",
+	"prettier",
+	stop_after_first = true,
+}
 
 return {
 	"stevearc/conform.nvim",
@@ -6,12 +10,10 @@ return {
 	cmd = "ConformInfo",
 	opts = {
 		notify_on_error = false,
+		notify_no_formatters = false,
 		format_on_save = {
 			lsp_format = "fallback",
-			timeout_ms = 2000,
-		},
-		default_format_opts = {
-			stop_after_first = true,
+			timeout_ms = 1000,
 		},
 		formatters = {
 			prettierd = {

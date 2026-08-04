@@ -1,13 +1,18 @@
-local model = "qwen2.5-coder:7b"
-
 return {
 	"David-Kunz/gen.nvim",
 	cmd = "Gen",
 	keys = {
-		{ "<leader>ai", "<cmd>Gen<CR>", desc = "AI Generate" },
+		{
+			"<leader>ai",
+			function()
+				vim.cmd.Gen()
+			end,
+			desc = "AI Generate",
+			silent = true,
+		},
 	},
 	opts = {
-		model = model,
+		model = "qwen2.5-coder:7b",
 		quit_map = "q",
 		display_mode = "float",
 		show_model = true,
