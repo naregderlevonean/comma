@@ -56,12 +56,11 @@ hl.config({
 
 local function count()
 	local workspaces = hl.get_workspaces()
+	local max = 1
 
 	if not workspaces then
 		return 1
 	end
-
-	local max = 1
 
 	for _, workspace in ipairs(workspaces) do
 		if workspace.id > 0 and workspace.id > max then

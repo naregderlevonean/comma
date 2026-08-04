@@ -7,6 +7,23 @@ local addon = require("hyprland.extensions.addons.mousetrap.init").setup({
 	},
 })
 
+-- Process
+
+addon.bind("top", function()
+	local window = hl.get_active_window()
+
+	if window and window.floating then
+		hl.dispatch(actions.scoped.workspace(hl.dsp.window.close(), {
+			exclude = {
+				"special:stylus",
+				"special:radio",
+			},
+		}))
+	end
+end, {
+	delay = 1000,
+})
+
 -- Workspace
 
 addon.bind("right", actions.scoped.workspace(actions.workspace.focus("next")), {
