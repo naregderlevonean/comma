@@ -11,12 +11,12 @@ local addon = require("hyprland.extensions.addons.mousetrap.init").setup({
 
 addon.bind("right", actions.scoped.workspace(actions.workspace.focus("next")), {
 	direction = "up",
-	distance = 300,
+	distance = 500,
 })
 
 addon.bind("right", actions.scoped.workspace(actions.workspace.focus("prev")), {
 	direction = "down",
-	distance = 300,
+	distance = 500,
 })
 
 addon.bind("right", function()
@@ -37,12 +37,12 @@ end, {
 
 addon.bind("bottom", actions.window.focus("l"), {
 	direction = "right",
-	distance = 300,
+	distance = 500,
 })
 
 addon.bind("bottom", actions.window.focus("r"), {
 	direction = "left",
-	distance = 300,
+	distance = 500,
 })
 
 addon.bind("left", actions.window.fit(), {
