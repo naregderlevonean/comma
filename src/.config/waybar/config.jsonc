@@ -72,6 +72,8 @@
         "include": ["hyprland/hyprland.jsonc"],
         "modules-center": ["hyprland/workspaces"],
         "name": "dots",
+        "on-sigusr1": "show",
+        "on-sigusr2": "hide",
         "passthrough": true,
         "position": "right",
         "spacing": 16,

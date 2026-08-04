@@ -22,19 +22,19 @@ end
 
 function M.start()
 	return function()
-		system.process.start(process)
+		system.service.start(process)
 	end
 end
 
 function M.stop()
 	return function()
-		system.process.stop(process)
+		system.service.stop(process)
 	end
 end
 
 function M.toggle()
 	return function()
-		system.process.toggle(process)
+		system.service.toggle(process)
 	end
 end
 
