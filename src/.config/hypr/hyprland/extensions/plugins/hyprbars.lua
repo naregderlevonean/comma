@@ -7,7 +7,7 @@ hl.config({
 			bar_button_padding = 8,
 			bar_buttons_alignment = "right",
 			bar_color = 0x49ededed,
-			bar_height = 8,
+			bar_height = 4,
 			bar_padding = 24,
 			bar_part_of_window = true,
 			bar_precedence_over_border = true,
