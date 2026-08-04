@@ -1,7 +1,11 @@
 hl.config({
 	plugin = {
 		hyprfocus = {
+			animate_floating = true,
+			enabled = true,
+			keyboard_focus_animation = slide,
 			mode = "slide",
+			mouse_focus_animation = slide,
 			slide_height = 4,
 		},
 	},
