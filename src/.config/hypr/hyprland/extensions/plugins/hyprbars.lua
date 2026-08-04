@@ -26,7 +26,7 @@ hl.config({
 	},
 })
 
-function hyprbars.set(config)
+function update(config)
 	hl.config({
 		plugin = {
 			hyprbars = config,
@@ -36,12 +36,12 @@ end
 
 function hyprbars.toggle()
 	if hl.get_config("plugin.hyprbars.enabled") == true then
-		hyprbars.set({ enabled = false })
+		hyprbars.update({ enabled = false })
 	else
-		hyprbars.set({ enabled = true })
+		hyprbars.update({ enabled = true })
 	end
 end
 
 hl.bind("SUPER + CTRL + H", hyprbars.toggle)
 
-plugins.hyprbars = hyprbars
+return hyprbars

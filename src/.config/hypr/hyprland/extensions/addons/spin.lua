@@ -1,4 +1,4 @@
-local addon = require("hyprland.extensions.addons.spin.init").setup({
+local spin = require("hyprland.extensions.addons.spin.init").setup({
 	interval = 500,
 	devices = {
 		monitors = { "eDP-1" },
@@ -17,7 +17,7 @@ local function scrolling(width)
 	end
 end
 
-addon.bind({ "left-up", "right-up" }, function(orientation, transform)
+spin.bind({ "left-up", "right-up" }, function(orientation, transform)
 	scrolling(0.90)
 	hl.config({
 		master = {
@@ -26,7 +26,7 @@ addon.bind({ "left-up", "right-up" }, function(orientation, transform)
 	})
 end)
 
-addon.bind({ "normal", "bottom-up" }, function(orientation, transform)
+spin.bind({ "normal", "bottom-up" }, function(orientation, transform)
 	scrolling(0.50)
 	hl.config({
 		master = {
@@ -35,4 +35,4 @@ addon.bind({ "normal", "bottom-up" }, function(orientation, transform)
 	})
 end)
 
-addons.spin = addon
+return spin

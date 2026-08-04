@@ -1,4 +1,4 @@
-local addon = require("hyprland.extensions.addons.mousetrap.init").setup({
+local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 	geometry = {
 		default = {
 			corner = 2,
@@ -9,7 +9,7 @@ local addon = require("hyprland.extensions.addons.mousetrap.init").setup({
 
 -- Process
 
-addon.bind("top", function()
+mousetrap.bind("top", function()
 	local window = hl.get_active_window()
 
 	if window and window.floating then
@@ -26,24 +26,12 @@ end, {
 
 -- Workspace
 
-addon.bind("right", actions.scoped.workspace(actions.workspace.focus("next")), {
-	direction = "up",
-	distance = 500,
-})
-
-addon.bind("right", actions.scoped.workspace(actions.workspace.focus("prev")), {
-	direction = "down",
-	distance = 500,
-})
-
-addon.bind("right", function()
+mousetrap.bind("right", function()
 	hl.bind("mouse_up", actions.scoped.workspace(actions.workspace.focus("prev")))
 	hl.bind("mouse_down", actions.scoped.workspace(actions.workspace.focus("next")))
-end, {
-	delay = 200,
-})
+end)
 
-addon.bind("right", function()
+mousetrap.bind("right", function()
 	hl.unbind("mouse_up")
 	hl.unbind("mouse_down")
 end, {
@@ -52,32 +40,30 @@ end, {
 
 -- Window
 
-addon.bind("bottom", actions.window.focus("l"), {
-	direction = "right",
-	distance = 500,
+mousetrap.bind("left", actions.window.fit(), {
+	flick = 50,
 })
 
-addon.bind("bottom", actions.window.focus("r"), {
-	direction = "left",
-	distance = 500,
-})
-
-addon.bind("left", actions.window.fit(), {
-	flick = 100,
-})
-
-addon.bind("bottom", function()
+mousetrap.bind("bottom", function()
 	hl.bind("mouse_up", actions.window.focus("l"))
 	hl.bind("mouse_down", actions.window.focus("r"))
 end, {
 	delay = 200,
 })
 
-addon.bind("bottom", function()
+mousetrap.bind("bottom", function()
 	hl.unbind("mouse_up")
 	hl.unbind("mouse_down")
 end, {
 	exit = true,
 })
 
-addons.mousetrap = addon
+mousetrap.bind("top-right", function()
+	if hl.get_current_submap() == "hyprexpo" then
+		hl.dispatch(plugins.hyprexpo.stop())
+	else
+		hl.dispatch(plugins.hyprexpo.start())
+	end
+end)
+
+return mousetrap

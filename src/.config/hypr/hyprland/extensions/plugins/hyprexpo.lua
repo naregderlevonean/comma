@@ -1,3 +1,5 @@
+local hyprexpo = {}
+
 hl.config({
 	plugin = {
 		hyprexpo = {
@@ -71,29 +73,39 @@ local function count()
 	return max
 end
 
-local function grid(num)
-	return math.max(2, math.ceil(math.sqrt(num)))
+local function grid(number)
+	return math.max(2, math.ceil(math.sqrt(number)))
 end
 
-local function start()
-	local workspaces = count()
-	local columns = grid(workspaces)
+function hyprexpo.start()
+	return function()
+		local workspaces = count()
+		local columns = grid(workspaces)
 
-	hl.config({
-		plugin = {
-			hyprexpo = {
-				columns = columns,
+		hl.config({
+			plugin = {
+				hyprexpo = {
+					columns = columns,
+				},
 			},
-		},
-	})
+		})
 
-	hl.dispatch(components.walker.stop())
+		hl.dispatch(components.walker.stop())
 
-	hl.plugin.hyprexpo.expo("toggle")
-	hl.dispatch(hl.dsp.submap("hyprexpo"))
+		hl.plugin.hyprexpo.expo("toggle")
+		hl.dispatch(hl.dsp.submap("hyprexpo"))
+	end
 end
 
-hl.bind("SUPER + ALT + Space", actions.scoped.workspace(start))
+function hyprexpo.stop()
+	return function()
+		hl.plugin.hyprexpo.kb_confirm()
+		hl.plugin.hyprexpo.expo("cancel")
+		hl.dispatch(hl.dsp.submap("reset"))
+	end
+end
+
+hl.bind("SUPER + ALT + Space", actions.scoped.workspace(hyprexpo.start()))
 
 hl.define_submap("hyprexpo", function()
 	hl.bind("Left", function()
@@ -112,23 +124,13 @@ hl.define_submap("hyprexpo", function()
 		hl.plugin.hyprexpo.kb_focus("down")
 	end)
 
-	hl.bind("Return", function()
-		hl.plugin.hyprexpo.kb_confirm()
-		hl.plugin.hyprexpo.expo("cancel")
-		hl.dispatch(hl.dsp.submap("reset"))
-	end)
+	hl.bind("Return", hyprexpo.stop())
 
-	hl.bind("Escape", function()
-		hl.plugin.hyprexpo.kb_confirm()
-		hl.plugin.hyprexpo.expo("cancel")
-		hl.dispatch(hl.dsp.submap("reset"))
-	end)
+	hl.bind("Escape", hyprexpo.stop())
 
-	hl.bind("SUPER + ALT + Space", function()
-		hl.plugin.hyprexpo.kb_confirm()
-		hl.plugin.hyprexpo.expo("cancel")
-		hl.dispatch(hl.dsp.submap("reset"))
-	end)
+	hl.bind("SUPER + ALT + Space", hyprexpo.stop())
 
 	hl.bind("catchall", hl.dsp.no_op())
 end)
+
+return hyprexpo
