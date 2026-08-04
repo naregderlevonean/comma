@@ -11,7 +11,7 @@ hl.bind(
 )
 
 hl.bind(
-	"SUPER + Tab",
+	"SUPER + Space",
 	actions.scoped.workspace(
 		components.walker.toggle({ provider = "windows" }),
 		{ exclude = { "special:stylus", "special:radio" } }
