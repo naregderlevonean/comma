@@ -64,6 +64,8 @@ mousetrap.bind("top-right", function()
 	else
 		hl.dispatch(plugins.hyprexpo.start())
 	end
-end)
+end, {
+	delay = 200,
+})
 
 return mousetrap
