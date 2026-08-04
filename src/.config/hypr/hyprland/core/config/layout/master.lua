@@ -4,7 +4,6 @@ hl.config({
 		always_keep_position = false,
 		center_master_fallback = "left",
 		drop_at_cursor = true,
-		focus_master_on_close = true,
 		mfact = 0.64,
 		new_on_active = "none",
 		new_on_top = false,
