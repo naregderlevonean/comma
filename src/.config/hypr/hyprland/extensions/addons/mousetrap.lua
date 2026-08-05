@@ -66,13 +66,13 @@ mousetrap.bind("left", actions.window.fit(), {
 
 mousetrap.bind("bottom", actions.window.focus("r"), {
 	direction = "left",
-	distance = 500,
+	distance = 1000,
 	loop = true,
 })
 
 mousetrap.bind("bottom", actions.window.focus("l"), {
 	direction = "right",
-	distance = 500,
+	distance = 1000,
 	loop = true,
 })
 
