@@ -1,8 +1,8 @@
 local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 	geometry = {
 		default = {
-			corner = 2,
-			edge = 2,
+			corner = 4,
+			edge = 4,
 		},
 	},
 })
@@ -58,7 +58,9 @@ end, {
 	exit = true,
 })
 
-mousetrap.bind("top-right", function()
+-- Overview
+
+mousetrap.bind("top-left", function()
 	if hl.get_current_submap() == "hyprexpo" then
 		hl.dispatch(plugins.hyprexpo.stop())
 	else

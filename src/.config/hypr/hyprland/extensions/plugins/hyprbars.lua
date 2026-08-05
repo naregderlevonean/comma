@@ -4,10 +4,10 @@ hl.config({
 	plugin = {
 		hyprbars = {
 			bar_blur = false,
-			bar_button_padding = 8,
+			bar_button_padding = 0,
 			bar_buttons_alignment = "right",
 			bar_color = 0x49ededed,
-			bar_height = 4,
+			bar_height = 8,
 			bar_padding = 24,
 			bar_part_of_window = true,
 			bar_precedence_over_border = true,
