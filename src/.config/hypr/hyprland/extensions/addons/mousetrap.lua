@@ -26,10 +26,24 @@ end, {
 
 -- Workspace
 
+mousetrap.bind("right", actions.scoped.workspace(actions.workspace.focus("next")), {
+	direction = "up",
+	distance = 500,
+	loop = true,
+})
+
+mousetrap.bind("right", actions.scoped.workspace(actions.workspace.focus("prev")), {
+	direction = "down",
+	distance = 500,
+	loop = true,
+})
+
 mousetrap.bind("right", function()
 	hl.bind("mouse_up", actions.scoped.workspace(actions.workspace.focus("prev")))
 	hl.bind("mouse_down", actions.scoped.workspace(actions.workspace.focus("next")))
-end)
+end, {
+	delay = 500,
+})
 
 mousetrap.bind("right", function()
 	hl.unbind("mouse_up")
@@ -38,17 +52,35 @@ end, {
 	exit = true,
 })
 
--- Window
+mousetrap.bind("bottom-left", actions.specialworkspace.toggle(), {
+	delay = 500,
+})
+
+-- Layout
 
 mousetrap.bind("left", actions.window.fit(), {
-	flick = 50,
+	flick = 100,
+})
+
+-- Window
+
+mousetrap.bind("bottom", actions.window.focus("r"), {
+	direction = "left",
+	distance = 500,
+	loop = true,
+})
+
+mousetrap.bind("bottom", actions.window.focus("l"), {
+	direction = "right",
+	distance = 500,
+	loop = true,
 })
 
 mousetrap.bind("bottom", function()
 	hl.bind("mouse_up", actions.window.focus("l"))
 	hl.bind("mouse_down", actions.window.focus("r"))
 end, {
-	delay = 200,
+	delay = 500,
 })
 
 mousetrap.bind("bottom", function()
