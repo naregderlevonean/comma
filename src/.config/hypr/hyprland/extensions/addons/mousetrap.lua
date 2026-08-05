@@ -7,6 +7,27 @@ local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 	},
 })
 
+-- Overview
+
+mousetrap.bind(
+	"top-right",
+	actions.scoped.workspace(function()
+		if hl.get_current_submap() == "hyprexpo" then
+			hl.dispatch(plugins.hyprexpo.stop())
+		else
+			hl.dispatch(plugins.hyprexpo.start())
+		end
+	end),
+	{
+		delay = 200,
+	}
+)
+
+-- Walker
+
+mousetrap.bind("top-left", components.walker.toggle(), { delay = 200 })
+mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }), { delay = 200 })
+
 -- Process
 
 mousetrap.bind("top", function()
@@ -41,9 +62,7 @@ mousetrap.bind("right", actions.scoped.workspace(actions.workspace.focus("prev")
 mousetrap.bind("right", function()
 	hl.bind("mouse_up", actions.scoped.workspace(actions.workspace.focus("prev")))
 	hl.bind("mouse_down", actions.scoped.workspace(actions.workspace.focus("next")))
-end, {
-	delay = 500,
-})
+end)
 
 mousetrap.bind("right", function()
 	hl.unbind("mouse_up")
@@ -66,40 +85,26 @@ mousetrap.bind("left", actions.window.fit(), {
 
 mousetrap.bind("bottom", actions.window.focus("r"), {
 	direction = "left",
-	distance = 1000,
+	distance = 500,
 	loop = true,
 })
 
 mousetrap.bind("bottom", actions.window.focus("l"), {
 	direction = "right",
-	distance = 1000,
+	distance = 500,
 	loop = true,
 })
 
 mousetrap.bind("bottom", function()
 	hl.bind("mouse_up", actions.window.focus("l"))
 	hl.bind("mouse_down", actions.window.focus("r"))
-end, {
-	delay = 500,
-})
+end)
 
 mousetrap.bind("bottom", function()
 	hl.unbind("mouse_up")
 	hl.unbind("mouse_down")
 end, {
 	exit = true,
-})
-
--- Overview
-
-mousetrap.bind("top-left", function()
-	if hl.get_current_submap() == "hyprexpo" then
-		hl.dispatch(plugins.hyprexpo.stop())
-	else
-		hl.dispatch(plugins.hyprexpo.start())
-	end
-end, {
-	delay = 200,
 })
 
 return mousetrap

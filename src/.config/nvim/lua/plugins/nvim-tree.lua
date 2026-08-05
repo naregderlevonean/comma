@@ -2,7 +2,7 @@ return {
 	"nvim-tree/nvim-tree.lua",
 	keys = {
 		{
-			"<leader>e",
+			"<leader>d",
 			function()
 				require("nvim-tree.api").tree.toggle()
 			end,

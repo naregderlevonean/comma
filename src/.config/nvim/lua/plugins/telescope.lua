@@ -64,6 +64,20 @@ return {
 			end,
 			desc = "Keymaps",
 		},
+		{
+			"<leader>fc",
+			function()
+				require("telescope.builtin").git_bcommits()
+			end,
+			desc = "Git History for Current File",
+		},
+		{
+			"<leader>gc",
+			function()
+				require("telescope.builtin").git_commits()
+			end,
+			desc = "Git Repository Commits",
+		},
 	},
 	opts = {
 		defaults = {
