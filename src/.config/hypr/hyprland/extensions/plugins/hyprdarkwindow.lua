@@ -23,15 +23,15 @@ hl.bind("SUPER + CTRL + I", function()
 		hl.config({
 			general = {
 				col = {
-					active_border = 0x9d080808,
+					active_border = 0x9d090909,
 					inactive_border = 0x4900000,
 				},
 			},
 			plugin = {
 				hyprbars = {
-					bar_color = 0xf7272727,
+					bar_color = 0xf7292929,
 					col = {
-						text = 0xf7080808,
+						text = 0xf7090909,
 					},
 				},
 			},
@@ -45,15 +45,15 @@ hl.bind("SUPER + CTRL + I", function()
 		hl.config({
 			general = {
 				col = {
-					active_border = 0x9df7f7f7,
-					inactive_border = 0x4cf7f7f7,
+					active_border = 0x9df8f8f8,
+					inactive_border = 0x4cf8f8f8,
 				},
 			},
 			plugin = {
 				hyprbars = {
-					bar_color = 0xf7272727,
+					bar_color = 0xf7292929,
 					col = {
-						text = 0xf7f7f7f7,
+						text = 0xf7f8f8f8,
 					},
 				},
 			},

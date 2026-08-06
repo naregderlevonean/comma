@@ -5,7 +5,7 @@ hl.config({
 		animate_manual_resizes = false,
 		animate_mouse_windowdragging = false,
 		anr_missed_pings = 5,
-		background_color = 0x080808,
+		background_color = 0x090909,
 		close_special_on_empty = true,
 		disable_autoreload = false,
 		disable_hyprland_logo = true,

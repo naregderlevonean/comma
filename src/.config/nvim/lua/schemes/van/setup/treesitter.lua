@@ -76,7 +76,7 @@ return function(colors)
 		["@operator"] = { fg = colors.rose[20], bold = true },
 		["@property"] = { fg = colors.mint[12] },
 		["@property.class"] = { fg = colors.mint[12] },
-		["@punctuation.bracket"] = { fg = colors.cyan[8] },
+		["@punctuation.bracket"] = { fg = colors.cyan[6] },
 		["@punctuation.delimiter"] = { fg = colors.gray[20] },
 		["@punctuation.special"] = { fg = colors.rose[20] },
 		["@string"] = { fg = colors.red[8] },
@@ -97,10 +97,10 @@ return function(colors)
 		["@type.definition"] = { fg = colors.amethyst[16] },
 		["@type.qualifier"] = { fg = colors.amethyst[12] },
 		["@variable"] = { fg = colors.aqua[12] },
-		["@variable.builtin"] = { fg = colors.sky[8] },
-		["@variable.member"] = { fg = colors.mint[12] },
-		["@variable.parameter"] = { fg = colors.aqua[12] },
-		["@variable.parameter.builtin"] = { fg = colors.sky[8] },
+		["@variable.builtin"] = { fg = colors.sky[12] },
+		["@variable.member"] = { fg = colors.mint[16] },
+		["@variable.parameter"] = { fg = colors.aqua[16] },
+		["@variable.parameter.builtin"] = { fg = colors.sky[12] },
 	}
 
 	return ts

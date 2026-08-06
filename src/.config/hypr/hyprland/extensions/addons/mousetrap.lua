@@ -30,7 +30,7 @@ mousetrap.bind("bottom-right", components.walker.toggle({ provider = "windows" }
 
 -- Process
 
-mousetrap.bind("top", function()
+mousetrap.bind("bottom", function()
 	local window = hl.get_active_window()
 
 	if window and window.floating then
@@ -42,7 +42,7 @@ mousetrap.bind("top", function()
 		}))
 	end
 end, {
-	delay = 1000,
+	delay = 500,
 })
 
 -- Workspace

@@ -11,3 +11,5 @@ hl.bind(
 	"SUPER + CTRL + Space",
 	actions.scoped.workspace(hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 )
+
+hl.bind("SUPER + CTRL + Tab", hl.dsp.layout("colresize +conf"))
