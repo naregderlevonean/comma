@@ -1,4 +1,6 @@
 clear
+export TERM=xterm-256color
+export COLORTERM=truecolor
 export ZSH_DISABLE_COMPFIX=true
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
 export EDITOR="/usr/bin/nvim"
@@ -53,6 +55,28 @@ export SAVEHIST=10000000
 alias ls="ls --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias less="-R --use-color -Dd+r\$Du+b\$"
+
+zstyle ':completion:*' list-colors \
+  'rs=0' \
+  'di=94' \
+  'fi=0' \
+  'ln=96' \
+  'or=91' \
+  'mh=40' \
+  'bd=33' \
+  'cd=93' \
+  'pi=33' \
+  'so=95' \
+  'ex=92' \
+  'mi=40' \
+  'su=92;45' \
+  'sg=92;44' \
+  'ca=30;41' \
+  'tw=94;45' \
+  'ow=94;44' \
+  'st=37;41' \
+  '*.bak=37' \
+  '*~=37'
 
 export LS_COLORS="di=94:fi=0:ln=96:or=91:mh=40:bd=33:cd=93:pi=33:so=95:ex=92:mi=40:su=92;45:sg=92;44:ca=30;41:tw=94;45:ow=94;44:st=37;41:*.bak=37:*\~=37"
 autoload -U colors && colors
