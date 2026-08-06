@@ -1,9 +1,9 @@
 return function(colors)
 	return {
-		DiffAdd = { fg = colors.Blue20 },
-		DiffChange = { fg = colors.Yellow12 },
-		DiffChangeDelete = { fg = colors.Orange12 },
-		DiffDelete = { fg = colors.Red12, strikethrough = true },
-		DiffText = { fg = colors.Gray20 },
+		DiffAdd = { fg = colors.blue[20] },
+		DiffChange = { fg = colors.yellow[12] },
+		DiffChangeDelete = { fg = colors.orange[12] },
+		DiffDelete = { fg = colors.red[12], strikethrough = true },
+		DiffText = { fg = colors.gray[20] },
 	}
 end

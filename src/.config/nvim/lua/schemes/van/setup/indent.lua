@@ -1,7 +1,7 @@
 return function(colors)
 	return {
-		IblIndent = { fg = colors.Gray3 },
-		IblWhitespace = { fg = colors.Gray2 },
-		IblScope = { fg = colors.Indigo12 },
+		IblIndent = { fg = colors.gray[3] },
+		IblWhitespace = { fg = colors.gray[2] },
+		IblScope = { fg = colors.indigo[12] },
 	}
 end
