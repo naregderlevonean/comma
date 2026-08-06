@@ -1,0 +1,53 @@
+@define-color blue_1 @blue4;
+@define-color blue_2 @blue8;
+@define-color blue_3 @blue12;
+@define-color blue_4 @blue16;
+@define-color blue_5 @blue20;
+
+@define-color brown_1 @wine4;
+@define-color brown_2 @wine8;
+@define-color brown_3 @wine12;
+@define-color brown_4 @wine16;
+@define-color brown_5 @wine20;
+
+@define-color dark_1 @gray0;
+@define-color dark_2 @gray4;
+@define-color dark_3 @gray8;
+@define-color dark_4 @gray12;
+@define-color dark_5 @gray26;
+
+@define-color green_1 @green4;
+@define-color green_2 @green8;
+@define-color green_3 @green12;
+@define-color green_4 @green16;
+@define-color green_5 @green20;
+
+@define-color light_1 @gray8;
+@define-color light_2 @gray12;
+@define-color light_3 @gray16;
+@define-color light_4 @gray20;
+@define-color light_5 @gray24;
+
+@define-color orange_1 @orange4;
+@define-color orange_2 @orange8;
+@define-color orange_3 @orange12;
+@define-color orange_4 @orange16;
+@define-color orange_5 @orange20;
+
+@define-color purple_1 @amethyst4;
+@define-color purple_2 @amethyst8;
+@define-color purple_3 @amethyst12;
+@define-color purple_4 @amethyst16;
+@define-color purple_5 @amethyst20;
+
+@define-color red_1 @red4;
+@define-color red_2 @red8;
+@define-color red_3 @red12;
+@define-color red_4 @red16;
+@define-color red_5 @red20;
+
+@define-color yellow_1 @yellow4;
+@define-color yellow_2 @yellow8;
+@define-color yellow_3 @yellow12;
+@define-color yellow_4 @yellow16;
+@define-color yellow_5 @yellow20;

@@ -2,10 +2,10 @@ hl.config({
 	group = {
 		groupbar = {
 			col = {
-				active = 0x94ededed,
-				inactive = 0x49ededed,
-				locked_active = 0x94ededed,
-				locked_inactive = 0x49ededed,
+				active = 0x94ebebeb,
+				inactive = 0x49ebebeb,
+				locked_active = 0x94ebebeb,
+				locked_inactive = 0x49ebebeb,
 			},
 		},
 	},

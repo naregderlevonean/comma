@@ -1,5 +1,6 @@
 @import url("theme/colors.css");
-@import url("theme/feedback.css");
 @import url("theme/components.css");
-@import url("theme/typography.css");
+@import url("theme/feedback.css");
 @import url("theme/other.css");
+@import url("theme/palette.css");
+@import url("theme/typography.css");

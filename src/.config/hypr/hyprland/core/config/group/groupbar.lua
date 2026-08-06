@@ -24,7 +24,7 @@ hl.config({
 		rounding_power = 2.0,
 		scrolling = true,
 		stacked = false,
-		text_color = 0xedededed,
+		text_color = 0xebebebed,
 		text_color_inactive = nil,
 		text_color_locked_active = nil,
 		text_color_locked_inactive = nil,

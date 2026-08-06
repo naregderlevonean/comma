@@ -29,7 +29,7 @@ hl.bind("SUPER + CTRL + I", function()
 			},
 			plugin = {
 				hyprbars = {
-					bar_color = 0xff292929,
+					bar_color = 0xff272727,
 					col = {
 						text = 0xff000000,
 					},
@@ -45,15 +45,15 @@ hl.bind("SUPER + CTRL + I", function()
 		hl.config({
 			general = {
 				col = {
-					active_border = 0x94ededed,
-					inactive_border = 0x49ededed,
+					active_border = 0x94ebebeb,
+					inactive_border = 0x49ebebeb,
 				},
 			},
 			plugin = {
 				hyprbars = {
-					bar_color = 0xff292929,
+					bar_color = 0xff272727,
 					col = {
-						text = 0xedededff,
+						text = 0xebebebff,
 					},
 				},
 			},

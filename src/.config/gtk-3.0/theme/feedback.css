@@ -1,19 +1,19 @@
-@define-color accent_bg_color #6891ec;
-@define-color accent_color #6891ec;
-@define-color accent_fg_color #e6eeff;
+@define-color accent_bg_color @blue16;
+@define-color accent_color @blue16;
+@define-color accent_fg_color @blue24;
 
-@define-color destructive_bg_color #e1756d;
-@define-color destructive_color #e1756d;
-@define-color destructive_fg_color #ffe8e6;
+@define-color destructive_bg_color @red16;
+@define-color destructive_color @red16;
+@define-color destructive_fg_color @red24;
 
-@define-color error_bg_color #e1756d;
-@define-color error_color #e1756d;
-@define-color error_fg_color #ffe8e6;
+@define-color error_bg_color @red16;
+@define-color error_color @red16;
+@define-color error_fg_color @red24;
 
-@define-color success_bg_color #6bb26a;
-@define-color success_color #6bb26a;
-@define-color success_fg_color #e4f2e3;
+@define-color success_bg_color @green16;
+@define-color success_color @green16;
+@define-color success_fg_color @green24;
 
-@define-color warning_bg_color #fbcc70;
-@define-color warning_color #fbcc70;
-@define-color warning_fg_color #fde9dd;
+@define-color warning_bg_color @yellow16;
+@define-color warning_color @yellow16;
+@define-color warning_fg_color @yellow24;

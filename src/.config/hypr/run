@@ -1,0 +1,38 @@
+#!/bin/bash
+
+files=$(grep -rlE '0x[0-9a-fA-F]{8}' hyprland hyprlock.conf hyprtoolkit.conf)
+
+declare -A colors=(
+    # базовые
+    ["ededed"]="ebebeb"
+    ["ffffff"]="f7f7f7"
+    ["c0c0c0"]="bebebe"
+    ["949494"]="929292"
+    ["6b6b6b"]="696969"
+    ["494949"]="4c4c4c"
+    ["292929"]="272727"
+    ["212121"]="1f1f1f"
+    ["1a1a1a"]="272727"
+    ["131313"]="1f1f1f"
+    ["080808"]="080808"
+
+    # акцент
+    ["6891ec"]="6d8af4"
+    ["a6c0f7"]="9db1eb"
+
+    # цвета
+    ["e1756d"]="f26f5c"
+    ["6bb26a"]="3eb864"
+    ["fbcc70"]="c5a446"
+    ["d67fdb"]="ce85ee"
+)
+
+for file in $files; do
+    for old in "${!colors[@]}"; do
+        new=${colors[$old]}
+
+        sed -i \
+        -e "s/$old/$new/gI" \
+        "$file"
+    done
+done

@@ -19,7 +19,7 @@ return function(colors)
 		NvimTreeGitIgnored = { fg = colors.gray[8] },
 		NvimTreeGitMerge = { fg = colors.red[16] },
 		NvimTreeGitNew = { fg = colors.orchid[16] },
-		NvimTreeGitRenamed = { fg = colors.yellow[8] },
+		NvimTreeGitRenamed = { fg = colors.honey[8] },
 		NvimTreeGitStaged = { fg = colors.green[16] },
 		NvimTreeImageFile = { fg = colors.rose[16] },
 		NvimTreeIndent = { fg = colors.gray[4] },

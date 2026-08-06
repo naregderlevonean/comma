@@ -4,7 +4,6 @@ hl.window_rule({
 		class = "kitty",
 		title = "histui",
 	},
-	dim_around = true,
 	float = true,
 	size = { 960, 640 },
 })

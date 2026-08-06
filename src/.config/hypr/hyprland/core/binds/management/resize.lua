@@ -1,5 +1,5 @@
 local old
-local color = "0xff6891ec"
+local color = "0xff6d8af4"
 
 local function set(border, mouse)
 	hl.config({
