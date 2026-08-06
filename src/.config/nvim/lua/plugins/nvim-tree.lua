@@ -15,6 +15,19 @@ return {
 			end,
 			desc = "Find Current File",
 		},
+		{
+			"<leader>fP",
+			function()
+				local node = require("nvim-tree.api").tree.get_node_under_cursor()
+				if node and node.absolute_path then
+					vim.fn.setreg("+", node.absolute_path)
+					vim.notify("Copied tree path: " .. node.absolute_path, vim.log.levels.INFO)
+				else
+					vim.notify("No file selected in tree", vim.log.levels.WARN)
+				end
+			end,
+			desc = "Copy Current Tree Node Path",
+		},
 	},
 	init = function()
 		vim.g.loaded_netrw = 1
