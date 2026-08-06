@@ -1,7 +1,7 @@
 return function(colors)
 	return {
 		Boolean = { fg = colors.wine[12], bold = true },
-		Character = { fg = colors.coral[16], bold = true },
+		Character = { fg = colors.red[16], bold = true },
 		Comment = { fg = colors.gray[8], italic = true },
 		Conditional = { fg = colors.rose[20], bold = true },
 		Constant = { fg = colors.azure[12] },
