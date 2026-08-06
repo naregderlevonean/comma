@@ -67,7 +67,7 @@ precmd() {
     vcs_info
 }
 
-RPROMPT='%F{005}${vcs_info_msg_0_}%f'
+RPROMPT='%F{013}${vcs_info_msg_0_}%f'
 
 
 # fnm
