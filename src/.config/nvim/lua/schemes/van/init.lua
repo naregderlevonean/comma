@@ -1,4 +1,4 @@
-local colors = require("schemes.van.palette")
+local colors = require("schemes.van.colors")
 
 local modules = {
 	"schemes.van.setup.code",

@@ -2,7 +2,7 @@ hl.config({
 	decoration = {
 		shadow = {
 			color = 0x9f000000,
-			color_inactive = 0x49000000,
+			color_inactive = 0x4c080808,
 			enabled = true,
 			offset = { 0, 0 },
 			range = 24,
