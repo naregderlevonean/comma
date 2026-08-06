@@ -14,6 +14,6 @@
 @define-color success_color @green16;
 @define-color success_fg_color @green24;
 
-@define-color warning_bg_color @yellow16;
-@define-color warning_color @yellow16;
-@define-color warning_fg_color @yellow24;
+@define-color warning_bg_color @coral16;
+@define-color warning_color @coral16;
+@define-color warning_fg_color @coral24;

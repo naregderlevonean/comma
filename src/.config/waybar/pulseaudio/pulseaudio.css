@@ -13,19 +13,22 @@
 }
 
 #pulseaudio-slider slider {
-    background: @text_color;
-    border: 2px solid @text_color;
+    border: 2px solid @coral16;
     box-shadow: none;
     min-height: 0px;
     min-width: 0px;
 }
 
+#pulseaudio-slider slider:hover {
+    border: 2px solid @accent_color;
+}
+
 #pulseaudio-slider trough {
-    background: alpha(@text_color, 0.3);
+    background: @dialog_bg_color;
     min-width: 128px;
 }
 
 #pulseaudio-slider highlight {
-    background: @text_color;
+    background: @dialog_fg_color;
     min-width: 1px;
 }

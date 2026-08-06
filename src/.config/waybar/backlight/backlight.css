@@ -5,19 +5,22 @@
 }
 
 #backlight-slider slider {
-    background: @text_color;
-    border: 2px solid @text_color;
+    border: 2px solid @coral16;
     box-shadow: none;
     min-height: 0px;
     min-width: 0px;
 }
 
+#backlight-slider slider:hover {
+    border: 2px solid @accent_color;
+}
+
 #backlight-slider trough {
-    background: rgba(239, 239, 239, 0.3);
+    background: @dialog_bg_color;
     min-width: 128px;
 }
 
 #backlight-slider highlight {
-    background: @text_color;
+    background: @dialog_fg_color;
     min-width: 1px;
 }
