@@ -43,8 +43,8 @@ local windows = components.walker.toggle({ provider = "windows" })
 
 local fit = scoped(actions.window.fit())
 
-local focus_right = scoped(actions.window.focus("r"))
-local focus_left = scoped(actions.window.focus("l"))
+local focusnext = scoped(actions.window.focus("r"))
+local focusprev = scoped(actions.window.focus("l"))
 
 local workspacenext = scoped(actions.workspace.focus("next"))
 local workspaceprev = scoped(actions.workspace.focus("prev"))
@@ -108,21 +108,21 @@ end, {
 
 -- Window
 
-mousetrap.bind("bottom", focus_right, {
+mousetrap.bind("bottom", focusnext, {
 	direction = "left",
 	distance = 500,
 	loop = true,
 })
 
-mousetrap.bind("bottom", focus_left, {
+mousetrap.bind("bottom", focusprev, {
 	direction = "right",
 	distance = 500,
 	loop = true,
 })
 
 mousetrap.bind("bottom", function()
-	hl.bind("mouse_up", focus_right)
-	hl.bind("mouse_down", focus_left)
+	hl.bind("mouse_up", focusprev)
+	hl.bind("mouse_down", focusnext)
 end)
 
 mousetrap.bind("bottom", function()
