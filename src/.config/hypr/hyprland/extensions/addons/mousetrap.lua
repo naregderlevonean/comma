@@ -46,10 +46,10 @@ local fit = scoped(actions.window.fit())
 local focus_right = scoped(actions.window.focus("r"))
 local focus_left = scoped(actions.window.focus("l"))
 
-local workspace_next = scoped(actions.workspace.focus("next"))
-local workspace_prev = scoped(actions.workspace.focus("prev"))
+local workspacenext = scoped(actions.workspace.focus("next"))
+local workspaceprev = scoped(actions.workspace.focus("prev"))
 
-local special_workspace = actions.specialworkspace.toggle()
+local specialworkspace = actions.specialworkspace.toggle()
 
 -- Overview
 
@@ -70,21 +70,21 @@ mousetrap.bind("bottom", killactive, {
 
 -- Workspace
 
-mousetrap.bind("right", workspace_next, {
+mousetrap.bind("right", workspacenext, {
 	direction = "up",
 	distance = 500,
 	loop = true,
 })
 
-mousetrap.bind("right", workspace_prev, {
+mousetrap.bind("right", workspaceprev, {
 	direction = "down",
 	distance = 500,
 	loop = true,
 })
 
 mousetrap.bind("right", function()
-	hl.bind("mouse_up", workspace_prev)
-	hl.bind("mouse_down", workspace_next)
+	hl.bind("mouse_up", workspaceprev)
+	hl.bind("mouse_down", workspacenext)
 end)
 
 mousetrap.bind("right", function()
@@ -94,7 +94,7 @@ end, {
 	exit = true,
 })
 
-mousetrap.bind("bottom-left", special_workspace, {
+mousetrap.bind("bottom-left", specialworkspace, {
 	delay = 500,
 })
 
