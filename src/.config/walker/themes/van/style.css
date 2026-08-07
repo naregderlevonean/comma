@@ -4,16 +4,20 @@
     font-size: 13px;
 }
 
+:root {
+    background: alpha(@gray0, 0.8);
+}
+
 .box-wrapper {
     border-radius: 96px;
-    min-height: 960px;
-    min-width: 640px;
+    min-height: 832px;
+    min-width: 832px;
     padding: 128px;
 }
 
 child:selected .item-box,
 row:selected .item-box {
-    background: alpha(@gray12, 0.16);
+    background: alpha(@gray24, 0.08);
     color: @gray24;
     font-weight: bold;
 }
@@ -29,7 +33,7 @@ row:selected .item-box {
 }
 
 .input {
-    border-bottom: 1px solid @gray4;
+    border-bottom: 1px solid alpha(@gray24, 0.16);
     caret-color: @gray24;
     color: alpha(@gray24, 0.64);
     padding: 16px;
@@ -42,7 +46,7 @@ row:selected .item-box {
 }
 
 .input selection {
-    background: @gray4;
+    background: alpha(@gray24, 0.16);
 }
 
 .item-box {
@@ -67,7 +71,7 @@ row:selected .item-box {
 }
 
 .keybind-label {
-    background: @gray4;
+    background: alpha(@gray24, 0.16);
     border-radius: 8px;
     padding: 8px;
 }
@@ -77,7 +81,7 @@ row:selected .item-box {
 }
 
 .list {
-    color: @gray20;
+    color: alpha(@gray24, 0.64);
 }
 
 .normal-icons {
