@@ -14,6 +14,8 @@
 child:selected .item-box,
 row:selected .item-box {
     background: alpha(@gray12, 0.16);
+    color: @gray24;
+    font-weight: bold;
 }
 
 .disconnected {
