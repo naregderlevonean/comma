@@ -5,8 +5,8 @@
 }
 
 .box-wrapper {
-    background: alpha(@gray0, 0.64);
-    border: 1px solid @gray12;
+    background: alpha(@gray0, 0.48);
+    border: 2px solid @gray12;
     border-radius: 96px;
     min-height: 640px;
     min-width: 480px;
