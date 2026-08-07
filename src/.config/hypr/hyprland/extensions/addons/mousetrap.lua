@@ -39,7 +39,7 @@ end
 -- Cached actions
 
 local walker = components.walker.toggle()
-local windows = components.walker.toggle({ provider = "walker" })
+local windows = components.walker.toggle({ provider = "windows" })
 
 local fit = scoped(actions.window.fit())
 
