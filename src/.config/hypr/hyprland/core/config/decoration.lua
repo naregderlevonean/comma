@@ -5,7 +5,7 @@ hl.config({
 		dim_around = 0.92,
 		dim_inactive = false,
 		dim_modal = true,
-		dim_special = 0.64,
+		dim_special = 0.16,
 		dim_strength = 0.64,
 		fullscreen_opacity = 0.96,
 		inactive_opacity = 0.84,

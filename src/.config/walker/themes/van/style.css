@@ -5,17 +5,15 @@
 }
 
 .box-wrapper {
-    background: alpha(@gray0, 0.48);
-    border: 2px solid @gray12;
     border-radius: 96px;
-    min-height: 640px;
-    min-width: 480px;
+    min-height: 960px;
+    min-width: 640px;
     padding: 128px;
 }
 
 child:selected .item-box,
 row:selected .item-box {
-    background: @gray4;
+    background: alpha(@gray12, 0.16);
 }
 
 .disconnected {
@@ -29,7 +27,7 @@ row:selected .item-box {
 }
 
 .input {
-    border-bottom: 1px solid @gray12;
+    border-bottom: 1px solid @gray4;
     caret-color: @gray24;
     color: alpha(@gray24, 0.64);
     padding: 16px;

@@ -23,7 +23,20 @@ next = ["Down"]
 page_down = ["Page_Down"]
 page_up = ["Page_Up"]
 previous = ["Up"]
-quick_activate = ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"]
+quick_activate = [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "F7",
+  "F8",
+  "F9",
+  "F10",
+  "F11",
+  "F12",
+]
 resume_last_query = ["ctrl r"]
 right = ["Right"]
 show_actions = ["alt j"]
@@ -108,9 +121,9 @@ prefix = "$"
 provider = "windows"
 
 [shell]
-anchor_bottom = false
+anchor_bottom = true
 anchor_left = true
 anchor_right = true
-anchor_top = false
+anchor_top = true
 exclusive_zone = -1
 layer = "overlay"
