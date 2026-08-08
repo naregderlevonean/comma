@@ -6,7 +6,7 @@ hl.config({
 			bar_blur = false,
 			bar_button_padding = 0,
 			bar_buttons_alignment = "right",
-			bar_color = 0x4c9d9d9d,
+			bar_color = 0x4cf8f8f8,
 			bar_height = 12,
 			bar_padding = 24,
 			bar_part_of_window = true,
@@ -14,6 +14,7 @@ hl.config({
 			bar_text_align = "left",
 			bar_text_font = "Ubuntu Sans Mono",
 			bar_text_size = 13,
+			bar_text_weight = "bold",
 			bar_title_enabled = false,
 			col = {
 				text = 0xf7f7f7f7,

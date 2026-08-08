@@ -1,5 +1,6 @@
 plugins.hyprbars = require("hyprland.extensions.plugins.hyprbars")
 plugins.hyprdarkwindow = require("hyprland.extensions.plugins.hyprdarkwindow")
+plugins.hyprdynamiccursors = require("hyprland.extensions.plugins.hyprdynamiccursors")
 plugins.hyprexpo = require("hyprland.extensions.plugins.hyprexpo")
 plugins.hyprfocus = require("hyprland.extensions.plugins.hyprfocus")
 plugins.hyprgrass = require("hyprland.extensions.plugins.hyprgrass")
