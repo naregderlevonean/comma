@@ -4,8 +4,8 @@ hl.bind("CTRL + ALT + mouse_up", hl.dsp.group.next())
 hl.bind("SUPER + mouse_up", actions.window.focus("l"))
 hl.bind("SUPER + mouse_down", actions.window.focus("r"))
 
-hl.bind("SUPER + CTRL + mouse_up", hl.dsp.window.swap({ direction = "l" }))
-hl.bind("SUPER + CTRL + mouse_down", hl.dsp.window.swap({ direction = "r" }))
+hl.bind("SUPER + CTRL + mouse_up", actions.window.move("l"))
+hl.bind("SUPER + CTRL + mouse_down", actions.window.move("r"))
 
 hl.bind("SUPER + SHIFT + mouse_up", hl.dsp.window.move({ direction = "l" }))
 hl.bind("SUPER + SHIFT + mouse_down", hl.dsp.window.move({ direction = "r" }))
