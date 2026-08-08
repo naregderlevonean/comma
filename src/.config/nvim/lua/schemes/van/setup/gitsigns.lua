@@ -24,7 +24,7 @@ return function(colors)
 		GitSignsCurrentLineBlame = { fg = colors.gray[24], bg = colors.gray[2] },
 
 		GitSignsPreviewAdd = { bg = colors.green[16] },
-		GitSignsPreviewChange = { bg = colors.coral[17] },
+		GitSignsPreviewChange = { bg = colors.coral[16] },
 		GitSignsPreviewDelete = { bg = colors.red[16] },
 	}
 end
