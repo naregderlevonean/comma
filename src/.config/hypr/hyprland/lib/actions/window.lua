@@ -19,10 +19,18 @@ function M.focus(direction)
 end
 
 function M.move(direction, options)
-	local opts = options or {}
-	local follow = (opts.follow ~= nil) and opts.follow or false
-
 	return function()
+		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
+
+		if active and active.tiled_layout == "scrolling" then
+			local action = (direction == "r") and "swapcol r" or "swapcol l"
+			hl.dispatch(hl.dsp.layout(action))
+			return
+		end
+
+		local opts = options or {}
+		local follow = (opts.follow ~= nil) and opts.follow or false
+
 		local target = space.compute(direction)
 
 		if target then

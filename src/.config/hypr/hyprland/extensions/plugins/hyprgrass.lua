@@ -31,12 +31,12 @@ hl.plugin.hyprgrass.bind({
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 2, direction = "left" },
-	action = hl.dsp.window.swap({ direction = "l" }),
+	action = actions.window.move("l"),
 })
 
 hl.plugin.hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 2, direction = "right" },
-	action = hl.dsp.window.swap({ direction = "r" }),
+	action = actions.window.move("r"),
 })
 
 hl.plugin.hyprgrass.bind({
