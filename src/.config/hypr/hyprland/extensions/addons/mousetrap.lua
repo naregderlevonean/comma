@@ -54,13 +54,13 @@ local specialworkspace = actions.specialworkspace.toggle()
 -- Overview
 
 mousetrap.bind("top-right", scoped(hyprexpo), {
-	delay = 200,
+	delay = 300,
 })
 
 -- Walker
 
-mousetrap.bind("top-left", scoped(walker))
-mousetrap.bind("bottom-right", scoped(windows))
+mousetrap.bind("top-left", scoped(walker), { delay = 300 })
+mousetrap.bind("bottom-right", scoped(windows), { delay = 300 })
 
 -- Process
 
