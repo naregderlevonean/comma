@@ -1,5 +1,5 @@
 local old
-local color = "0xf76f9ef6"
+local color = "0xf7b69b2b"
 
 local function set(border, mouse)
 	hl.config({
@@ -22,15 +22,23 @@ local function move(x, y)
 	})
 end
 
-local function stop()
+local function enter()
+	old = hl.get_config("general.col.active_border")
+	set(color, 0)
+end
+
+local function exit()
 	set(old, 1)
-	hl.dispatch(hl.dsp.submap("reset"))
 end
 
 local function start()
-	old = hl.get_config("general.col.active_border")
-	set(color, 0)
+	enter()
 	hl.dispatch(hl.dsp.submap("resize"))
+end
+
+local function stop()
+	exit()
+	hl.dispatch(hl.dsp.submap("reset"))
 end
 
 hl.bind("SUPER + CTRL + R", start)
@@ -48,6 +56,19 @@ hl.define_submap("resize", function()
 
 	hl.bind("Escape", stop)
 	hl.bind("Return", stop)
-
 	hl.bind("catchall", hl.dsp.no_op())
 end)
+
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {
+	mouse = true,
+})
+
+hl.bind("SUPER + mouse:273", enter, {
+	mouse = true,
+	passthrough = true,
+})
+
+hl.bind("SUPER + mouse:273", exit, {
+	mouse = true,
+	release = true,
+})

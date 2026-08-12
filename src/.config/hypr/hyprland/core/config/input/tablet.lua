@@ -5,7 +5,7 @@ hl.config({
 			active_area_position = { 0, 0 },
 			active_area_size = { 0, 0 },
 			left_handed = false,
-			output = "eDP-1",
+			output = MONITOR,
 			region_position = { 0, 0 },
 			region_size = { 0, 0 },
 			relative_input = false,

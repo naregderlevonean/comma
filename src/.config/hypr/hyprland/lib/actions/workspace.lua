@@ -21,6 +21,7 @@ end
 
 function M.compute(direction)
 	local active = hl.get_active_workspace()
+
 	if not active then
 		return nil
 	end
@@ -29,13 +30,9 @@ function M.compute(direction)
 	local target = current
 
 	if direction == "next" then
-		if current < limit then
-			target = current + 1
-		end
+		target = current % limit + 1
 	elseif direction == "prev" then
-		if current > 1 then
-			target = current - 1
-		end
+		target = (current - 2) % limit + 1
 	elseif direction == "home" then
 		target = 1
 	elseif direction == "last" then

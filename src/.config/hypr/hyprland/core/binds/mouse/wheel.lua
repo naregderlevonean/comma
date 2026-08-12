@@ -1,20 +1,23 @@
+local movetoworkspacedirection = actions.window.movetoworkspacedirection
+local scoped = actions.scoped.workspace
+
 hl.bind("CTRL + ALT + mouse_down", hl.dsp.group.prev())
 hl.bind("CTRL + ALT + mouse_up", hl.dsp.group.next())
 
-hl.bind("SUPER + mouse_up", actions.window.focus("l"))
-hl.bind("SUPER + mouse_down", actions.window.focus("r"))
+hl.bind("SUPER + mouse_up", hl.dsp.focus({ direction = "l" }))
+hl.bind("SUPER + mouse_down", hl.dsp.focus({ direction = "r" }))
 
-hl.bind("SUPER + CTRL + mouse_up", actions.window.move("l"))
-hl.bind("SUPER + CTRL + mouse_down", actions.window.move("r"))
+hl.bind("SUPER + CTRL + mouse_up", hl.dsp.window.swap({ direction = "l" }))
+hl.bind("SUPER + CTRL + mouse_down", hl.dsp.window.swap({ direction = "r" }))
 
 hl.bind("SUPER + SHIFT + mouse_up", hl.dsp.window.move({ direction = "l" }))
 hl.bind("SUPER + SHIFT + mouse_down", hl.dsp.window.move({ direction = "r" }))
 
-hl.bind("SUPER + ALT + mouse_up", actions.scoped.workspace(actions.workspace.focus("prev")))
-hl.bind("SUPER + ALT + mouse_down", actions.scoped.workspace(actions.workspace.focus("next")))
+hl.bind("SUPER + ALT + mouse_up", scoped(actions.workspace.focus("prev")))
+hl.bind("SUPER + ALT + mouse_down", scoped(actions.workspace.focus("next")))
 
-hl.bind("SUPER + CTRL + ALT + mouse_up", actions.scoped.workspace(actions.window.move("prev", { follow = true })))
-hl.bind("SUPER + CTRL + ALT + mouse_down", actions.scoped.workspace(actions.window.move("next", { follow = true })))
+hl.bind("SUPER + CTRL + ALT + mouse_up", movetoworkspacedirection("prev"))
+hl.bind("SUPER + CTRL + ALT + mouse_down", movetoworkspacedirection("next"))
 
-hl.bind("SUPER + SHIFT + CTRL + ALT + mouse_up", actions.scoped.workspace(actions.window.move("prev")))
-hl.bind("SUPER + SHIFT + CTRL + ALT + mouse_down", actions.scoped.workspace(actions.window.move("next")))
+hl.bind("SUPER + SHIFT + CTRL + ALT + mouse_up", movetoworkspacedirection("prev", { follow = false }))
+hl.bind("SUPER + SHIFT + CTRL + ALT + mouse_down", movetoworkspacedirection("next", { follow = false }))

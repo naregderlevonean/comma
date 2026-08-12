@@ -1,4 +1,3 @@
-hl.bind(
-	"SUPER + Q",
-	actions.scoped.workspace(hl.dsp.window.close(), { exclude = { "special:stylus", "special:radio" } })
-)
+local scoped = actions.scoped.workspace
+
+hl.bind("SUPER + Q", scoped(hl.dsp.window.close(), { special = true }))

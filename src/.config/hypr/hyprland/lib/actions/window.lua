@@ -1,84 +1,66 @@
 local M = {}
 
-local space = require("hyprland.lib.actions.workspace")
+function M.movetoworkspace(target, options)
+	local opts = options or {}
+	local follow = opts.follow
 
-function M.focus(direction)
-	return function()
-		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
-
-		if active and active.tiled_layout == "monocle" then
-			local action = (direction == "r") and "cyclenext" or "cycleprev"
-			hl.dispatch(hl.dsp.layout(action))
-		elseif active and active.tiled_layout == "scrolling" then
-			local action = (direction == "r") and "move +col" or "move -col"
-			hl.dispatch(hl.dsp.layout(action))
-		else
-			hl.dispatch(hl.dsp.focus({ direction = direction }))
-		end
+	if follow == nil then
+		follow = true
 	end
-end
 
-function M.move(direction, options)
 	return function()
-		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
-
-		if active and active.tiled_layout == "scrolling" then
-			local action = (direction == "r") and "swapcol r" or "swapcol l"
-			hl.dispatch(hl.dsp.layout(action))
+		if not target then
 			return
 		end
 
-		local opts = options or {}
-		local follow = (opts.follow ~= nil) and opts.follow or false
+		hl.dispatch(hl.dsp.window.move({
+			workspace = target,
+			follow = follow,
+		}))
+	end
+end
 
-		local target = space.compute(direction)
+function M.movetoworkspacedirection(direction, options)
+	local opts = options or {}
+	local follow = opts.follow
 
-		if target then
+	if follow == nil then
+		follow = true
+	end
+
+	return function()
+		local workspace = actions.workspace.compute(direction)
+
+		if workspace then
 			hl.dispatch(hl.dsp.window.move({
-				workspace = target,
+				workspace = workspace,
 				follow = follow,
 			}))
 		end
 	end
 end
 
-function M.stash(options)
-	local opts = options or {}
-	local target = opts.workspace or "special"
-	local follow = (opts.follow ~= nil) and opts.follow or true
-	local callback = opts.callback
-
-	return function()
-		hl.dispatch(hl.dsp.window({
-			action = "move",
-			workspace = target,
-			follow = follow,
-		}))
-
-		if type(callback) == "function" then
-			callback()
-		end
-	end
-end
-
 function M.float(options)
-	local opts = options or { width = 1200, height = 800 }
+	local opts = options or {}
+	local width = opts.width or 1200
+	local height = opts.height or 800
 
 	return function()
 		local win = hl.get_active_window()
+
 		if not win then
 			return
 		end
 
-		if win.floating then
-			hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-		else
-			hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+		hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+
+		if not win.floating then
 			hl.dispatch(hl.dsp.window.resize({
-				x = opts.width,
-				y = opts.height,
+				x = width,
+				y = height,
 				exact = true,
 			}))
+
 			hl.dispatch(hl.dsp.window.center())
 		end
 	end

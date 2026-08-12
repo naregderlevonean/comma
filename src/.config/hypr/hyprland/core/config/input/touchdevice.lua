@@ -2,7 +2,7 @@ hl.config({
 	input = {
 		touchdevice = {
 			enabled = true,
-			output = "eDP-1",
+			output = MONITOR,
 			transform = -1,
 		},
 	},

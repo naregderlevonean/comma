@@ -1,57 +1,69 @@
 local M = {}
 
-function M.start(name, callback)
-	local target = name or ""
-	return function()
-		local active = hl.get_active_special_workspace() ~= nil
+local function active()
+	return hl.get_active_special_workspace() ~= nil
+end
 
-		if not active then
-			hl.dispatch(hl.dsp.workspace.toggle_special(target))
-			if callback then
-				callback()
-			end
+local function enter(name)
+	hl.dispatch(hl.dsp.workspace.toggle_special(name or ""))
+end
+
+local function leave()
+	hl.dispatch(hl.dsp.focus({ workspace = "+0" }))
+end
+
+local function callback(value, name)
+	if type(value) == "table" then
+		return value[name]
+	end
+
+	return value
+end
+
+function M.start(name, callback)
+	return function()
+		if active() then
+			return
+		end
+
+		enter(name)
+
+		if type(callback) == "function" then
+			callback()
 		end
 	end
 end
 
 function M.stop(callback)
 	return function()
-		local active = hl.get_active_special_workspace() ~= nil
+		if not active() then
+			return
+		end
 
-		if active then
-			hl.dispatch(hl.dsp.focus({ workspace = "+0" }))
-			if callback then
-				callback()
-			end
+		leave()
+
+		if type(callback) == "function" then
+			callback()
 		end
 	end
 end
 
 function M.toggle(name, callbacks)
-	local target = name or ""
-
 	return function()
-		local active = hl.get_active_special_workspace() ~= nil
+		local state
 
-		local start, stop
-		if type(callbacks) == "table" then
-			start = callbacks.start
-			stop = callbacks.stop
-		elseif type(callbacks) == "function" then
-			start = callbacks
-			stop = callbacks
+		if active() then
+			leave()
+			state = "stop"
+		else
+			enter(name)
+			state = "start"
 		end
 
-		if active then
-			hl.dispatch(hl.dsp.focus({ workspace = "+0" }))
-			if stop then
-				stop()
-			end
-		else
-			hl.dispatch(hl.dsp.workspace.toggle_special(target))
-			if start then
-				start()
-			end
+		local callback = callback(callbacks, state)
+
+		if type(callback) == "function" then
+			callback()
 		end
 	end
 end

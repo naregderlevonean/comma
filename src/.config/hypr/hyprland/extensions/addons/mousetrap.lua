@@ -7,18 +7,7 @@ local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 	},
 })
 
--- Wrappers
-
-local function scoped(code)
-	return actions.scoped.workspace(code, {
-		exclude = {
-			"special:stylus",
-			"special:radio",
-		},
-	})
-end
-
--- Actions
+local scoped = actions.scoped.workspace
 
 local function hyprexpo()
 	if hl.get_current_submap() == "hyprexpo" then
@@ -32,55 +21,32 @@ local function killactive()
 	local window = hl.get_active_window()
 
 	if window and window.floating then
-		hl.dispatch(scoped(hl.dsp.window.close()))
+		hl.dispatch(scoped(hl.dsp.window.close(), { special = true }))
 	end
 end
 
--- Cached actions
-
-local walker = components.walker.toggle()
-local windows = components.walker.toggle({ provider = "windows" })
+local walker = scoped(components.walker.toggle(), { special = true })
+local windows = scoped(components.walker.toggle({ provider = "windows" }), { special = true })
 
 local fit = scoped(actions.window.fit())
 
-local focusnext = scoped(actions.window.focus("r"))
-local focusprev = scoped(actions.window.focus("l"))
+local focusnext = scoped(hl.dsp.focus({ direction = "r" }))
+local focusprev = scoped(hl.dsp.focus({ direction = "l" }))
 
 local workspacenext = scoped(actions.workspace.focus("next"))
 local workspaceprev = scoped(actions.workspace.focus("prev"))
 
 local specialworkspace = actions.specialworkspace.toggle()
 
--- Overview
+mousetrap.bind("top-right", scoped(hyprexpo, { special = true }), { delay = 300 })
 
-mousetrap.bind("top-right", scoped(hyprexpo), {
-	delay = 300,
-})
+mousetrap.bind("top-left", walker, { delay = 300 })
+mousetrap.bind("bottom-right", windows, { delay = 300 })
 
--- Walker
+mousetrap.bind("bottom", killactive, { delay = 500 })
 
-mousetrap.bind("top-left", scoped(walker), { delay = 300 })
-mousetrap.bind("bottom-right", scoped(windows), { delay = 300 })
-
--- Process
-
-mousetrap.bind("bottom", killactive, {
-	delay = 500,
-})
-
--- Workspace
-
-mousetrap.bind("right", workspacenext, {
-	direction = "up",
-	distance = 500,
-	loop = true,
-})
-
-mousetrap.bind("right", workspaceprev, {
-	direction = "down",
-	distance = 500,
-	loop = true,
-})
+mousetrap.bind("right", workspacenext, { direction = "up", distance = 500, loop = true })
+mousetrap.bind("right", workspaceprev, { direction = "down", distance = 500, loop = true })
 
 mousetrap.bind("right", function()
 	hl.bind("mouse_up", workspaceprev)
@@ -90,35 +56,16 @@ end)
 mousetrap.bind("right", function()
 	hl.unbind("mouse_up")
 	hl.unbind("mouse_down")
-end, {
-	exit = true,
-})
+end, { exit = true })
 
-mousetrap.bind("bottom-left", specialworkspace, {
-	delay = 500,
-})
-
--- Layout
+mousetrap.bind("bottom-left", specialworkspace, { delay = 500 })
 
 mousetrap.bind("left", function()
 	hl.dispatch(fit)
-end, {
-	flick = 100,
-})
+end, { flick = 100 })
 
--- Window
-
-mousetrap.bind("bottom", focusnext, {
-	direction = "left",
-	distance = 500,
-	loop = true,
-})
-
-mousetrap.bind("bottom", focusprev, {
-	direction = "right",
-	distance = 500,
-	loop = true,
-})
+mousetrap.bind("bottom", focusnext, { direction = "left", distance = 500, loop = true })
+mousetrap.bind("bottom", focusprev, { direction = "right", distance = 500, loop = true })
 
 mousetrap.bind("bottom", function()
 	hl.bind("mouse_up", focusprev)
@@ -128,8 +75,6 @@ end)
 mousetrap.bind("bottom", function()
 	hl.unbind("mouse_up")
 	hl.unbind("mouse_down")
-end, {
-	exit = true,
-})
+end, { exit = true })
 
 return mousetrap

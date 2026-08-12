@@ -21,7 +21,7 @@ local function adjust(value)
 	scale.current = value
 
 	hl.monitor({
-		output = "eDP-1",
+		output = MONITOR,
 		scale = scale.current,
 	})
 end

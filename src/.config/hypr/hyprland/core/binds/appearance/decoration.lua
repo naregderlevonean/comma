@@ -1,5 +1,6 @@
-hl.bind("SUPER + CTRL + B", function()
+local function blur()
 	local state = hl.get_config("decoration.blur.enabled")
+
 	hl.config({
 		decoration = {
 			blur = {
@@ -7,9 +8,9 @@ hl.bind("SUPER + CTRL + B", function()
 			},
 		},
 	})
-end)
+end
 
-hl.bind("SUPER + CTRL + O", function()
+local function opacity()
 	local state = hl.get_config("decoration.active_opacity")
 
 	if state and state < 1.00 then
@@ -29,4 +30,7 @@ hl.bind("SUPER + CTRL + O", function()
 			},
 		})
 	end
-end)
+end
+
+hl.bind("SUPER + CTRL + B", blur)
+hl.bind("SUPER + CTRL + O", opacity)

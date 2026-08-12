@@ -1,5 +1,7 @@
+local scoped = actions.scoped.workspace
+
 local function launch(application)
-	return actions.scoped.workspace(hl.dsp.exec_cmd(application), { exclude = { "special:stylus", "special:radio" } })
+	return scoped(hl.dsp.exec_cmd(application), { special = true })
 end
 
 hl.bind("SUPER + F4", launch("waypaper"))

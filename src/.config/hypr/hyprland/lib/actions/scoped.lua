@@ -1,56 +1,62 @@
 local M = {}
 
+local DEFAULT = {
+	"special:radio",
+	"special:stylus",
+}
+
+local function state()
+	local special = hl.get_active_special_workspace()
+
+	return {
+		special = special,
+		name = special and special.name or nil,
+	}
+end
+
+local function matches(value, current)
+	if type(value) == "table" then
+		for _, item in ipairs(value) do
+			if item == current then
+				return true
+			end
+		end
+
+		return false
+	end
+
+	return value == current
+end
+
+local function default(name)
+	return matches(DEFAULT, name)
+end
+
+local function allowed(config, context)
+	local special = context.name ~= nil
+
+	if config.special == nil or config.special == false then
+		return not special
+	end
+
+	if config.special == true then
+		return not special or not default(context.name)
+	end
+
+	if not special then
+		return false
+	end
+
+	return matches(config.special, context.name)
+end
+
 function M.workspace(action, config)
-	if not config then
-		return function()
-			if not hl.get_active_special_workspace() then
-				hl.dispatch(action)
-			end
-		end
-	end
+	config = config or {}
 
-	if config.exclude then
-		if type(config.exclude) == "table" then
-			local map = {}
-			for _, name in ipairs(config.exclude) do
-				map[name] = true
-			end
-			return function()
-				local current = hl.get_active_special_workspace()
-				local name = current and current.name or ""
-				if not map[name] then
-					hl.dispatch(action)
-				end
-			end
-		else
-			local target = config.exclude
-			return function()
-				local current = hl.get_active_special_workspace()
-				local name = current and current.name or ""
-				if name ~= target then
-					hl.dispatch(action)
-				end
-			end
-		end
-	end
-
-	if type(config.special) == "table" then
-		local map = {}
-		for _, name in ipairs(config.special) do
-			map[name] = true
-		end
-		return function()
-			local current = hl.get_active_special_workspace()
-			if current and map[current.name] then
-				hl.dispatch(action)
-			end
-		end
-	end
-
-	local target = not not config.special
 	return function()
-		local current = hl.get_active_special_workspace()
-		if (current ~= nil) == target then
+		local context = state()
+
+		if allowed(config, context) then
 			hl.dispatch(action)
 		end
 	end

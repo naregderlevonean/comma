@@ -1,9 +1,9 @@
 local spin = require("hyprland.extensions.addons.spin.init").setup({
 	interval = 500,
 	devices = {
-		monitors = { "eDP-1" },
-		touchdevices = { "eDP-1" },
-		tablets = { "eDP-1" },
+		monitors = { MONITOR },
+		touchdevices = { MONITOR },
+		tablets = { MONITOR },
 	},
 })
 
