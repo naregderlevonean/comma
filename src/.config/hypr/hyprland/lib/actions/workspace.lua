@@ -1,7 +1,5 @@
 local M = {}
 
-local limit = 16
-
 function M.blanket(layout, config)
 	config = config or {}
 
@@ -21,22 +19,23 @@ end
 
 function M.compute(direction)
 	local active = hl.get_active_workspace()
-
 	if not active then
 		return nil
 	end
 
 	local current = active.id
-	local target = current
+	local target
 
 	if direction == "next" then
-		target = current % limit + 1
+		target = current < WORKSPACES_LIMIT and current + 1 or nil
 	elseif direction == "prev" then
-		target = (current - 2) % limit + 1
+		target = current > 1 and current - 1 or nil
 	elseif direction == "home" then
 		target = 1
 	elseif direction == "last" then
-		target = limit
+		target = WORKSPACES_LIMIT
+	else
+		return nil
 	end
 
 	return target ~= current and target or nil
