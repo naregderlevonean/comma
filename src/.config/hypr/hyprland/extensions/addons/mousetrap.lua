@@ -30,8 +30,8 @@ local windows = scoped(components.walker.toggle({ provider = "windows" }), { spe
 
 local fit = scoped(actions.window.fit())
 
-local focusnext = scoped(hl.dsp.focus({ direction = "r" }))
-local focusprev = scoped(hl.dsp.focus({ direction = "l" }))
+local focusnext = scoped(hl.dsp.focus({ direction = "r" }), { special = true })
+local focusprev = scoped(hl.dsp.focus({ direction = "l" }), { special = true })
 
 local workspacenext = scoped(actions.workspace.focus("next"))
 local workspaceprev = scoped(actions.workspace.focus("prev"))
@@ -43,7 +43,7 @@ mousetrap.bind("top-right", scoped(hyprexpo, { special = true }), { delay = 300 
 mousetrap.bind("top-left", walker, { delay = 300 })
 mousetrap.bind("bottom-right", windows, { delay = 300 })
 
-mousetrap.bind("bottom", killactive, { delay = 500 })
+mousetrap.bind("bottom", killactive, { delay = 300 })
 
 mousetrap.bind("right", workspacenext, { direction = "up", distance = 500, loop = true })
 mousetrap.bind("right", workspaceprev, { direction = "down", distance = 500, loop = true })

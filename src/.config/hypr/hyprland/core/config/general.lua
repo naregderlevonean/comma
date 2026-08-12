@@ -16,7 +16,7 @@ hl.config({
 			right = 16,
 			top = 16,
 		},
-		gaps_workspaces = 800,
+		gaps_workspaces = 1920,
 		hover_icon_on_border = true,
 		layout = "scrolling",
 		locale = "",
