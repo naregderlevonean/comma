@@ -1,111 +1,145 @@
+local hyprgrass = hl.plugin.hyprgrass
+local layout = hl.dsp.layout
+
+local scoped = actions.scoped.workspace
+local swap = actions.window.swap
+local movetoworkspace = actions.window.movetoworkspace
+local movetoworkspacedirection = actions.window.movetoworkspacedirection
+local workspace = actions.workspace.focus
+local specialworkspace = actions.specialworkspace
+
+local workspaceprev = workspace("prev")
+local workspacenext = workspace("next")
+
+local movetoworkspacedirectionprev = movetoworkspacedirection("prev")
+local movetoworkspacedirectionnext = movetoworkspacedirection("next")
+
+local movetospecial = movetoworkspace("special:special")
+local movefromspecial = movetoworkspace("+0")
+
+local specialworkspacestart = specialworkspace.start()
+local specialworkspacestop = specialworkspace.stop()
+
+local fit = scoped(actions.window.fit(), { special = true })
+local kitty = scoped(hl.dsp.exec_cmd("kitty"), { special = true })
+local close = scoped(hl.dsp.window.close(), { special = true })
+
 hl.config({
 	plugin = {
 		hyprgrass = {
 			sensitivity = 1.0,
 			long_press_delay = 500,
 			resize_on_border_long_press = true,
-			edge_margin = 16,
+			edge_margin = 4,
 		},
 	},
 })
 
-hl.plugin.hyprgrass.bind({
+-- Focus
+
+hyprgrass.bind({
 	pattern = { kind = "edge", origin = "l", direction = "r" },
-	action = actions.window.focus("l"),
+	action = layout("move -col"),
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "edge", origin = "r", direction = "l" },
-	action = actions.window.focus("r"),
+	action = layout("move +col"),
 })
 
-hl.plugin.hyprgrass.bind({
+-- OSK
+
+hyprgrass.bind({
 	pattern = { kind = "edge", origin = "u", direction = "d" },
 	action = components.osk.stop(),
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "edge", origin = "d", direction = "u" },
 	action = components.osk.start(),
 })
 
-hl.plugin.hyprgrass.bind({
+-- Swap
+
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 2, direction = "left" },
-	action = actions.window.move("l"),
+	action = swap("l"),
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 2, direction = "right" },
-	action = actions.window.move("r"),
+	action = swap("r"),
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 2, direction = "up" },
-	action = actions.window.swap("u"),
+	action = swap("u"),
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 2, direction = "down" },
-	action = actions.window.swap("d"),
+	action = swap("d"),
 })
 
-hl.plugin.hyprgrass.bind({
+-- Move to Workspace
+
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 3, direction = "up" },
-	action = actions.scoped.workspace(actions.window.move("prev"), { exclude = { "special:stylus", "special:radio" } }),
+	action = movetoworkspacedirectionprev,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 3, direction = "down" },
-	action = actions.scoped.workspace(actions.window.move("next"), { exclude = { "special:stylus", "special:radio" } }),
+	action = movetoworkspacedirectionnext,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 3, direction = "left" },
-	action = actions.scoped.workspace(
-		actions.window.stash({ workspace = "special" }),
-		{ exclude = { "special:stylus", "special:radio" } }
-	),
+	action = movetospecial,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 3, direction = "right" },
-	action = actions.scoped.workspace(
-		actions.window.stash({ workspace = "+0", follow = false }),
-		{ exclude = { "special:stylus", "special:radio" } }
-	),
+	action = movefromspecial,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
+	pattern = { kind = "tap", fingers = 3 },
+	action = fit,
+})
+
+-- Workspace
+
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "up" },
-	action = actions.scoped.workspace(actions.workspace.focus("next")),
+	action = workspacenext,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "down" },
-	action = actions.scoped.workspace(actions.workspace.focus("prev")),
+	action = workspaceprev,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "right" },
-	action = actions.specialworkspace.start(),
+	action = specialworkspacestart,
 })
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 4, direction = "left" },
-	action = actions.specialworkspace.stop(),
+	action = specialworkspacestop,
 })
 
-hl.plugin.hyprgrass.bind({
-	pattern = { kind = "longpress", fingers = 4 },
-	action = actions.specialworkspace.toggle(),
-})
+-- Kitty
 
-hl.plugin.hyprgrass.bind({
+hyprgrass.bind({
 	pattern = { kind = "tap", fingers = 5 },
-	action = actions.scoped.workspace(hl.dsp.exec_cmd("kitty"), { exclude = { "special:stylus", "special:radio" } }),
+	action = kitty,
 })
 
-hl.plugin.hyprgrass.bind({
+-- Close
+
+hyprgrass.bind({
 	pattern = { kind = "swipe", fingers = 5, direction = "down" },
-	action = actions.scoped.workspace(hl.dsp.window.close(), { exclude = { "special:stylus", "special:radio" } }),
+	action = close,
 })

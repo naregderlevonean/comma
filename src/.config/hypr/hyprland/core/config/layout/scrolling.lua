@@ -7,7 +7,7 @@ hl.config({
 		fit_into_view = true,
 		focus_fit_method = 0,
 		follow_focus = true,
-		follow_min_visible = 1.00,
+		follow_min_visible = 1.0,
 		fullscreen_on_one_column = false,
 		wrap_focus = false,
 		wrap_swapcol = true,
