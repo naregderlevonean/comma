@@ -1,4 +1,6 @@
-hl.bind("SUPER + Down", hl.dsp.focus({ direction = "d" }))
-hl.bind("SUPER + Up", hl.dsp.focus({ direction = "u" }))
-hl.bind("SUPER + Left", hl.dsp.focus({ direction = "l" }))
-hl.bind("SUPER + Right", hl.dsp.focus({ direction = "r" }))
+local focus = actions.window.focus
+
+hl.bind("SUPER + Down", focus("d"))
+hl.bind("SUPER + Up", focus("u"))
+hl.bind("SUPER + Left", focus("l"))
+hl.bind("SUPER + Right", focus("r"))

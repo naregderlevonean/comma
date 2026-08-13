@@ -1,14 +1,16 @@
+local focus = actions.window.focus
+local swap = actions.window.swap
 local movetoworkspacedirection = actions.window.movetoworkspacedirection
 local scoped = actions.scoped.workspace
 
 hl.bind("CTRL + ALT + mouse:276", hl.dsp.group.prev())
 hl.bind("CTRL + ALT + mouse:275", hl.dsp.group.next())
 
-hl.bind("SUPER + mouse:275", hl.dsp.focus({ direction = "l" }))
-hl.bind("SUPER + mouse:276", hl.dsp.focus({ direction = "r" }))
+hl.bind("SUPER + mouse:275", focus("l"))
+hl.bind("SUPER + mouse:276", focus("r"))
 
-hl.bind("SUPER + CTRL + mouse:275", hl.dsp.window.swap({ direction = "l" }))
-hl.bind("SUPER + CTRL + mouse:276", hl.dsp.window.swap({ direction = "r" }))
+hl.bind("SUPER + CTRL + mouse:275", swap("l"))
+hl.bind("SUPER + CTRL + mouse:276", swap("r"))
 
 hl.bind("SUPER + SHIFT + mouse:275", hl.dsp.window.move({ direction = "l" }))
 hl.bind("SUPER + SHIFT + mouse:276", hl.dsp.window.move({ direction = "r" }))

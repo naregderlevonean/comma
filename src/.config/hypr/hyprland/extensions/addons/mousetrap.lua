@@ -9,6 +9,15 @@ local mousetrap = require("hyprland.extensions.addons.mousetrap.init").setup({
 
 local scoped = actions.scoped.workspace
 
+local walker = scoped(components.walker.toggle(), { special = true })
+local windows = scoped(components.walker.toggle({ provider = "windows" }), { special = true })
+local fit = scoped(actions.window.fit(), { special = true })
+local focusnext = scoped(actions.window.focus("r"), { special = true })
+local focusprev = scoped(actions.window.focus("l"), { special = true })
+local workspacenext = scoped(actions.workspace.focus("next"))
+local workspaceprev = scoped(actions.workspace.focus("prev"))
+local specialworkspace = actions.specialworkspace.toggle()
+
 local function hyprexpo()
 	if hl.get_current_submap() == "hyprexpo" then
 		hl.dispatch(plugins.hyprexpo.stop())
@@ -25,25 +34,20 @@ local function killactive()
 	end
 end
 
-local walker = scoped(components.walker.toggle(), { special = true })
-local windows = scoped(components.walker.toggle({ provider = "windows" }), { special = true })
-
-local fit = scoped(actions.window.fit(), { special = true })
-
-local focusnext = scoped(hl.dsp.focus({ direction = "r" }), { special = true })
-local focusprev = scoped(hl.dsp.focus({ direction = "l" }), { special = true })
-
-local workspacenext = scoped(actions.workspace.focus("next"))
-local workspaceprev = scoped(actions.workspace.focus("prev"))
-
-local specialworkspace = actions.specialworkspace.toggle()
+-- Overview
 
 mousetrap.bind("top-right", scoped(hyprexpo, { special = true }), { delay = 300 })
+
+-- Walker
 
 mousetrap.bind("top-left", walker, { delay = 300 })
 mousetrap.bind("bottom-right", windows, { delay = 300 })
 
+-- Process
+
 mousetrap.bind("bottom", killactive, { delay = 300 })
+
+-- Workspace
 
 mousetrap.bind("right", workspacenext, { direction = "up", distance = 500, loop = true })
 mousetrap.bind("right", workspaceprev, { direction = "down", distance = 500, loop = true })
@@ -58,11 +62,15 @@ mousetrap.bind("right", function()
 	hl.unbind("mouse_down")
 end, { exit = true })
 
+-- Special Workspace
+
 mousetrap.bind("bottom-left", specialworkspace, { delay = 500 })
 
-mousetrap.bind("left", function()
-	hl.dispatch(fit)
-end, { flick = 100 })
+-- Fit
+
+mousetrap.bind("left", fit, { flick = 100 })
+
+-- Window
 
 mousetrap.bind("bottom", focusnext, { direction = "left", distance = 500, loop = true })
 mousetrap.bind("bottom", focusprev, { direction = "right", distance = 500, loop = true })

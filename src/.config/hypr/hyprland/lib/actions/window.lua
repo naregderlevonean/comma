@@ -1,5 +1,41 @@
 local M = {}
 
+function M.focus(direction)
+	return function()
+		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
+
+		if not active then
+			return
+		end
+
+		if active.tiled_layout == "monocle" then
+			hl.dispatch(hl.dsp.layout(direction == "r" and "cyclenext" or "cycleprev"))
+		else
+			hl.dispatch(hl.dsp.focus({ direction = direction }))
+		end
+	end
+end
+
+function M.swap(direction)
+	return function()
+		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
+
+		if not active then
+			return
+		end
+
+		if active.tiled_layout == "scrolling" then
+			if direction == "r" then
+				return hl.dispatch(hl.dsp.layout("swapcol r"))
+			elseif direction == "l" then
+				return hl.dispatch(hl.dsp.layout("swapcol l"))
+			end
+		end
+
+		return hl.dispatch(hl.dsp.window.swap({ direction = direction }))
+	end
+end
+
 function M.movetoworkspace(target, options)
 	local opts = options or {}
 	local follow = opts.follow
