@@ -8,8 +8,8 @@ local movetoworkspacedirection = actions.window.movetoworkspacedirection
 local workspace = actions.workspace.focus
 local specialworkspace = actions.specialworkspace
 
-local workspaceprev = workspace("prev")
-local workspacenext = workspace("next")
+local focusleft = layout("move -col")
+local focusright = layout("move +col")
 
 local movetoworkspacedirectionprev = movetoworkspacedirection("prev")
 local movetoworkspacedirectionnext = movetoworkspacedirection("next")
@@ -17,10 +17,14 @@ local movetoworkspacedirectionnext = movetoworkspacedirection("next")
 local movetospecial = movetoworkspace("special:special")
 local movefromspecial = movetoworkspace("+0")
 
+local workspaceprev = workspace("prev")
+local workspacenext = workspace("next")
+
 local specialworkspacestart = specialworkspace.start()
 local specialworkspacestop = specialworkspace.stop()
 
 local fit = scoped(actions.window.fit(), { special = true })
+
 local kitty = scoped(hl.dsp.exec_cmd("kitty"), { special = true })
 local close = scoped(hl.dsp.window.close(), { special = true })
 
@@ -30,7 +34,7 @@ hl.config({
 			sensitivity = 1.0,
 			long_press_delay = 500,
 			resize_on_border_long_press = true,
-			edge_margin = 4,
+			edge_margin = 8,
 		},
 	},
 })
@@ -39,12 +43,12 @@ hl.config({
 
 hyprgrass.bind({
 	pattern = { kind = "edge", origin = "l", direction = "r" },
-	action = layout("move -col"),
+	action = focusleft,
 })
 
 hyprgrass.bind({
 	pattern = { kind = "edge", origin = "r", direction = "l" },
-	action = layout("move +col"),
+	action = focusright,
 })
 
 -- OSK

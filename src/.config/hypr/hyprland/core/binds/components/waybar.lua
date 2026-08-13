@@ -5,21 +5,21 @@ local function gaps(bottom)
 		workspace = "m[" .. MONITOR .. "]",
 		gaps_out = {
 			bottom = bottom,
-			left = 16,
-			right = 16,
+			left = 32,
+			right = 32,
 			top = bottom,
 		},
 	})
 end
 
-local function waybare()
+local function waybar()
 	if status("waybar") then
 		hl.dispatch(components.waybar.stop())
-		gaps(16)
+		gaps(32)
 	else
 		hl.dispatch(components.waybar.start())
-		gaps(80)
+		gaps(96)
 	end
 end
 
-hl.bind("Menu", waybare)
+hl.bind("Menu", waybar)
