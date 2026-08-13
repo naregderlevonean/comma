@@ -55,31 +55,40 @@ function M.focus(direction)
 end
 
 function M.layout(name)
-	local active = hl.get_active_workspace()
+	return function()
+		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
 
-	if not active or not active.name then
-		return
-	end
-
-	local target = name
-
-	if not target then
-		local current = active.tiled_layout or layouts[1]
-
-		for i, layout in ipairs(layouts) do
-			if layout == current then
-				target = layouts[(i % #layouts) + 1]
-				break
-			end
+		if not active then
+			return
 		end
 
-		target = target or layouts[1]
-	end
+		local target = name
 
-	hl.workspace_rule({
-		workspace = active.name,
-		layout = target,
-	})
+		if not target then
+			local current = active.tiled_layout or layouts[1]
+
+			for i, layout in ipairs(layouts) do
+				if layout == current then
+					target = layouts[(i % #layouts) + 1]
+					break
+				end
+			end
+
+			target = target or layouts[1]
+		end
+
+		if active.special then
+			hl.workspace_rule({
+				workspace = tostring(active.name),
+				layout = target,
+			})
+		else
+			hl.workspace_rule({
+				workspace = tostring(active.id),
+				layout = target,
+			})
+		end
+	end
 end
 
 return M

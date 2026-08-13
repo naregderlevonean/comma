@@ -28,7 +28,7 @@ end
 local walker = scoped(components.walker.toggle(), { special = true })
 local windows = scoped(components.walker.toggle({ provider = "windows" }), { special = true })
 
-local fit = scoped(actions.window.fit())
+local fit = scoped(actions.window.fit(), { special = true })
 
 local focusnext = scoped(hl.dsp.focus({ direction = "r" }), { special = true })
 local focusprev = scoped(hl.dsp.focus({ direction = "l" }), { special = true })

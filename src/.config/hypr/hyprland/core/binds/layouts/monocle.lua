@@ -1,6 +1,6 @@
-hl.bind("SUPER + CTRL + ALT + 0", function()
-	actions.workspace.layout("monocle")
-end)
+local scoped = actions.scoped.workspace
+
+hl.bind("SUPER + CTRL + ALT + 0", scoped(actions.workspace.layout("monocle")))
 
 hl.bind("SUPER + SHIFT + CTRL + ALT + 0", function()
 	hl.config({ general = { layout = "monocle" } })

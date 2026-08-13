@@ -1,3 +1,4 @@
+require("hyprland.core.binds.layouts.all")
 require("hyprland.core.binds.layouts.columns")
 require("hyprland.core.binds.layouts.dwindle")
 require("hyprland.core.binds.layouts.grid")
