@@ -5,5 +5,4 @@ tooltip {
 
 tooltip label {
     color: @view_fg_color;
-    margin: 8px;
 }

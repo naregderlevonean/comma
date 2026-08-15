@@ -8,13 +8,15 @@
             "common/common.jsonc",
             "communication/communication.jsonc",
             "hyprland/hyprland.jsonc",
+            "notifications/notifications.jsonc",
             "power/power.jsonc",
             "pulseaudio/pulseaudio.jsonc",
             "shutdown/shutdown.jsonc",
             "tools/tools.jsonc",
+            "walker/walker.jsonc",
         ],
         "modules-left": [
-            "custom/apps",
+            "custom/walker",
             "custom/separator",
             "group/power",
             "custom/separator",
@@ -39,7 +41,7 @@
         "on-sigusr2": "hide",
         "output": ["eDP-1"],
         "position": "top",
-        "spacing": 16,
+        "spacing": 0,
     },
     {
         "exclusive": false,
@@ -65,7 +67,7 @@
         "on-sigusr2": "hide",
         "output": ["eDP-1"],
         "position": "bottom",
-        "spacing": 16,
+        "spacing": 0,
     },
     {
         "exclusive": false,
@@ -77,6 +79,6 @@
         "passthrough": true,
         "position": "right",
         "spacing": 16,
-        "width": 80,
+        "width": 96,
     },
 ]

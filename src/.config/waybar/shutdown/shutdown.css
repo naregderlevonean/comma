@@ -1,8 +1,6 @@
 #shutdown .drawer-child * {
-    margin-right: 15px;
 }
 
 #custom-end {
     color: @error_color;
-    margin-right: 32px;
 }

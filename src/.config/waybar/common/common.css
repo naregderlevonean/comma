@@ -1,16 +1,86 @@
-#custom-apps {
+#custom-separator {
+    opacity: 0.3;
+}
+
+#custom-walker,
+#custom-specialworkspace {
     margin-left: 32px;
 }
 
-#custom-apps:hover {
-    color: @accent_color;
+#workspaces,
+#custom-end {
+    margin-right: 32px;
 }
 
-#custom-notifications.error {
-    color: @text_color;
-    opacity: 0.32;
+#custom-walker,
+#custom-specialworkspace,
+#battery,
+#idle_inhibitor,
+#powers-profile-daemon,
+#language,
+#custom-notifications,
+#group-clock,
+#custom-name,
+#custom-layout,
+#custom-time,
+#custom-date,
+#custom-weather,
+#custom-tools,
+#custom-pinned,
+#patch {
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
-#custom-separator {
-    opacity: 0.3;
+#workspaces,
+#custom-end {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#custom-closeall,
+#custom-lock,
+#custom-exit,
+#custom-suspend,
+#custom-reboot,
+#custom-poweroff,
+#custom-spin,
+#custom-mousetrap,
+#custom-osk,
+#custom-hyprsunset,
+#custom-hyprshade {
+    padding-left: 16px;
+}
+
+#custom-waypaper,
+#custom-calculator,
+#custom-translator,
+#custom-character,
+#custom-picker,
+#custom-screenshot,
+#custom-authenticator {
+    padding-right: 16px;
+}
+
+#custom-specialworkspace-stylus,
+#bluetooth {
+    padding-left: 16px;
+    padding-right: 8px;
+}
+
+#custom-specialworkspace-radio,
+#network {
+    padding-left: 8px;
+    padding-right: 16px;
+}
+
+#backlight,
+#pulseaudio {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#pulseaudio-slider,
+#backlight-slider {
+    padding-left: 8px;
 }

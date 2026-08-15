@@ -1,28 +1,7 @@
 {
-    "custom/apps": {
-        "format": "",
-        "interval": "once",
-        "on-click": "hyprctl eval 'actions.scoped.workspace(components.walker.toggle(), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
-        "tooltip": false
-    },
-    "custom/notifications": {
-        "exec": "histui status --all",
-        "format": "{icon}",
-        "format-icons": {
-            "dnd": "",
-            "error": "",
-            "high": "",
-            "low": "",
-            "normal": ""
-        },
-        "interval": 600,
-        "on-click": "kitty -e histui",
-        "return-type": "json"
-    },
     "custom/separator": {
         "format": "·",
         "interval": "once",
-        "tooltip": false
+        "tooltip": false,
     },
 }
-

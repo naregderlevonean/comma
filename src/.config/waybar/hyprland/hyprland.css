@@ -1,15 +1,11 @@
 window.right #workspaces {
     border-radius: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin: 4px;
 }
 
 window.right #workspaces button {
     background: transparent;
     box-shadow: none;
     color: @text_color;
-    margin: 0;
 }
 
 window.right #workspaces button.empty {
@@ -28,7 +24,6 @@ window.right #workspace button.empty.active {
     background: none;
     box-shadow: none;
     color: @text_color;
-    margin-right: 32px;
 }
 
 #workspaces button .taskbar-window {

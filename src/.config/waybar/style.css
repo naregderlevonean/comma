@@ -1,17 +1,19 @@
 @import "backlight/backlight.css";
 @import "clock/clock.css";
 @import "common/common.css";
-@import "common/states.css";
-@import "common/tooltip.css";
-@import "common/window.css";
 @import "communication/communication.css";
 @import "hyprland/hyprland.css";
+@import "notifications/notifications.css";
+@import "other/states.css";
+@import "other/tooltip.css";
+@import "other/window.css";
 @import "pinned/pinned.css";
 @import "power/power.css";
 @import "pulseaudio/pulseaudio.css";
 @import "shutdown/shutdown.css";
 @import "specialworkspace/specialworkspace.css";
 @import "tools/tools.css";
+@import "walker/walker.css";
 @import "workspace/workspace.css";
 
 * {

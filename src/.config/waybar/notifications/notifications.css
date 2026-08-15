@@ -1,0 +1,8 @@
+#custom-notifications:hover {
+    color: @accent_color;
+}
+
+#custom-notifications.error {
+    color: @text_color;
+    opacity: 0.32;
+}

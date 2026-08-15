@@ -1,0 +1,6 @@
+#custom-walker {
+}
+
+#custom-walker:hover {
+    color: @accent_color;
+}

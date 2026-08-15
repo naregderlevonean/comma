@@ -1,7 +1,14 @@
 #clock .drawer-child * {
-    margin-left: 16px;
+}
+
+#custom-time:hover {
+    color: @accent_color;
 }
 
 #custom-date:hover {
+    color: @accent_color;
+}
+
+#custom-weather:hover {
     color: @accent_color;
 }

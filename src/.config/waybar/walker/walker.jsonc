@@ -1,0 +1,8 @@
+{
+    "custom/walker": {
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl eval 'actions.scoped.workspace(components.walker.toggle(), { exclude = { \"special:stylus\", \"special:radio\" } })()'",
+        "tooltip": false,
+    },
+}

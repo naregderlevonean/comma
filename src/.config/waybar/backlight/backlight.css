@@ -1,7 +1,4 @@
 #backlight .drawer-child * {
-    margin: 0;
-    padding: 0;
-    padding-right: 8px;
 }
 
 #backlight-slider slider {

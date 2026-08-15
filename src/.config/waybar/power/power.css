@@ -18,13 +18,21 @@
     color: @text_color;
 }
 
+#idle_inhibitor:hover {
+    color: @accent_color;
+}
+
 #idle_inhibitor.deactivated {
     color: @text_color;
     opacity: 0.3;
 }
 
 #power .drawer-child * {
-    margin-left: 16px;
+    margin-left: 0px;
+}
+
+#power-profiles-daemon:hover {
+    color: @accent_color;
 }
 
 #power-profiles-daemon.balanced {
