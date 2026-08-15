@@ -106,12 +106,6 @@ alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias less='less -R'
 
-alias ..='cd ..'
-alias ...='cd ../..'
-
-alias c='clear'
-alias v='nvim'
-
 
 # Completion colors
 
