@@ -1,7 +1,7 @@
 return function(colors)
 	return {
-		NvimTreeCursorColumn = { bg = colors.gray[2] },
-		NvimTreeCursorLine = { bg = colors.gray[2] },
+		NvimTreeCursorColumn = { bg = colors.gray[1] },
+		NvimTreeCursorLine = { bg = colors.gray[1] },
 		NvimTreeDiagnosticError = { fg = colors.red[12] },
 		NvimTreeDiagnosticHint = { fg = colors.gray[12] },
 		NvimTreeDiagnosticInformation = { fg = colors.blue[12] },
@@ -33,11 +33,11 @@ return function(colors)
 		NvimTreeOpenedFolderName = { fg = colors.blue[16], bold = true },
 		NvimTreeRootFolder = { fg = colors.blue[16], bold = true },
 		NvimTreeSpecialFile = { fg = colors.gray[16] },
-		NvimTreeStatusLine = { fg = colors.gray[16], bg = colors.gray[2] },
-		NvimTreeStatusLineNC = { fg = colors.gray[16], bg = colors.gray[2] },
+		NvimTreeStatusLine = { fg = colors.gray[16], bg = colors.gray[1] },
+		NvimTreeStatusLineNC = { fg = colors.gray[16], bg = colors.gray[1] },
 		NvimTreeSymlink = { fg = colors.cyan[16] },
 		NvimTreeVertSplit = { fg = colors.gray[4] },
 		NvimTreeWinSeparator = { fg = colors.gray[4] },
-		NvimTreeWindowPicker = { fg = colors.gray[16], bg = colors.gray[2] },
+		NvimTreeWindowPicker = { fg = colors.gray[16], bg = colors.gray[1] },
 	}
 end

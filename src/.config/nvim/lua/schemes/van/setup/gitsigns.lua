@@ -21,7 +21,7 @@ return function(colors)
 		GitSignsChangedeleteLn = { fg = colors.amethyst[16] },
 		GitSignsUntrackedLn = { fg = colors.gray[16] },
 
-		GitSignsCurrentLineBlame = { fg = colors.gray[24], bg = colors.gray[2] },
+		GitSignsCurrentLineBlame = { fg = colors.gray[24], bg = colors.gray[1] },
 
 		GitSignsPreviewAdd = { bg = colors.green[16] },
 		GitSignsPreviewChange = { bg = colors.coral[16] },
