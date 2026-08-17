@@ -2,7 +2,7 @@ hl.config({
 	scrolling = {
 		column_width = 1.0,
 		direction = "right",
-		explicit_column_widths = "0.25, 0.50, 1.00",
+		explicit_column_widths = "0.33, 0.50, 1.00",
 		fit_expand = false,
 		fit_into_view = true,
 		focus_fit_method = 0,
