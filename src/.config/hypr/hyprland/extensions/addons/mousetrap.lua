@@ -40,8 +40,8 @@ mousetrap.bind("top-right", scoped(hyprexpo, { special = true }), { delay = 300 
 
 -- Walker
 
-mousetrap.bind("top-left", walker, { delay = 300 })
-mousetrap.bind("bottom-right", windows, { delay = 300 })
+mousetrap.bind("top-left", walker, { delay = 500 })
+mousetrap.bind("bottom-right", windows, { delay = 500 })
 
 -- Process
 

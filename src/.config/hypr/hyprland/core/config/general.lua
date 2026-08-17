@@ -5,7 +5,7 @@ hl.config({
 		extend_border_grab_area = 16,
 		float_gaps = 32,
 		gaps_in = {
-			bottom = 0,
+			bottom = 16,
 			left = 0,
 			right = 16,
 			top = 0,

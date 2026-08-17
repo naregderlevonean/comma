@@ -17,7 +17,7 @@ local function scrolling(width)
 	end
 end
 
-spin.bind({ "left-up", "right-up" }, function(orientation, transform)
+spin.bind({ "left-up", "right-up" }, function()
 	scrolling(0.90)
 	hl.config({
 		master = {
@@ -26,7 +26,7 @@ spin.bind({ "left-up", "right-up" }, function(orientation, transform)
 	})
 end)
 
-spin.bind({ "normal", "bottom-up" }, function(orientation, transform)
+spin.bind({ "normal", "bottom-up" }, function()
 	scrolling(0.50)
 	hl.config({
 		master = {
