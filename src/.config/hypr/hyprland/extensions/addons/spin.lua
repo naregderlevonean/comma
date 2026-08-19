@@ -18,7 +18,7 @@ local function scrolling(width)
 end
 
 spin.bind({ "left-up", "right-up" }, function()
-	scrolling(0.90)
+	scrolling(1.00)
 	hl.config({
 		master = {
 			orientation = "top",

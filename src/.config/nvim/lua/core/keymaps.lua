@@ -20,3 +20,5 @@ map("i", "<C-s>", function()
 end, {
 	desc = "Save File",
 })
+
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
