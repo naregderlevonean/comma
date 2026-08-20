@@ -18,10 +18,22 @@ return {
 		formatters = {
 			prettierd = {
 				require_cwd = true,
-				prepend_args = { "--tab-width", "4" },
+				prepend_args = {
+					"--tab-width",
+					"4",
+					"--print-width",
+					"100",
+					"--bracket-same-line",
+				},
 			},
 			prettier = {
-				prepend_args = { "--tab-width", "4" },
+				prepend_args = {
+					"--tab-width",
+					"4",
+					"--print-width",
+					"100",
+					"--bracket-same-line",
+				},
 			},
 		},
 		formatters_by_ft = {

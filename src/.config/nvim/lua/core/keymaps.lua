@@ -1,24 +1,14 @@
 local map = vim.keymap.set
 
-local save = function()
+-- Save
+local function save()
 	vim.cmd.write()
 end
 
-map("n", "<C-s>", save, {
+map({ "n", "i" }, "<C-s>", save, {
 	desc = "Save File",
 })
 
-map("v", "<C-s>", function()
-	vim.cmd.write()
-	vim.cmd.normal("gv")
-end, {
-	desc = "Save File and Restore Selection",
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", {
+	desc = "Clear search highlight",
 })
-
-map("i", "<C-s>", function()
-	vim.cmd.write()
-end, {
-	desc = "Save File",
-})
-
-map("n", "<Esc>", "<cmd>nohlsearch<CR>")
