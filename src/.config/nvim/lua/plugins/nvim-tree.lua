@@ -71,11 +71,11 @@ return {
 				glyphs = {
 					folder = {
 						default = "",
-						open = "",
+						open = "",
 						empty = "",
-						empty_open = "",
+						empty_open = "",
 						symlink = "",
-						symlink_open = "",
+						symlink_open = "",
 					},
 				},
 				git_placement = "before",
