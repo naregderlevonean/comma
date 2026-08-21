@@ -108,13 +108,21 @@ function M.fit(method)
 		local state = tonumber(value)
 		local next = method ~= nil and method or ((state == 1) and 0 or 1)
 
-		hl.config({
-			scrolling = {
-				focus_fit_method = next,
-			},
-		})
+		local active = hl.get_active_special_workspace() or hl.get_active_workspace()
 
-		hl.dispatch(hl.dsp.layout(string.format("move %+d", (1 - state * 2) * 480)))
+		if not active then
+			return
+		end
+
+		if active.tiled_layout == "scrolling" then
+			hl.config({
+				scrolling = {
+					focus_fit_method = next,
+				},
+			})
+
+			hl.dispatch(hl.dsp.layout(string.format("move %+d", (1 - state * 2) * 480)))
+		end
 	end
 end
 
