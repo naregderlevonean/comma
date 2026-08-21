@@ -14,8 +14,12 @@ map("n", "<F5>", "<cmd>ReloadTheme<CR>", {
 	desc = "Reload Theme",
 })
 
+map("n", "<C-g>", "ggyG", {
+	desc = "Copy All",
+})
+
 map("n", "<C-d>", "ggdG", {
-	desc = "Delete All Lines",
+	desc = "Delete All",
 })
 
 map("n", "<C-a>", function()
