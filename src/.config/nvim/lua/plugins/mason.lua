@@ -29,7 +29,6 @@ return {
 			ensure_installed = {
 				"bashls",
 				"cssls",
-				"css_variables",
 				"dockerls",
 				"html",
 				"jsonls",

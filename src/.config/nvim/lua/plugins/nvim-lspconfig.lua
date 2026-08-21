@@ -108,7 +108,6 @@ return {
 			html = base,
 			jsonls = base,
 			marksman = base,
-			rust_analyzer = base,
 			tailwindcss = base,
 			taplo = base,
 			ts_ls = base,
