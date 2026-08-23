@@ -4,6 +4,6 @@
 
 #custom-specialworkspace:hover,
 #custom-specialworkspace-radio:hover,
-#custom-specialworkspace-stylus:hover {
+#custom-specialworkspace-vpn:hover {
     color: @accent_color;
 }

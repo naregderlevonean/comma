@@ -3,18 +3,24 @@
         "format": "",
         "interval": "once",
         "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"\")()'",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/specialworkspace-radio": {
         "format": "",
         "interval": "once",
         "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"radio\")()'",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/specialworkspace-stylus": {
         "format": "",
         "interval": "once",
         "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"stylus\")()'",
-        "tooltip": false
+        "tooltip": false,
+    },
+    "custom/specialworkspace-vpn": {
+        "format": "",
+        "interval": "once",
+        "on-click": "hyprctl eval 'actions.specialworkspace.toggle(\"vpn\")()'",
+        "tooltip": false,
     },
 }

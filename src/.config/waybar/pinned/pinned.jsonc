@@ -2,7 +2,7 @@
     "group/pinned": {
         "drawer": {
             "transition-duration": 1000,
-            "transition-left-to-right": true
+            "transition-left-to-right": true,
         },
         "modules": [
             "custom/pinned",
@@ -12,54 +12,54 @@
             "custom/character",
             "custom/picker",
             "custom/screenshot",
-            "custom/authenticator"
+            "custom/authenticator",
         ],
-        "orientation": "inherit"
+        "orientation": "inherit",
     },
     "custom/authenticator": {
-        "format": "",
+        "format": "",
         "interval": "once",
         "on-click": "authenticator",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/calculator": {
         "format": "",
         "interval": "once",
         "on-click": "gnome-calculator",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/character": {
         "format": "",
         "interval": "once",
         "on-click": "gnome-characters",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/picker": {
         "format": "",
         "interval": "once",
         "on-click": "eyedropper",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/pinned": {
         "format": "",
         "interval": "once",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/screenshot": {
         "format": "",
         "interval": "once",
-        "on-click": "gradia --screenshot"
+        "on-click": "gradia --screenshot",
     },
     "custom/translator": {
         "format": "",
         "interval": "once",
         "on-click": "dialect",
-        "tooltip": false
+        "tooltip": false,
     },
     "custom/waypaper": {
         "format": "",
         "interval": "once",
         "on-click": "waypaper",
-        "tooltip": false
+        "tooltip": false,
     },
 }

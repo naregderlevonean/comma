@@ -3,6 +3,7 @@ local M = {}
 local DEFAULT = {
 	"special:radio",
 	"special:stylus",
+	"special:vpn",
 }
 
 local function state()
