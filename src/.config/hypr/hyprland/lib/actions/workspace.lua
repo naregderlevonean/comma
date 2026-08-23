@@ -19,6 +19,7 @@ end
 
 function M.compute(direction)
 	local active = hl.get_active_workspace()
+
 	if not active then
 		return nil
 	end
@@ -43,8 +44,21 @@ end
 
 function M.focus(direction)
 	return function()
-		local target = M.compute(direction)
+		local special = hl.get_active_special_workspace()
+		if special then
+			hl.dispatch(hl.dsp.focus({
+				workspace = "+0",
+				on_current_monitor = true,
+			}))
+			return
+		end
 
+		local active = hl.get_active_workspace()
+		if not active then
+			return
+		end
+
+		local target = M.compute(direction)
 		if target then
 			hl.dispatch(hl.dsp.focus({
 				workspace = tostring(target),

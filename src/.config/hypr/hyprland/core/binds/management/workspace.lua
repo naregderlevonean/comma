@@ -1,10 +1,8 @@
-local scoped = actions.scoped.workspace
+hl.bind("SUPER + ALT + Up", actions.workspace.focus("prev"))
+hl.bind("SUPER + ALT + Down", actions.workspace.focus("next"))
 
-hl.bind("SUPER + ALT + Up", scoped(actions.workspace.focus("prev")))
-hl.bind("SUPER + ALT + Down", scoped(actions.workspace.focus("next")))
-
-hl.bind("SUPER + ALT + Home", scoped(actions.workspace.focus("home")))
-hl.bind("SUPER + ALT + End", scoped(actions.workspace.focus("last")))
+hl.bind("SUPER + ALT + Home", actions.workspace.focus("home"))
+hl.bind("SUPER + ALT + End", actions.workspace.focus("last"))
 
 hl.bind("SUPER + ALT + 1", hl.dsp.focus({ workspace = 1 }))
 hl.bind("SUPER + ALT + 2", hl.dsp.focus({ workspace = 2 }))

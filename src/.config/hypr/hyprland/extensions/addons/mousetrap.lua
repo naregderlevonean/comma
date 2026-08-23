@@ -14,8 +14,8 @@ local windows = scoped(components.walker.toggle({ provider = "windows" }), { spe
 local fit = scoped(actions.window.fit(), { special = true })
 local focusnext = scoped(actions.window.focus("r"), { special = true })
 local focusprev = scoped(actions.window.focus("l"), { special = true })
-local workspacenext = scoped(actions.workspace.focus("next"))
-local workspaceprev = scoped(actions.workspace.focus("prev"))
+local workspacenext = actions.workspace.focus("next")
+local workspaceprev = actions.workspace.focus("prev")
 local specialworkspace = actions.specialworkspace.toggle()
 
 local function hyprexpo()
@@ -49,8 +49,8 @@ mousetrap.bind("bottom", killactive, { delay = 300 })
 
 -- Workspace
 
-mousetrap.bind("right", workspacenext, { direction = "up", distance = 500, loop = true })
-mousetrap.bind("right", workspaceprev, { direction = "down", distance = 500, loop = true })
+mousetrap.bind("right", workspacenext, { direction = "up", distance = 500 })
+mousetrap.bind("right", workspaceprev, { direction = "down", distance = 500 })
 
 mousetrap.bind("right", function()
 	hl.bind("mouse_up", workspaceprev)
@@ -72,8 +72,8 @@ mousetrap.bind("left", fit, { flick = 100 })
 
 -- Window
 
-mousetrap.bind("bottom", focusnext, { direction = "left", distance = 500, loop = true })
-mousetrap.bind("bottom", focusprev, { direction = "right", distance = 500, loop = true })
+mousetrap.bind("bottom", focusnext, { direction = "left", distance = 500 })
+mousetrap.bind("bottom", focusprev, { direction = "right", distance = 500 })
 
 mousetrap.bind("bottom", function()
 	hl.bind("mouse_up", focusprev)
